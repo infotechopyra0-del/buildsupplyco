@@ -9,10 +9,100 @@ import { Spinner } from "@/components/ui/spinner"
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-// import { BaseCrudService } from '@/integrations';
-import { mockBlogPosts } from '@/entities/mockData';
 import { BlogPosts } from '@/entities';
 import { format } from 'date-fns';
+
+const mockBlogPosts: BlogPosts[] = [
+  {
+    _id: '1',
+    title: 'The Ultimate Guide to Waterproofing Your Basement',
+    content: 'Protecting your basement from water damage is crucial for the longevity and structural integrity of your property. This comprehensive guide explores various waterproofing solutions, from exterior membranes to interior sealants, and provides step-by-step application tips. Learn about the benefits of proper waterproofing, including preventing mold growth, preserving property value, and creating a healthier living environment. We\'ll cover common challenges and how our advanced waterproofing products can offer a durable and effective barrier against moisture.',
+    publishDate: '2026-01-01',
+    author: 'Dr. Elena Petrova',
+    category:'Waterproofing Solutions',
+    coverImage: '/images/TheUltimateGuidetoWaterproofingYourBasement.png',
+    _createdDate: new Date('2026-01-01'),
+    _updatedDate: new Date('2026-01-02'),
+  },
+  {
+    _id: '2',
+    title: 'Choosing the Right Tile Adhesive for Every Project',
+    content: 'Selecting the correct tile adhesive is paramount for a successful and long-lasting tiling installation. With a myriad of options available, understanding the properties of different adhesives—such as cementitious, epoxy, and dispersion adhesives—is key. This article delves into factors like substrate type, tile material, environmental conditions, and traffic load to help you make an informed decision. Discover how our specialized tile adhesives ensure superior bond strength and durability for both residential and commercial applications.',
+    publishDate: '2026-01-10',
+    author: 'Mark Johnson',
+    category:'Tile & Stone Adhesive and Grout',
+    coverImage: '/images/ChoosingtheRightTileAdhesiveforEveryProject.png',
+    _createdDate: new Date('2026-01-10'),
+    _updatedDate: new Date('2026-01-11'),
+  },
+  {
+    _id: '3',
+    title: '5 Common Mistakes in Concrete Repair and How to Avoid Them',
+    content: 'Concrete repair can be a complex task, and even experienced professionals can make mistakes that compromise the repair\'s effectiveness and longevity. This article identifies five common pitfalls, including improper surface preparation, incorrect material selection, inadequate curing, and ignoring underlying issues. We provide practical advice and best practices to help you avoid these errors, ensuring your concrete repairs are durable, aesthetically pleasing, and structurally sound. Learn how our high-performance concrete repair solutions simplify the process.',
+    publishDate: '2026-01-10',
+    author: 'Sarah Chen',
+    category:'Concrete Repair Solutions',
+    coverImage: '/images/5CommonMistakesinConcreteRepairandHowtoAvoidThem.png',
+    _createdDate: new Date('2026-01-10'),
+    _updatedDate: new Date('2026-01-11'),
+  },
+  {
+    _id: '4',
+    title: 'Innovations in Industrial Flooring: What\'s New?',
+    content: 'The world of industrial flooring is constantly evolving, with new technologies and materials emerging to meet the demands of modern facilities. This post explores the latest innovations, from advanced epoxy and polyurethane systems to specialized coatings designed for extreme conditions. We discuss trends like enhanced chemical resistance, improved slip safety, rapid curing times, and sustainable options. Stay ahead of the curve and discover how these advancements can optimize performance, durability, and maintenance in your industrial spaces.',
+    publishDate: '2026-01-10',
+    author: 'David Lee',
+    category:'Flooring Solutions',
+    coverImage: '/images/InnovationsinIndustrialFlooringWhatsNew.png',
+    _createdDate: new Date('2026-01-10'),
+    _updatedDate: new Date('2026-01-11'),
+  },
+  {
+    _id: '5',
+    title: 'Maximizing Efficiency with Material Coverage Calculators',
+    content: 'In construction, accurate material estimation is key to controlling costs and minimizing waste. Our material coverage calculator is a powerful tool designed to streamline your project planning. This article explains how to leverage its features, from inputting project dimensions to selecting specific products and accounting for wastage. Learn how our calculator provides precise material quantities, helping you avoid over-ordering or shortages, saving time, and improving overall project efficiency. It\'s an indispensable resource for every contractor and DIY enthusiast.',
+    publishDate: '2026-01-10',
+    author: 'Company Blog',
+    category:'Resources',
+    coverImage: '/images/MaximizingEfficiencywithMaterialCoverageCalculators.png',
+    _createdDate: new Date('2026-01-10'),
+    _updatedDate: new Date('2026-01-11'),
+  },
+  {
+    _id: '6',
+    title: 'Innovations in Industrial Flooring: What\'s New?',
+    content: 'As the construction industry moves towards more sustainable practices, the role of eco-friendly admixtures becomes increasingly vital. This article explores how modern admixtures can significantly reduce the environmental impact of concrete and mortar. We discuss innovations that enhance material performance while minimizing energy consumption, reducing waste, and utilizing recycled content. Discover how our green admixture solutions contribute to LEED certification, improve durability, and support a healthier planet without compromising structural integrity.',
+    publishDate: '2026-01-10',
+    author: 'Dr. Anya Sharma',
+    category:'Admixtures',
+    coverImage: '/images/InnovationsinEcoFriendlyAdmixtures.png',
+    _createdDate: new Date('2026-01-10'),
+    _updatedDate: new Date('2026-01-11'),
+  },
+  {
+    _id: '7',
+    title: 'Achieving Flawless Finishes with Decorative Surface Coatings',
+    content: 'Decorative surface coatings offer an incredible way to transform ordinary surfaces into stunning architectural features. This guide provides tips and techniques for applying various decorative coatings, including textured paints, metallic finishes, and specialized plasters. Learn about proper surface preparation, application methods, and common challenges to achieve a flawless and long-lasting finish. Whether for interior accent walls or exterior facades, our range of decorative coatings provides endless possibilities for aesthetic enhancement and protection.',
+    publishDate: '2026-01-10',
+    author: 'Michael Brown',
+    category:'Decorative Surface Finish',
+    coverImage: '/images/AchievingFlawlessFinisheswithDecorativeSurfaceCoatings.png',
+    _createdDate: new Date('2026-01-10'),
+    _updatedDate: new Date('2026-01-11'),
+  },
+  {
+    _id: '8',
+    title: 'Understanding Mortar Types: A Comprehensive Guide',
+    content: 'Mortar is a fundamental component in masonry construction, but not all mortars are created equal. This comprehensive guide breaks down the different types of mortar—Type M, S, N, O, and K—explaining their unique properties, strength ratings, and ideal applications. Learn how to select the right mortar for various projects, from load-bearing walls to historical restoration, ensuring optimal bond strength, durability, and weather resistance. We also cover mixing ratios and best practices for application to achieve superior masonry work.',
+    publishDate: '2026-01-10',
+    author: 'Emily White',
+    category:'Mortar',
+    coverImage: '/images/UnderstandingMortarTypes.png',
+    _createdDate: new Date('2026-01-10'),
+    _updatedDate: new Date('2026-01-11'),
+  },
+];
+
 
 export default function BlogDetailPage() {
   const params = useParams();

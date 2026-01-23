@@ -245,7 +245,7 @@ export default function HomePage() {
             <div className="lg:col-span-8 grid gap-12">
               <div className="aspect-video w-full overflow-hidden relative group">
                 <Image 
-                  src="https://static.wixstatic.com/media/38f579_7b4cba52b5334ed6b35ed7b3947a082c~mv2.png?originWidth=1152&originHeight=640"
+                  src="/images/LaboratoryTesting.png"
                   alt="Laboratory Testing"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   width={1200}
@@ -287,7 +287,6 @@ export default function HomePage() {
             </Button>
           </Link>
         </div>
-
         <div className="max-w-480 mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-3 gap-px bg-[#333333]/10 border border-[#333333]/10">
             {CATEGORIES.map((category, index) => (
@@ -295,7 +294,7 @@ export default function HomePage() {
                 {/* Hover Background Image Reveal */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out z-0">
                   <Image 
-                    src="https://static.wixstatic.com/media/38f579_4d9f50ad009c49b3835664b9b23ad78c~mv2.png?originWidth=576&originHeight=576"
+                    src="/images/category-bg.png"
                     alt={category.title}
                     className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
                     width={600}

@@ -10,7 +10,40 @@ import { Card } from '@/components/ui/card';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ContactInquiries } from '@/entities';
-import { mockContactInquiries } from '@/entities/mockData';
+
+
+export const mockContactInquiries: ContactInquiries[] = [
+  {
+    _id: '1',
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    phone: '+1-555-123-4567',
+    message: 'I am interested in your waterproofing solutions for a commercial project. Could you please send me more information on your product range and pricing?',
+    submissionDate: '2026-01-15',
+    _createdDate: new Date('2026-01-15'),
+    _updatedDate: new Date('2026-01-15'),
+  },
+  {
+    _id: '2',
+    name: 'Jane Smith',
+    email: 'jane.smith@constructionco.com',
+    phone: '+1-555-987-6543',
+    message: 'I used your adhesive coverage calculator and have a question about the wastage percentage. Does it account for irregular surfaces? We are planning a large tile installation.',
+    submissionDate: '2026-01-15',
+    _createdDate: new Date('2026-01-15'),
+    _updatedDate: new Date('2026-01-15'),
+  },
+  {
+    _id: '1',
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    phone: '+1-555-123-4567',
+    message: 'I am interested in your waterproofing solutions for a commercial project. Could you please send me more information on your product range and pricing?',
+    submissionDate: '2026-01-15',
+    _createdDate: new Date('2026-01-15'),
+    _updatedDate: new Date('2026-01-15'),
+  },
+];
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
