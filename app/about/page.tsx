@@ -5,7 +5,6 @@ import { Award, Users, Target, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { TeamMembers } from '@/entities';
 import { mockTeamMembers } from '@/entities/mockData';
 
 export default function AboutPage() {
