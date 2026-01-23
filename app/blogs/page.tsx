@@ -92,7 +92,7 @@ export default function BlogsPage() {
                         <div className="group bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm overflow-hidden hover:border-[#B8A06A] transition-all duration-500 h-full flex flex-col">
                           <div className="aspect-16/10 overflow-hidden">
                             <Image 
-                              src={blog.coverImage || 'https://static.wixstatic.com/media/38f579_f834c504d09b43afa4740a2dd668cc14~mv2.png?originWidth=1152&originHeight=576'}
+                              src={blog.coverImage || '/images/blog-placeholder.jpg'}
                               alt={blog.title || 'Blog post'}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                               width={600}

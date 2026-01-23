@@ -83,7 +83,7 @@ export default function ProductDetailPage() {
                 {/* Product Image */}
                 <div className="aspect-square rounded-sm overflow-hidden bg-background border border-light-grey">
                   <Image
-                    src={product.productImage || 'https://static.wixstatic.com/media/38f579_7291dd7f2f304aceb28589904d980083~mv2.png?originWidth=768&originHeight=768'}
+                    src={product.productImage || ""}
                     alt={product.productName || 'Product'}
                     className="w-full h-full object-cover"
                     width={800}

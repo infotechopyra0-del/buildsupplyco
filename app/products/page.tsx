@@ -123,7 +123,7 @@ function ProductsPageInner() {
                       <div className="group bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm overflow-hidden hover:border-[#B8A06A] transition-all duration-500">
                         <div className="aspect-4/3 overflow-hidden">
                           <Image
-                            src={product.productImage || 'https://static.wixstatic.com/media/38f579_da36f9f3751f4e9a99e83ece12202288~mv2.png?originWidth=576&originHeight=448'}
+                            src={product.productImage || ''}
                             alt={product.productName || 'Product'}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             width={600}
