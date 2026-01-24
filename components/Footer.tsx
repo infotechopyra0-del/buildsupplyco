@@ -14,7 +14,7 @@ export default function Footer() {
               className="font-heading text-2xl font-bold mb-6"
               style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '1.875', letterSpacing: '0.01em', fontWeight: 500 }}
             >
-              BuildSupplyCo
+              CONCREED SOLUTIONS
             </h3>
             <p 
               className="font-paragraph text-sm text-[#FFFFFF]/80 leading-relaxed mb-6"
@@ -29,7 +29,7 @@ export default function Footer() {
                   className="font-paragraph text-sm text-[#FFFFFF]/80"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
-                  123 Industrial Avenue, Construction District
+                 1481, Concreed Manufacturing 1, Shahganj Road, Maa Durga Ji Vidyalaya, Arazi Siddikipur, Jaunpur, Uttar Pradesh, 222001
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -38,7 +38,7 @@ export default function Footer() {
                   className="font-paragraph text-sm text-[#FFFFFF]/80"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
-                  +1 (555) 123-4567
+                  +91 7011506187 
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -188,7 +188,7 @@ export default function Footer() {
               className="font-paragraph text-sm text-[#FFFFFF]/70"
               style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
             >
-              © {currentYear} BuildSupplyCo. All rights reserved.
+              © {currentYear} CONCREED SOLUTIONS PRIVATE LIMITED. All rights reserved.
             </p>
             <div className="flex gap-8">
               <Link 

@@ -41,7 +41,7 @@ export default function Header() {
               className="font-heading text-3xl font-bold text-[#2C3E50]"
               style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 600 }}
             >
-              BuildSupplyCo
+              CONCREED SOLUTIONS
             </span>
           </Link>
 
@@ -55,8 +55,7 @@ export default function Header() {
               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
             >
               Home
-            </Link>
-            
+            </Link>            
             <Link 
               href="/about" 
               className={`font-paragraph text-base transition-colors duration-300 ${
@@ -66,7 +65,6 @@ export default function Header() {
             >
               About Us
             </Link>
-
             {/* Products Dropdown */}
             <div 
               className="relative"

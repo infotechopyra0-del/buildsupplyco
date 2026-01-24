@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BuildSupplyCo - Premium Construction Materials",
+  title: "CONCREED SOLUTIONS - Premium Construction Materials",
   description: "Your trusted source for high-quality construction materials designed for durability and performance.",
 };
 

@@ -24,7 +24,6 @@ export default function FAQsPage() {
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
       <Header />
-      
       {/* Hero Section */}
       <section className="w-full max-w-400 mx-auto px-8 lg:px-16 pt-32 pb-16 lg:pt-40 lg:pb-24">
         <motion.div
