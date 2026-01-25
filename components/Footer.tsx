@@ -47,7 +47,7 @@ export default function Footer() {
                   className="font-paragraph text-sm text-[#FFFFFF]/80"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
-                  info@buildsupplyco.com
+                  info@concreedsolutions.com
                 </span>
               </div>
             </div>

@@ -12,38 +12,7 @@ import Footer from '@/components/Footer';
 import { ContactInquiries } from '@/entities';
 
 
-export const mockContactInquiries: ContactInquiries[] = [
-  {
-    _id: '1',
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    phone: '+1-555-123-4567',
-    message: 'I am interested in your waterproofing solutions for a commercial project. Could you please send me more information on your product range and pricing?',
-    submissionDate: '2026-01-15',
-    _createdDate: new Date('2026-01-15'),
-    _updatedDate: new Date('2026-01-15'),
-  },
-  {
-    _id: '2',
-    name: 'Jane Smith',
-    email: 'jane.smith@constructionco.com',
-    phone: '+1-555-987-6543',
-    message: 'I used your adhesive coverage calculator and have a question about the wastage percentage. Does it account for irregular surfaces? We are planning a large tile installation.',
-    submissionDate: '2026-01-15',
-    _createdDate: new Date('2026-01-15'),
-    _updatedDate: new Date('2026-01-15'),
-  },
-  {
-    _id: '1',
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    phone: '+1-555-123-4567',
-    message: 'I am interested in your waterproofing solutions for a commercial project. Could you please send me more information on your product range and pricing?',
-    submissionDate: '2026-01-15',
-    _createdDate: new Date('2026-01-15'),
-    _updatedDate: new Date('2026-01-15'),
-  },
-];
+
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -75,9 +44,6 @@ export default function ContactPage() {
       submissionDate: new Date().toISOString()
     };
 
-    // Simulate saving to mock data (in-memory only)
-    mockContactInquiries.push(inquiry);
-
     setSubmitSuccess(true);
     setFormData({ name: '', email: '', phone: '', message: '' });
     setIsSubmitting(false);
@@ -91,17 +57,17 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: 'Visit Us',
-      content: '123 Industrial Avenue, Construction District'
+      content: ' 1481, Concreed Manufacturing 1, Shahganj Road, Maa Durga Ji Vidyalaya, Arazi Siddikipur, Jaunpur, Uttar Pradesh, 222001'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      content: '+1 (555) 123-4567'
+      content: '+91 7011506187'
     },
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'info@buildpro.com'
+      content: 'iinfo@concreedsolutions.com'
     }
   ];
 

@@ -6,7 +6,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { mockFAQs } from '@/entities/mockData';
-import { FAQs } from '@/entities';
 
 export default function FAQsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
