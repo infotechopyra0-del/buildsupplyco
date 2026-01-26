@@ -81,7 +81,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/products" 
+                  href="/solutions" 
                   className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   Products
@@ -109,7 +109,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  href="/products?category=Waterproofing" 
+                  href="/solutions?category=Waterproofing" 
                   className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
@@ -118,7 +118,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/products?category=Adhesive" 
+                  href="/solutions?category=Adhesive" 
                   className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   Tile & Stone Adhesive
@@ -126,7 +126,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/products?category=Concrete%20Repair" 
+                  href="/solutions?category=Concrete%20Repair" 
                   className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   Concrete Repair Solutions
@@ -134,7 +134,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/products?category=Flooring" 
+                  href="/solutions?category=Flooring" 
                   className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   Flooring Solutions

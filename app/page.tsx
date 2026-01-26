@@ -22,21 +22,21 @@ const CATEGORIES: Category[] = [
     title: 'Waterproofing Solutions',
     description: 'Advanced protection systems engineered for lasting durability in the harshest environments.',
     icon: Droplets,
-    link: '/products?category=Waterproofing'
+    link: '/solutions?category=Waterproofing'
   },
   {
     id: 'adhesive',
     title: 'Tile & Stone Adhesive',
     description: 'Premium bonding solutions designed for superior installation and structural integrity.',
     icon: Layers,
-    link: '/products?category=Adhesive'
+    link: '/solutions?category=Adhesive'
   },
   {
     id: 'repair',
     title: 'Concrete Repair',
     description: 'Structural restoration systems with precision engineering for critical infrastructure.',
     icon: Shield,
-    link: '/products?category=Concrete%20Repair'
+    link: '/solutions?category=Concrete%20Repair'
   }
 ];
 
@@ -163,7 +163,7 @@ export default function HomePage() {
                   <ArrowRight className="ml-2 h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                 </Button>
               </Link>
-              <Link href="/products">
+              <Link href="/solutions">
                 <Button 
                   variant="outline"
                   size="lg"
@@ -281,7 +281,7 @@ export default function HomePage() {
             <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#e4b725] mb-4 block" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>Our Collection</span>
             <h2 className="font-heading text-5xl lg:text-6xl text-[#333333]" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}>Material Solutions</h2>
           </div>
-          <Link href="/products">
+          <Link href="/solutions">
             <Button variant="outline" className="rounded-none border-[#333333]/20 hover:bg-[#333333] hover:text-[#FFFFFF] transition-all duration-300">
               View Full Catalog
             </Button>
