@@ -18,10 +18,9 @@ function ProductsPageInner() {
   const categories = [
     'All',
     'Waterproofing',
-    'Adhesive',
+    'Tile Adhesive',
     'Concrete Repair',
-    'Flooring',
-    'Stamping',
+    'Flooring Solutions',
     'Decorative',
     'Texture Paint',
     'Admixtures',

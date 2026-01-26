@@ -18,7 +18,6 @@ export default function Header() {
     { name: 'Tile & Stone Adhesive and Grout', path: '/products?category=Adhesive' },
     { name: 'Concrete Repair Solutions', path: '/products?category=Concrete%20Repair' },
     { name: 'Flooring Solutions', path: '/products?category=Flooring' },
-    { name: 'Stamping Solutions', path: '/products?category=Stamping' },
     { name: 'Decorative Surface Finish', path: '/products?category=Decorative' },
     { name: 'Texture Paint Coatings', path: '/products?category=Texture%20Paint' },
     { name: 'Admixtures', path: '/products?category=Admixtures' },

@@ -258,7 +258,7 @@ export const mockProducts: Products[] = [
     specifications: 'Density: 1.1-1.2 g/cm³. pH: 6-7. Dosage: 0.5% to 1.5% by weight of cement. Packing: 210 L drum.',
     coverageRate: 0.005,
     wastagePercentage: 1,
-    productImage: '/images/common.png',
+    productImage: '/images/drum.jpeg',
     _createdDate: new Date('2026-01-15'),
     _updatedDate: new Date('2026-01-15'),
   },
@@ -270,7 +270,7 @@ export const mockProducts: Products[] = [
     specifications: 'Density: 1.1-1.2 g/cm³. pH: 6-7. Dosage: 0.5% to 1.5% by weight of cement. Packing: 210 L drum.',
     coverageRate: 0.005,
     wastagePercentage: 1,
-    productImage: '/images/common.png',
+    productImage: '/images/drum.jpeg',
     _createdDate: new Date('2026-01-15'),
     _updatedDate: new Date('2026-01-15'),
   },
@@ -349,7 +349,7 @@ export const mockProducts: Products[] = [
   {
     _id: '13',
     productName: 'CREED TA-Grey',
-    category: 'Tile & Stone Adhesive and Grouts',
+    category: 'Tile Adhesive',
     description: 'High-strength tile adhesive in grey suitable for ceramic and vitrified tiles.',
     specifications: 'Compressive Strength: 14 N/mm². Pot Life: 2 hrs.',
     coverageRate: 0.18,
@@ -361,7 +361,7 @@ export const mockProducts: Products[] = [
   {
     _id: '14',
     productName: 'CREED TA GREY+',
-    category: 'Tile & Stone Adhesive and Grouts',
+    category: 'Tile Adhesive',
     description: 'High-slip resistant grey tile adhesive for heavy-duty tiling applications.',
     specifications: 'Compressive Strength: 12 N/mm². High slip resistance.',
     coverageRate: 0.1625,
@@ -373,7 +373,7 @@ export const mockProducts: Products[] = [
   {
     _id: '15',
     productName: 'CREED TA WHITE',
-    category: 'Tile & Stone Adhesive and Grouts',
+    category: 'Tile Adhesive',
     description: 'Whitish tile adhesive optimized for marble and light-colour stone installations.',
     specifications: 'Whitish color for marble. Compressive Strength: 14 N/mm².',
     coverageRate: 0.175,
@@ -385,7 +385,7 @@ export const mockProducts: Products[] = [
   {
     _id: '16',
     productName: 'PRIME COAT',
-    category: 'Decorative Surface Finish',
+    category: 'Flooring Solutions',
     description: 'Primer coating for exterior and interior concrete surfaces to improve adhesion and finish.',
     specifications: 'Primer for exterior and interior concrete surfaces. Coverage: 60-75 sq.ft per L (1 coat). Packing: 20 L.',
     coverageRate: 67,
@@ -397,7 +397,7 @@ export const mockProducts: Products[] = [
   {
     _id: '17',
     productName: 'CREED TEXTURE',
-    category: 'Decorative Surface Finish',
+    category: 'Flooring Solutions',
     description: 'Polymer-modified textured coating for external substrates, providing a decorative and durable finish.',
     specifications: 'Polymer Modified Textured Coating. Coverage: ~80-85 sq.ft per 30kg at 1.5mm thickness. Packing: 30 kg.',
     coverageRate: 82.5,
@@ -409,7 +409,7 @@ export const mockProducts: Products[] = [
   {
     _id: '18',
     productName: 'CREED EMULSION',
-    category: 'Decorative Surface Finish',
+    category: 'Flooring Solutions',
     description: 'Acrylic emulsion coating offering excellent finish for interior applications with good hide and durability.',
     specifications: 'Acrylic emulsion. Coverage: ~80 sq.ft per L (2 coats). Packing: 20 Kg.',
     coverageRate: 80,
@@ -421,7 +421,7 @@ export const mockProducts: Products[] = [
   {
     _id: '19',
     productName: 'CREED FHARD',
-    category: 'Stamping Solutions',
+    category: 'Flooring Solutions',
     description: 'Coloured floor hardener specifically formulated for stamp floor applications to increase wear resistance.',
     specifications: 'Coloured floor hardener for stamp floor. Application rate: 2.6 Kg/sq.m.',
     coverageRate: 2.6,
@@ -433,7 +433,7 @@ export const mockProducts: Products[] = [
   {
     _id: '20',
     productName: 'CREED FRELEASE',
-    category: 'Stamping Solutions',
+    category: 'Flooring Solutions',
     description: 'Release powder for stamp floor—prevents stamping tools from sticking and imparts texture/colour separation.',
     specifications: 'Release powder for stamp floor. Coverage: ~600-650 sq.ft per bag.',
     coverageRate: 625,
@@ -445,7 +445,7 @@ export const mockProducts: Products[] = [
   {
     _id: '21',
     productName: 'CREED SEALER',
-    category: 'Stamping Solutions',
+    category: 'Flooring Solutions',
     description: 'Transparent polymer sealer for stamp flooring to protect and enhance appearance.',
     specifications: 'Transparent polymer coating. Coverage: ~80 sq.ft per L per coat. Recommended 1–2 coats.',
     coverageRate: 80,
