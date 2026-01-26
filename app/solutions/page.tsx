@@ -37,9 +37,9 @@ function ProductsPageInner() {
 
   const handleCategoryChange = (category: string) => {
     if (category === 'All') {
-      router.push('/products');
+      router.push('/solutions');
     } else {
-      router.push(`/products?category=${encodeURIComponent(category)}`);
+      router.push(`/solutions?category=${encodeURIComponent(category)}`);
     }
   };
 
