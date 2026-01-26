@@ -58,7 +58,7 @@ function ProductsPageInner() {
             className="font-heading text-6xl lg:text-8xl font-bold text-[#333333] mb-8"
             style={{ fontFamily: 'cormorantgaramond', fontSize: '3.75rem', lineHeight: '1.1', letterSpacing: '0.001em', fontWeight: 700 }}
           >
-            Our Products
+            Our Solutions
           </h1>
           <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
           <p
@@ -118,12 +118,12 @@ function ProductsPageInner() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
-                    <Link href={`/products/${product._id}`}>
+                    <Link href={`/solutions/${product._id}`}>
                       <div className="group bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm overflow-hidden hover:border-[#e4b725] transition-all duration-500">
                         <div className="aspect-4/3 overflow-hidden">
                           <Image
                             src={product.productImage || ''}
-                            alt={product.productName || 'Product'}
+                            alt={product.productName || 'Solution'}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             width={600}
                             height={450}

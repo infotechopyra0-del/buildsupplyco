@@ -21,13 +21,13 @@ export default function ProductPage() {
       <Header />
 
       <div className="w-full max-w-400 mx-auto px-8 lg:px-16 pt-32 pb-24 lg:pt-40 lg:pb-32">
-        <Link href="/products">
+        <Link href="/solutions">
           <Button
             variant="outline"
             className="mb-12 border-2 border-[#e4b725] text-[#374151] bg-transparent hover:bg-[#e4b725]/5 hover:text-[#374151] font-paragraph transition-all duration-300"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Products
+            Back to Solutions
           </Button>
         </Link>
 
@@ -38,17 +38,17 @@ export default function ProductPage() {
                 className="font-heading text-3xl font-bold mb-4"
                 style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 700, color: '#E74C3C' }}
               >
-                Product Not Found
+                Solutions Not Found
               </h2>
               <p
                 className="font-paragraph text-base mb-8"
                 style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400, color: '#33333399' }}
               >
-                The product you're looking for doesn't exist.
+                The solution you're looking for doesn't exist.
               </p>
-              <Link href="/products">
+              <Link href="/solutions">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  View All Products
+                  View All Solutions
                 </Button>
               </Link>
             </div>
@@ -59,18 +59,18 @@ export default function ProductPage() {
               transition={{ duration: 0.6 }}
             >
               <div className="grid lg:grid-cols-2 gap-16 mb-16">
-                {/* Product Image */}
+                {/* Solution Image */}
                 <div className="aspect-square rounded-sm overflow-hidden bg-[#FFFFFF] border border-[#E0E0E0]">
                   <Image
                     src={product.productImage || ""}
-                    alt={product.productName || 'Product'}
+                    alt={product.productName || 'Solution'}
                     className="w-full h-full object-cover"
                     width={800}
                     height={800}
                   />
                 </div>
 
-                {/* Product Info */}
+                {/* Solution Info */}
                 <div>
                   <div className="inline-block px-4 py-2 bg-[#FFFFFF]/5 rounded-sm mb-6 border border-[#E0E0E0]">
                     <span

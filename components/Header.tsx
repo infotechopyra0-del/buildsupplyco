@@ -13,15 +13,15 @@ export default function Header() {
 
   const isActive = (path: string) => pathname === path;
 
-  const productCategories = [
-    { name: 'Waterproofing Solutions', path: '/products?category=Waterproofing' },
-    { name: 'Tile & Stone Adhesive and Grout', path: '/products?category=Adhesive' },
-    { name: 'Concrete Repair Solutions', path: '/products?category=Concrete%20Repair' },
-    { name: 'Flooring Solutions', path: '/products?category=Flooring' },
-    { name: 'Decorative Surface Finish', path: '/products?category=Decorative' },
-    { name: 'Texture Paint Coatings', path: '/products?category=Texture%20Paint' },
-    { name: 'Admixtures', path: '/products?category=Admixtures' },
-    { name: 'Mortar', path: '/products?category=Mortar' }
+  const solutionsCategories = [
+    { name: 'Waterproofing Solutions', path: '/solutions?category=Waterproofing' },
+    { name: 'Tile & Stone Adhesive and Grout', path: '/solutions?category=Adhesive' },
+    { name: 'Concrete Repair Solutions', path: '/solutions?category=Concrete%20Repair' },
+    { name: 'Flooring Solutions', path: '/solutions?category=Flooring' },
+    { name: 'Decorative Surface Finish', path: '/solutions?category=Decorative' },
+    { name: 'Texture Paint Coatings', path: '/solutions?category=Texture%20Paint' },
+    { name: 'Admixtures', path: '/solutions?category=Admixtures' },
+    { name: 'Mortar', path: '/solutions?category=Mortar' }
   ];
 
   const resourceLinks = [
@@ -58,15 +58,6 @@ export default function Header() {
             >
               Home
             </Link>            
-            <Link 
-              href="/about" 
-              className={`font-paragraph text-base transition-colors duration-300 ${
-                isActive('/about') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
-              }`}
-              style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
-            >
-              About Us
-            </Link>
             {/* Products Dropdown */}
             <div 
               className="relative"
@@ -77,7 +68,7 @@ export default function Header() {
                 className="font-paragraph text-base text-[#333333] hover:text-[#e4b725] transition-colors duration-300 flex items-center gap-1"
                 style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
               >
-                Products
+                Solutions
                 <ChevronDown className="h-4 w-4" />
               </button>
               
@@ -90,7 +81,7 @@ export default function Header() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-80 bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm shadow-lg py-4"
                   >
-                    {productCategories.map((category) => (
+                    {solutionsCategories.map((category) => (
                       <Link
                         key={category.name}
                         href={category.path}
@@ -105,6 +96,24 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
+            <Link 
+              href="/applications" 
+              className={`font-paragraph text-base transition-colors duration-300 ${
+                isActive('/applications') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
+              }`}
+              style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
+            >
+              Applications
+            </Link>
+            <Link 
+              href="/sustainability" 
+              className={`font-paragraph text-base transition-colors duration-300 ${
+                isActive('/sustainability') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
+              }`}
+              style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
+            >
+              Sustainability
+            </Link>
             {/* Resources Dropdown */}
             <div 
               className="relative"
@@ -115,7 +124,7 @@ export default function Header() {
                 className="font-paragraph text-base text-[#333333] hover:text-[#e4b725] transition-colors duration-300 flex items-center gap-1"
                 style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
               >
-                Resources
+                 Technical Resources
                 <ChevronDown className="h-4 w-4" />
               </button>
               
@@ -142,7 +151,15 @@ export default function Header() {
                 )}
               </AnimatePresence>
             </div>
-
+            <Link 
+              href="/about" 
+              className={`font-paragraph text-base transition-colors duration-300 ${
+                isActive('/about') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
+              }`}
+              style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
+            >
+              About Us
+            </Link>
             <Link 
               href="/contact" 
               className={`font-paragraph text-base transition-colors duration-300 ${
@@ -150,7 +167,7 @@ export default function Header() {
               }`}
               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
             >
-              Contact Us
+              Contact
             </Link>
           </div>
 
@@ -203,7 +220,7 @@ export default function Header() {
                   </button>
                   {productsOpen && (
                     <div className="pl-4 space-y-3">
-                      {productCategories.map((category) => (
+                      {solutionsCategories.map((category) => (
                         <Link
                           key={category.name}
                           href={category.path}
