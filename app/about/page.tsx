@@ -88,15 +88,15 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="aspect-4/3 rounded-sm overflow-hidden">
-                <Image 
-                  src="/images/BuildPromanufacturingfacility.png"
-                  alt="BuildPro manufacturing facility"
-                  className="w-full h-full object-cover"
-                  width={800}
-                  height={576}
-                />
-              </div>
+                <div className="rounded-sm flex items-center justify-center">
+                  <Image
+                    src="/images/BuildPromanufacturingfacility.png"
+                    alt="BuildPro manufacturing facility"
+                    className="w-full h-auto object-contain"
+                    width={800}
+                    height={576}
+                  />
+                </div>
             </motion.div>
           </div>
         </div>

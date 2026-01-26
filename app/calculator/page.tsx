@@ -425,19 +425,18 @@ export default function CalculatorPage() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <Calculator className="w-16 h-16 text-[#e4b725] mx-auto mb-8" strokeWidth={1.5} />
+          <Calculator className="w-16 h-16 text-[#B8A06A] mx-auto mb-8" strokeWidth={1.5} />
           <h1 className="font-heading text-6xl lg:text-8xl font-bold text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3.75rem', lineHeight: '1.1', letterSpacing: '0.001em', fontWeight: 700 }}>
             Material Calculator
           </h1>
-          <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
           <p className="font-paragraph text-lg lg:text-xl text-[#333333]/80 leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
             Calculate precise material requirements for your construction project
           </p>
         </motion.div>
       </section>
 
-      {/* Calculator Section (Home theme) */}
-      <section className="w-full bg-[#374151] text-[#FFFFFF] py-16 lg:py-24">
+      {/* Calculator Section */}
+      <section className="w-full py-16 lg:py-24">
         <div className="max-w-5xl mx-auto px-8 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Input Form */}
@@ -446,15 +445,15 @@ export default function CalculatorPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="p-8 lg:p-10 bg-transparent border-[#FFFFFF]/10">
-                <h2 className="font-heading text-3xl font-bold text-[#FFFFFF] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 700 }}>
+              <Card className="p-8 lg:p-10 bg-[#FFFFFF] border-[#E0E0E0]">
+                <h2 className="font-heading text-3xl font-bold text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 700 }}>
                   Project Details
                 </h2>
 
                 <div className="space-y-6">
                   {/* Product Selection */}
                   <div>
-                    <Label htmlFor="product" className="font-paragraph text-base text-[#FFFFFF]/90 mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                    <Label htmlFor="product" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
                       Select Product *
                     </Label>
                     <Select value={selectedProduct} onValueChange={setSelectedProduct}>
@@ -473,7 +472,7 @@ export default function CalculatorPage() {
 
                   {/* Input Type Selection */}
                   <div>
-                    <Label className="font-paragraph text-base text-[#FFFFFF]/90 mb-3 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                    <Label className="font-paragraph text-base text-[#333333] mb-3 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
                       Measurement Method
                     </Label>
                     <div className="flex gap-4">
@@ -483,8 +482,8 @@ export default function CalculatorPage() {
                         onClick={() => setInputType('dimensions')}
                         className={`flex-1 font-paragraph ${
                           inputType === 'dimensions'
-                            ? 'bg-[#374151] text-[#FFFFFF] border border-[#FFFFFF]/10'
-                            : 'border-2 border-[#FFFFFF]/20 text-[#FFFFFF] hover:bg-[#FFFFFF]/5 hover:text-[#FFFFFF]'
+                            ? 'bg-[#2C3E50] text-[#FFFFFF]'
+                            : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'
                         }`}
                       >
                         Length × Width
@@ -495,8 +494,8 @@ export default function CalculatorPage() {
                         onClick={() => setInputType('area')}
                         className={`flex-1 font-paragraph ${
                           inputType === 'area'
-                            ? 'bg-[#374151] text-[#FFFFFF] border border-[#FFFFFF]/10'
-                            : 'border-2 border-[#FFFFFF]/20 text-[#FFFFFF] hover:bg-[#FFFFFF]/5 hover:text-[#FFFFFF]'
+                            ? 'bg-[#2C3E50] text-[#FFFFFF]'
+                            : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'
                         }`}
                       >
                         Total Area
@@ -508,7 +507,7 @@ export default function CalculatorPage() {
                   {inputType === 'dimensions' ? (
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="length" className="font-paragraph text-base text-[#FFFFFF]/90 mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                        <Label htmlFor="length" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
                           Length (m) *
                         </Label>
                         <Input
@@ -519,11 +518,11 @@ export default function CalculatorPage() {
                           value={length}
                           onChange={(e) => setLength(e.target.value)}
                           placeholder="0.00"
-                          className="font-paragraph bg-[#FFFFFF]/5 text-[#FFFFFF] placeholder-[#FFFFFF]/60"
+                          className="font-paragraph"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="width" className="font-paragraph text-base text-[#FFFFFF]/90 mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                        <Label htmlFor="width" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
                           Width (m) *
                         </Label>
                         <Input
@@ -534,13 +533,13 @@ export default function CalculatorPage() {
                           value={width}
                           onChange={(e) => setWidth(e.target.value)}
                           placeholder="0.00"
-                          className="font-paragraph bg-[#FFFFFF]/5 text-[#FFFFFF] placeholder-[#FFFFFF]/60"
+                          className="font-paragraph"
                         />
                       </div>
                     </div>
                   ) : (
                     <div>
-                      <Label htmlFor="area" className="font-paragraph text-base text-[#FFFFFF]/90 mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                      <Label htmlFor="area" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
                         Total Area (m²) *
                       </Label>
                       <Input
@@ -551,14 +550,14 @@ export default function CalculatorPage() {
                         value={totalArea}
                         onChange={(e) => setTotalArea(e.target.value)}
                         placeholder="0.00"
-                        className="font-paragraph bg-[#FFFFFF]/5 text-[#FFFFFF] placeholder-[#FFFFFF]/60"
+                        className="font-paragraph"
                       />
                     </div>
                   )}
 
                   {/* Wastage */}
                   <div>
-                    <Label htmlFor="wastage" className="font-paragraph text-base text-[#FFFFFF]/90 mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                    <Label htmlFor="wastage" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
                       Wastage Factor (%)
                     </Label>
                     <Input
@@ -569,7 +568,7 @@ export default function CalculatorPage() {
                       max="100"
                       value={wastage}
                       onChange={(e) => setWastage(e.target.value)}
-                      className="font-paragraph bg-[#FFFFFF]/5 text-[#FFFFFF] placeholder-[#FFFFFF]/60"
+                      className="font-paragraph"
                     />
                   </div>
 
@@ -577,14 +576,14 @@ export default function CalculatorPage() {
                   <div className="flex gap-4 pt-4">
                     <Button
                       onClick={calculateMaterial}
-                      className="flex-1 bg-[#e4b725] hover:bg-[#e4b725]/90 text-[#374151] font-paragraph py-6"
+                      className="flex-1 bg-[#2C3E50] hover:bg-[#2C3E50]/90 text-[#FFFFFF] font-paragraph py-6"
                     >
                       Calculate
                     </Button>
                     <Button
                       onClick={resetCalculator}
                       variant="outline"
-                      className="border-2 border-[#FFFFFF]/20 text-[#FFFFFF] hover:bg-[#FFFFFF]/5 hover:text-[#FFFFFF] font-paragraph py-6"
+                      className="border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF] font-paragraph py-6"
                     >
                       Reset
                     </Button>
@@ -599,7 +598,7 @@ export default function CalculatorPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="p-8 lg:p-10 bg-[#374151] text-[#FFFFFF] border-[#374151]">
+              <Card className="p-8 lg:p-10 bg-[#2C3E50] text-[#FFFFFF] border-[#2C3E50]">
                 <h2 className="font-heading text-3xl font-bold mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 700 }}>
                   Calculation Results
                 </h2>
@@ -610,7 +609,7 @@ export default function CalculatorPage() {
                       <p className="font-paragraph text-sm text-[#FFFFFF]/80 mb-2" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
                         Total Area
                       </p>
-                      <p className="font-heading text-4xl font-bold text-[#e4b725]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
+                      <p className="font-heading text-4xl font-bold text-[#B8A06A]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
                         {result.area} m²
                       </p>
                     </div>
@@ -619,7 +618,7 @@ export default function CalculatorPage() {
                       <p className="font-paragraph text-sm text-[#FFFFFF]/80 mb-2" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
                         Required Material
                       </p>
-                      <p className="font-heading text-4xl font-bold text-[#e4b725]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
+                      <p className="font-heading text-4xl font-bold text-[#B8A06A]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
                         {result.materialKg} kg
                       </p>
                     </div>
@@ -631,7 +630,7 @@ export default function CalculatorPage() {
                           Bags Required (20kg each)
                         </p>
                       </div>
-                      <p className="font-heading text-4xl font-bold text-[#e4b725]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
+                      <p className="font-heading text-4xl font-bold text-[#B8A06A]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
                         {result.bags} bags
                       </p>
                     </div>
