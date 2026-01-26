@@ -83,19 +83,23 @@ function ProductsPageInner() {
           </div>
           <div className="flex flex-wrap gap-3">
             {categories.map((category) => (
-              <Button
+              <Link
                 key={category}
-                onClick={() => handleCategoryChange(category)}
-                variant={selectedCategory === category ? 'default' : 'outline'}
-                className={`font-paragraph text-sm transition-all duration-300 ${
-                  selectedCategory === category
-                    ? 'bg-[#374151] text-[#FFFFFF] border border-[#e4b725] hover:bg-[#374151]/95'
-                    : 'border-2 border-[#333333] text-[#33333353] hover:bg-[#e4b725]/5 hover:text-[#374151]'
-                }`}
-                style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
+                href={category === 'All' ? '/solutions' : `/solutions?category=${encodeURIComponent(category)}`}
+                className="no-underline"
               >
-                {category}
-              </Button>
+                <Button
+                  variant={selectedCategory === category ? 'default' : 'outline'}
+                  className={`font-paragraph text-sm transition-all duration-300 ${
+                    selectedCategory === category
+                      ? 'bg-[#374151] text-[#FFFFFF] border border-[#e4b725] hover:bg-[#374151]/95'
+                      : 'border-2 border-[#333333] text-[#33333353] hover:bg-[#e4b725]/5 hover:text-[#374151]'
+                  }`}
+                  style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
+                >
+                  {category}
+                </Button>
+              </Link>
             ))}
           </div>
         </div>
