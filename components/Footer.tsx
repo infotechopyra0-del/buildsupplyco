@@ -14,7 +14,7 @@ export default function Footer() {
               className="font-heading text-2xl font-bold mb-6"
               style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '1.875', letterSpacing: '0.01em', fontWeight: 500 }}
             >
-              CONCREED SOLUTIONS
+              CONCREED
             </h3>
             <p 
               className="font-paragraph text-sm text-[#FFFFFF]/80 leading-relaxed mb-6"
