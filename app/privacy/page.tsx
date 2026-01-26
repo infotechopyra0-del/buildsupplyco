@@ -161,6 +161,7 @@ export default function PrivacyPolicyPage() {
           >
             Privacy Policy
           </h1>
+          <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
           <p 
             className="text-lg lg:text-xl text-[#333333]/80 leading-relaxed mb-6" 
             style={{ fontFamily: 'Sora, sans-serif', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}
@@ -209,9 +210,9 @@ export default function PrivacyPolicyPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#F8F8F8] p-10 rounded-sm border border-[#E0E0E0] text-center"
+                className="bg-[#FFFFFF] p-10 rounded-sm border border-[#E0E0E0] text-center"
               >
-                <point.icon className="w-12 h-12 text-[#B8A06A] mx-auto mb-6" strokeWidth={1.5} />
+                <point.icon className="w-12 h-12 text-[#e4b725] mx-auto mb-6" strokeWidth={1.5} />
                 <h3 
                   className="text-2xl font-semibold text-[#333333] mb-4" 
                   style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.5rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 600 }}
@@ -244,7 +245,7 @@ export default function PrivacyPolicyPage() {
                 className="bg-[#FFFFFF] p-10 rounded-sm border border-[#E0E0E0]"
               >
                 <div className="flex items-start gap-6 mb-8">
-                  <section.icon className="w-10 h-10 text-[#B8A06A] shrink-0 mt-1" strokeWidth={1.5} />
+                  <section.icon className="w-10 h-10 text-[#e4b725] shrink-0 mt-1" strokeWidth={1.5} />
                   <h2 
                     className="text-3xl font-bold text-[#333333]" 
                     style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2rem', lineHeight: '1.1', letterSpacing: '0.001em', fontWeight: 700 }}
@@ -358,9 +359,9 @@ export default function PrivacyPolicyPage() {
               className="text-base text-[#333333]/80 leading-relaxed space-y-2" 
               style={{ fontFamily: 'Sora, sans-serif', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
             >
-              <p><span className="text-[#B8A06A] font-semibold">Email:</span> privacy@buildpro.com</p>
-              <p><span className="text-[#B8A06A] font-semibold">Phone:</span> 1-800-BUILD-PRO</p>
-              <p><span className="text-[#B8A06A] font-semibold">Mail:</span> BuildPro Privacy Department, 123 Construction Ave, Suite 100</p>
+              <p><span className="text-[#e4b725] font-semibold">Email:</span> privacy@buildpro.com</p>
+              <p><span className="text-[#e4b725] font-semibold">Phone:</span> 1-800-BUILD-PRO</p>
+              <p><span className="text-[#e4b725] font-semibold">Mail:</span> BuildPro Privacy Department, 123 Construction Ave, Suite 100</p>
             </div>
           </motion.div>
         </div>

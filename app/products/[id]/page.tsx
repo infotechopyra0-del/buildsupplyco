@@ -303,8 +303,7 @@ export default function ProductPage() {
         <Link href="/products">
           <Button
             variant="outline"
-            className="mb-12 border-2 border-dark-grey text-dark-grey hover:bg-dark-grey hover:text-primary-foreground font-paragraph transition-all duration-300"
-            style={{ background: '#F8F8F8', color: '#333333', borderColor: '#333333' }}
+            className="mb-12 border-2 border-[#e4b725] text-[#374151] bg-transparent hover:bg-[#e4b725]/5 hover:text-[#374151] font-paragraph transition-all duration-300"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Products
@@ -340,7 +339,7 @@ export default function ProductPage() {
             >
               <div className="grid lg:grid-cols-2 gap-16 mb-16">
                 {/* Product Image */}
-                <div className="aspect-square rounded-sm overflow-hidden bg-background border border-light-grey">
+                <div className="aspect-square rounded-sm overflow-hidden bg-[#FFFFFF] border border-[#E0E0E0]">
                   <Image
                     src={product.productImage || ""}
                     alt={product.productName || 'Product'}
@@ -352,10 +351,10 @@ export default function ProductPage() {
 
                 {/* Product Info */}
                 <div>
-                  <div className="inline-block px-4 py-2 bg-light-grey border border-light-grey rounded-sm mb-6">
+                  <div className="inline-block px-4 py-2 bg-[#FFFFFF]/5 rounded-sm mb-6 border border-[#E0E0E0]">
                     <span
                       className="font-paragraph text-sm font-medium"
-                      style={{ color: '#B8A06A', fontFamily: 'sora', fontWeight: 500 }}
+                      style={{ color: '#e4b725', fontFamily: 'sora', fontWeight: 500 }}
                     >
                       {product.category}
                     </span>
@@ -363,13 +362,14 @@ export default function ProductPage() {
 
                   <h1
                     className="font-heading text-5xl lg:text-6xl font-bold mb-6 flex items-center gap-4"
-                    style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700, color: '#2C3E50' }}
+                    style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700, color: '#333333' }}
                   >
                     {product.productName}
                     {product.isFeatured && (
-                      <span className="ml-2 px-3 py-1 bg-[#B8A06A] text-white text-xs font-semibold rounded-full">Featured</span>
+                      <span className="ml-2 px-3 py-1 bg-[#e4b725] text-white text-xs font-semibold rounded-full">Featured</span>
                     )}
                   </h1>
+                  <div className="w-12 h-1 bg-[#e4b725] mb-6" />
 
                   <p
                     className="font-paragraph text-lg leading-relaxed mb-10"
@@ -379,17 +379,17 @@ export default function ProductPage() {
                   </p>
 
                   {/* Technical Specs */}
-                  <div className="bg-background border border-light-grey rounded-sm p-8 mb-10">
+                  <div className="bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm p-8 mb-10">
                     <h3
                       className="font-heading text-2xl font-semibold mb-6"
-                      style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '1.875', letterSpacing: '0.01em', fontWeight: 600, color: '#2C3E50' }}
+                      style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '1.875', letterSpacing: '0.01em', fontWeight: 600, color: '#374151' }}
                     >
                       Technical Specifications
                     </h3>
                     <div className="space-y-4">
                       {product.coverageRate && (
                         <div className="flex items-start gap-4">
-                          <Ruler className="h-5 w-5 text-accent-gold mt-1 shrink-0" strokeWidth={1.5} />
+                          <Ruler className="h-5 w-5 text-[#e4b725] mt-1 shrink-0" strokeWidth={1.5} />
                           <div>
                             <p
                               className="font-paragraph text-sm mb-1"
@@ -408,7 +408,7 @@ export default function ProductPage() {
                       )}
                       {product.wastagePercentage !== undefined && (
                         <div className="flex items-start gap-4">
-                          <Percent className="h-5 w-5 text-accent-gold mt-1 shrink-0" strokeWidth={1.5} />
+                          <Percent className="h-5 w-5 text-[#e4b725] mt-1 shrink-0" strokeWidth={1.5} />
                           <div>
                             <p
                               className="font-paragraph text-sm mb-1"
@@ -429,10 +429,10 @@ export default function ProductPage() {
                   </div>
 
                   <Link href="/calculator">
-                    <Button
+                      <Button
                       size="lg"
                       className="w-full bg-secondary hover:bg-secondary/90 text-primary-foreground font-paragraph text-base px-8 py-6 h-auto transition-all duration-300"
-                      style={{ background: '#B8A06A', color: '#FFFFFF' }}
+                      style={{ background: '#e4b725', color: '#FFFFFF' }}
                     >
                       <Package className="mr-2 h-5 w-5" />
                       Calculate Material Requirements
@@ -443,10 +443,10 @@ export default function ProductPage() {
 
               {/* Additional Details */}
               {product.specifications && (
-                <div className="bg-background border border-light-grey rounded-sm p-10 lg:p-12">
+                <div className="bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm p-10 lg:p-12">
                   <h2
                     className="font-heading text-3xl font-bold mb-6"
-                    style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 700, color: '#2C3E50' }}
+                    style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 700, color: '#374151' }}
                   >
                     Detailed Specifications
                   </h2>

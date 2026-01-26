@@ -146,6 +146,7 @@ export default function BlogsPage() {
           <h1 className="font-heading text-6xl lg:text-8xl font-bold text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3.75rem', lineHeight: '1.1', letterSpacing: '0.001em', fontWeight: 700 }}>
             Industry Insights
           </h1>
+          <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
           <p className="font-paragraph text-lg lg:text-xl text-[#333333]/80 leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
             Expert guidance, technical tips, and construction industry updates
           </p>
@@ -172,7 +173,7 @@ export default function BlogsPage() {
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                     >
                       <Link href={`/blogs/${blog._id}`}>
-                        <div className="group bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm overflow-hidden hover:border-[#B8A06A] transition-all duration-500 h-full flex flex-col">
+                        <div className="group bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm overflow-hidden hover:border-[#e4b725] transition-all duration-500 h-full flex flex-col">
                           <div className="aspect-16/10 overflow-hidden">
                             <Image 
                               src={blog.coverImage || '/images/blog-placeholder.jpg'}
@@ -185,36 +186,36 @@ export default function BlogsPage() {
                           <div className="p-8 flex-1 flex flex-col">
                             <div className="flex items-center gap-4 mb-4 text-[#333333]/60">
                               {blog.publishDate && (
-                                <div className="flex items-center gap-2">
-                                  <Calendar className="h-4 w-4" strokeWidth={1.5} />
-                                  <span className="font-paragraph text-xs">
-                                    {blog.publishDate instanceof Date ? blog.publishDate.toISOString().slice(0, 10) : blog.publishDate}
-                                  </span>
-                                </div>
+                                  <div className="flex items-center gap-2">
+                                      <Calendar className="h-4 w-4 text-[#333333]/60" strokeWidth={1.5} />
+                                      <span className="font-paragraph text-xs">
+                                        {blog.publishDate instanceof Date ? blog.publishDate.toISOString().slice(0, 10) : blog.publishDate}
+                                      </span>
+                                    </div>
                               )}
                               {blog.author && (
                                 <div className="flex items-center gap-2">
-                                  <User className="h-4 w-4" strokeWidth={1.5} />
-                                  <span className="font-paragraph text-xs">
-                                    {blog.author}
-                                  </span>
-                                </div>
+                                    <User className="h-4 w-4 text-[#333333]/60" strokeWidth={1.5} />
+                                    <span className="font-paragraph text-xs">
+                                      {blog.author}
+                                    </span>
+                                  </div>
                               )}
                             </div>
                             {blog.category && (
-                              <div className="inline-block px-3 py-1 bg-[#F8F8F8] rounded-sm mb-4 self-start">
-                                <span className="font-paragraph text-xs text-[#B8A06A] font-medium" style={{ fontFamily: 'sora', fontSize: '0.75rem', lineHeight: '1.25', letterSpacing: '0.02em', fontWeight: 500 }}>
+                              <div className="inline-block px-3 py-1 bg-[#FFFFFF]/5 rounded-sm mb-4 self-start border border-[#FFFFFF]/10">
+                                <span className="font-paragraph text-xs text-[#e4b725] font-medium" style={{ fontFamily: 'sora', fontSize: '0.75rem', lineHeight: '1.25', letterSpacing: '0.02em', fontWeight: 500 }}>
                                   {blog.category}
                                 </span>
                               </div>
                             )}
-                            <h3 className="font-heading text-2xl font-semibold text-[#333333] mb-3 group-hover:text-[#B8A06A] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 600 }}>
+                            <h3 className="font-heading text-2xl font-semibold text-[#333333] mb-3 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 600 }}>
                               {blog.title}
                             </h3>
                             <p className="font-paragraph text-sm text-[#333333]/70 leading-relaxed line-clamp-3 mb-6 flex-1" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
                               {blog.content}
                             </p>
-                            <span className="inline-flex items-center font-paragraph text-sm text-[#B8A06A] group-hover:gap-2 transition-all duration-300" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                            <span className="inline-flex items-center font-paragraph text-sm text-[#e4b725] group-hover:gap-2 transition-all duration-300" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
                               Read More
                               <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                             </span>
@@ -229,7 +230,7 @@ export default function BlogsPage() {
                   <div className="text-center mt-16">
                     <Button
                       onClick={loadMore}
-                      className="bg-[#2C3E50] hover:bg-[#2C3E50]/90 text-[#FFFFFF] font-paragraph px-10 py-6 h-auto"
+                      className="bg-[#e4b725] hover:bg-[#e4b725]/90 text-[#374151] font-paragraph px-10 py-6 h-auto"
                     >
                       Load More Articles
                     </Button>

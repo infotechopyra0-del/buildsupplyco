@@ -92,7 +92,7 @@ export default function HomePage() {
   const yHero = useTransform(heroScroll, [0, 1], ["0%", "30%"]);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-[#F8F8F8] overflow-clip selection:bg-[#B8A06A] selection:text-[#FFFFFF]">
+    <div ref={containerRef} className="min-h-screen bg-[#F8F8F8] overflow-clip selection:bg-[#e4b725] selection:text-[#FFFFFF]">
       <Header />
       <section ref={heroRef} className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Background Parallax Layer */}
@@ -119,8 +119,8 @@ export default function HomePage() {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="mb-6 flex items-center gap-4"
             >
-              <div className="h-px w-12 bg-[#B8A06A]" />
-              <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#B8A06A] font-medium" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 500 }}>
+              <div className="h-px w-12 bg-[#e4b725]" />
+              <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#e4b725] font-medium" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 500 }}>
                 Est. Quality Standards
               </span>
             </motion.div>
@@ -140,7 +140,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="font-paragraph text-lg md:text-xl text-[#FFFFFF] max-w-2xl leading-relaxed mb-12 border-l-2 border-[#B8A06A]/30 pl-6"
+              className="font-paragraph text-lg md:text-xl text-[#FFFFFF] max-w-2xl leading-relaxed mb-12 border-l-2 border-[#e4b725]/30 pl-6"
               style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}
             >
               Premium construction materials engineered for precision, durability, and uncompromising quality. We provide the foundation for the world's most ambitious structures.
@@ -155,10 +155,10 @@ export default function HomePage() {
               <Link href="/calculator">
                 <Button 
                   size="lg"
-                  className="bg-[#2C3E50] hover:bg-[#2C3E50]/90 text-[#FFFFFF] font-paragraph text-base px-10 py-7 h-auto rounded-none border border-[#2C3E50] transition-all duration-300 group"
+                  className="bg-[#374151] hover:bg-[#374151]/90 text-[#FFFFFF] font-paragraph text-base px-10 py-7 h-auto rounded-none border border-[#374151] transition-all duration-300 group"
                   style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
-                  <Calculator className="mr-3 h-5 w-5 text-[#B8A06A]" />
+                  <Calculator className="mr-3 h-5 w-5 text-[#e4b725]" />
                   Launch Calculator
                   <ArrowRight className="ml-2 h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                 </Button>
@@ -231,12 +231,12 @@ export default function HomePage() {
                 <h2 className="font-heading text-4xl lg:text-5xl text-[#333333] mb-6" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
                   The Architecture <br /> of Quality
                 </h2>
-                <div className="w-12 h-1 bg-[#B8A06A] mb-8" />
+                <div className="w-12 h-1 bg-[#e4b725] mb-8" />
                 <p className="font-paragraph text-[#333333]/60 leading-relaxed mb-8" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
                   We believe that the integrity of a structure is defined by the quality of its smallest components. Our philosophy is rooted in the relentless pursuit of material perfection.
                 </p>
                 <Link href="/about">
-                  <Button variant="link" className="p-0 h-auto font-paragraph text-[#B8A06A] hover:text-[#B8A06A]/80 group">
+                  <Button variant="link" className="p-0 h-auto font-paragraph text-[#e4b725] hover:text-[#e4b725]/80 group">
                     Read Our Story <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
@@ -278,7 +278,7 @@ export default function HomePage() {
       <section className="w-full py-32 bg-[#F8F8F8]">
         <div className="max-w-480 mx-auto px-6 lg:px-12 mb-20 flex flex-col md:flex-row justify-between items-end gap-8">
           <div>
-            <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#B8A06A] mb-4 block" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>Our Collection</span>
+            <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#e4b725] mb-4 block" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>Our Collection</span>
             <h2 className="font-heading text-5xl lg:text-6xl text-[#333333]" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}>Material Solutions</h2>
           </div>
           <Link href="/products">
@@ -306,13 +306,13 @@ export default function HomePage() {
                 {/* Content */}
                 <div className="relative z-10 h-full p-10 flex flex-col justify-between group-hover:text-[#FFFFFF] transition-colors duration-300">
                   <div>
-                    <div className="w-12 h-12 mb-8 text-[#B8A06A]">
+                    <div className="w-12 h-12 mb-8 text-[#e4b725]">
                       <category.icon strokeWidth={1} className="w-full h-full" />
                     </div>
                     <h3 className="font-heading text-3xl font-medium mb-4 group-hover:translate-x-2 transition-transform duration-500" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 600 }}>
                       {category.title}
                     </h3>
-                    <div className="w-12 h-px bg-[#333333]/20 group-hover:bg-[#B8A06A] mb-6 transition-colors duration-300" />
+                    <div className="w-12 h-px bg-[#333333]/20 group-hover:bg-[#e4b725] mb-6 transition-colors duration-300" />
                     <p className="font-paragraph text-[#333333]/60 group-hover:text-[#FFFFFF]/80 leading-relaxed max-w-xs transition-colors duration-300" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
                       {category.description}
                     </p>
@@ -320,7 +320,7 @@ export default function HomePage() {
                   
                   <div className="flex items-center gap-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
                     <span className="font-paragraph text-sm uppercase tracking-widest" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>Explore</span>
-                    <ArrowRight className="w-5 h-5 text-[#B8A06A]" />
+                    <ArrowRight className="w-5 h-5 text-[#e4b725]" />
                   </div>
                 </div>
               </Link>
@@ -330,7 +330,7 @@ export default function HomePage() {
       </section>
 
       {/* --- CALCULATOR FEATURE (Dark Theme) --- */}
-      <section className="w-full bg-[#2C3E50] text-[#FFFFFF] py-32 overflow-hidden relative">
+      <section className="w-full bg-[#374151] text-[#FFFFFF] py-32 overflow-hidden relative">
         {/* Abstract Background Pattern */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
            <div className="absolute top-0 left-0 w-full h-full bg-[linear-linear(to_right,#80808012_1px,transparent_1px),linear-linear(to_bottom,#80808012_1px,transparent_1px)] bg-size:[24px_24px]"></div>
@@ -348,13 +348,13 @@ export default function HomePage() {
                 transition={{ duration: 0.8 }}
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <Calculator className="w-6 h-6 text-[#B8A06A]" />
-                  <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#B8A06A]">Precision Tool</span>
+                  <Calculator className="w-6 h-6 text-[#e4b725]" />
+                  <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#e4b725]">Precision Tool</span>
                 </div>
                 
                 <h2 className="font-heading text-5xl lg:text-7xl font-bold mb-8 leading-none" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}>
                   Calculate with <br />
-                  <span className="text-[#B8A06A]">Confidence.</span>
+                  <span className="text-[#e4b725]">Confidence.</span>
                 </h2>
                 
                 <p className="font-paragraph text-lg text-[#FFFFFF]/70 mb-12 max-w-xl leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
@@ -375,8 +375,8 @@ export default function HomePage() {
                       transition={{ duration: 0.5, delay: i * 0.1 }}
                       className="flex gap-4 items-start"
                     >
-                      <div className="mt-1 w-5 h-5 rounded-full border border-[#B8A06A]/50 flex items-center justify-center shrink-0">
-                        <div className="w-2 h-2 bg-[#B8A06A] rounded-full" />
+                      <div className="mt-1 w-5 h-5 rounded-full border border-[#e4b725]/50 flex items-center justify-center shrink-0">
+                        <div className="w-2 h-2 bg-[#e4b725] rounded-full" />
                       </div>
                       <div>
                         <h4 className="font-heading text-xl text-[#FFFFFF] mb-1" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.25rem', lineHeight: '1.75', letterSpacing: '0.01em', fontWeight: 500 }}>{item.title}</h4>
@@ -388,9 +388,9 @@ export default function HomePage() {
 
                 <Link href="/calculator">
                   <Button 
-                    size="lg"
-                    className="bg-[#B8A06A] hover:bg-[#B8A06A]/90 text-[#2C3E50] font-paragraph text-base px-12 py-8 h-auto rounded-none transition-all duration-300"
-                  >
+                      size="lg"
+                      className="bg-[#e4b725] hover:bg-[#e4b725]/90 text-[#374151] font-paragraph text-base px-12 py-8 h-auto rounded-none transition-all duration-300"
+                    >
                     Start Calculating
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -402,12 +402,12 @@ export default function HomePage() {
             <div className="order-1 lg:order-2 relative h-150 flex items-center justify-center">
               <div className="relative w-full max-w-md aspect-3/4 bg-[#FFFFFF]/5 backdrop-blur-md border border-[#FFFFFF]/10 rounded-sm p-8 shadow-2xl">
                 {/* Decorative UI Elements */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-[#B8A06A]/50" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-[#e4b725]/50" />
                 
                 <div className="space-y-8">
                   <div className="flex justify-between items-center border-b border-[#FFFFFF]/10 pb-4">
                     <div className="h-4 w-24 bg-[#FFFFFF]/20 rounded-sm" />
-                    <div className="h-8 w-8 bg-[#B8A06A]/20 rounded-full" />
+                    <div className="h-8 w-8 bg-[#e4b725]/20 rounded-full" />
                   </div>
                   
                   <div className="space-y-4">
@@ -423,11 +423,11 @@ export default function HomePage() {
                   <div className="pt-8 border-t border-[#FFFFFF]/10">
                     <div className="flex justify-between items-end mb-2">
                       <div className="h-3 w-20 bg-[#FFFFFF]/20 rounded-sm" />
-                      <div className="h-8 w-32 bg-[#B8A06A] rounded-sm animate-pulse" />
+                      <div className="h-8 w-32 bg-[#e4b725] rounded-sm animate-pulse" />
                     </div>
                     <div className="h-2 w-full bg-[#FFFFFF]/5 rounded-full overflow-hidden mt-4">
                       <motion.div 
-                        className="h-full bg-[#B8A06A]"
+                        className="h-full bg-[#e4b725]"
                         initial={{ width: "0%" }}
                         whileInView={{ width: "75%" }}
                         transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -443,7 +443,7 @@ export default function HomePage() {
                   className="absolute -right-12 top-1/4 bg-[#333333] border border-[#FFFFFF]/10 p-4 rounded-sm shadow-xl"
                 >
                   <div className="flex items-center gap-3">
-                      <Box className="w-5 h-5 text-[#B8A06A]" />
+                      <Box className="w-5 h-5 text-[#e4b725]" />
                     <div>
                       <div className="text-xs text-[#FFFFFF]/50 uppercase tracking-wider">Material</div>
                       <div className="text-lg font-heading text-[#FFFFFF]">240 kg</div>
@@ -454,7 +454,7 @@ export default function HomePage() {
                 <motion.div 
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute -left-8 bottom-1/4 bg-[#FFFFFF] text-[#2C3E50] p-4 rounded-sm shadow-xl"
+                  className="absolute -left-8 bottom-1/4 bg-[#FFFFFF] text-[#374151] p-4 rounded-sm shadow-xl"
                 >
                   <div className="flex items-center gap-3">
                       <Ruler className="w-5 h-5 text-[#2C3E50]" />
@@ -495,8 +495,8 @@ export default function HomePage() {
                   key={index} 
                   className="group border-b border-[#333333]/10 md:border-l md:border-b-0 p-8 lg:p-12 hover:bg-[#F8F8F8] transition-colors duration-300"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#E0E0E0]/30 flex items-center justify-center mb-6 group-hover:bg-[#B8A06A]/20 transition-colors duration-300">
-                    <CheckCircle2 className="w-5 h-5 text-[#333333] group-hover:text-[#B8A06A] transition-colors duration-300" />
+                    <div className="w-10 h-10 rounded-full bg-[#E0E0E0]/30 flex items-center justify-center mb-6 group-hover:bg-[#e4b725]/20 transition-colors duration-300">
+                    <CheckCircle2 className="w-5 h-5 text-[#333333] group-hover:text-[#e4b725] transition-colors duration-300" />
                   </div>
                   <h3 className="font-heading text-2xl text-[#333333] mb-3" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '1.875', letterSpacing: '0.01em', fontWeight: 500 }}>{feature}</h3>
                   <p className="font-paragraph text-sm text-[#333333]/50" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
@@ -510,7 +510,7 @@ export default function HomePage() {
       </section>
 
       {/* --- FINAL CTA --- */}
-      <section className="w-full py-24 bg-[#F8F8F8] border-t border-[#333333]/5">
+      <section className="w-full py-24 bg-[#e4b725] border-t border-[#333333]/5">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="font-heading text-4xl md:text-5xl text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
             Ready to build with precision?

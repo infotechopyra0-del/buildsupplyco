@@ -67,7 +67,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'iinfo@concreedsolutions.com'
+      content: 'info@concreedsolutions.com'
     }
   ];
 
@@ -86,6 +86,7 @@ export default function ContactPage() {
           <h1 className="font-heading text-6xl lg:text-8xl font-bold text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3.75rem', lineHeight: '1.1', letterSpacing: '0.001em', fontWeight: 700 }}>
             Get In Touch
           </h1>
+          <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
           <p className="font-paragraph text-lg lg:text-xl text-[#333333]/80 leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
             Have questions about our products or services? We're here to help.
           </p>
@@ -105,7 +106,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Card className="p-8 bg-[#FFFFFF] border-[#E0E0E0] text-center">
-                  <info.icon className="w-12 h-12 text-[#B8A06A] mx-auto mb-6" strokeWidth={1.5} />
+                  <info.icon className="w-12 h-12 text-[#e4b725] mx-auto mb-6" strokeWidth={1.5} />
                   <h3 className="font-heading text-xl font-semibold text-[#333333] mb-3" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.25rem', lineHeight: '1.75', letterSpacing: '0.01em', fontWeight: 500 }}>
                     {info.title}
                   </h3>
@@ -132,12 +133,13 @@ export default function ContactPage() {
               <h2 className="font-heading text-4xl font-bold text-[#333333] mb-8 text-center" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
                 Send Us a Message
               </h2>
+              <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
 
               {submitSuccess && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-8 p-6 bg-[#B8A06A]/10 border border-[#B8A06A] rounded-sm"
+                  className="mb-8 p-6 bg-[#e4b725]/10 border border-[#e4b725] rounded-sm"
                 >
                   <p className="font-paragraph text-base text-[#333333] text-center" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
                     Thank you for your message! We'll get back to you soon.
@@ -214,7 +216,7 @@ export default function ContactPage() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#2C3E50] hover:bg-[#2C3E50]/90 text-[#FFFFFF] font-paragraph text-base px-8 py-6 h-auto transition-all duration-300"
+                  className="w-full bg-[#e4b725] hover:bg-[#e4b725]/90 text-[#374151] font-paragraph text-base px-8 py-6 h-auto transition-all duration-300"
                 >
                   {isSubmitting ? (
                     'Sending...'

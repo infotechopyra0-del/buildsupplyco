@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#2C3E50] text-[#FFFFFF]">
+    <footer className="w-full bg-[#374151] text-[#FFFFFF]">
       <div className="max-w-400 mx-auto px-8 lg:px-16 py-16 lg:py-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
           {/* Company Info */}
@@ -24,7 +24,7 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-[#B8A06A] mt-0.5 shrink-0" strokeWidth={1.5} />
+                <MapPin className="h-5 w-5 text-[#e4b725] mt-0.5 shrink-0" strokeWidth={1.5} />
                 <span 
                   className="font-paragraph text-sm text-[#FFFFFF]/80"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
@@ -33,7 +33,7 @@ export default function Footer() {
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-[#B8A06A] shrink-0" strokeWidth={1.5} />
+                <Phone className="h-5 w-5 text-[#e4b725] shrink-0" strokeWidth={1.5} />
                 <span 
                   className="font-paragraph text-sm text-[#FFFFFF]/80"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
@@ -42,7 +42,7 @@ export default function Footer() {
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-[#B8A06A] shrink-0" strokeWidth={1.5} />
+                <Mail className="h-5 w-5 text-[#e4b725] shrink-0" strokeWidth={1.5} />
                 <span 
                   className="font-paragraph text-sm text-[#FFFFFF]/80"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
@@ -65,7 +65,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/"
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
                   Home
@@ -74,7 +74,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/about" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   About Us
                 </Link>
@@ -82,7 +82,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/products" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   Products
                 </Link>
@@ -90,7 +90,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/contact" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   Contact Us
                 </Link>
@@ -110,7 +110,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/products?category=Waterproofing" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
                   Waterproofing Solutions
@@ -119,7 +119,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/products?category=Adhesive" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   Tile & Stone Adhesive
                 </Link>
@@ -127,7 +127,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/products?category=Concrete%20Repair" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   Concrete Repair Solutions
                 </Link>
@@ -135,7 +135,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/products?category=Flooring" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   Flooring Solutions
                 </Link>
@@ -155,7 +155,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/calculator" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
                   Material Calculator
@@ -164,7 +164,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/blogs" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   Blog Articles
                 </Link>
@@ -172,7 +172,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/faqs" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#B8A06A] transition-colors duration-300"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
                 >
                   FAQs
                 </Link>
@@ -193,14 +193,14 @@ export default function Footer() {
             <div className="flex gap-8">
               <Link 
                 href="/privacy" 
-                className="font-paragraph text-sm text-[#FFFFFF]/70 hover:text-[#B8A06A] transition-colors duration-300"
+                className="font-paragraph text-sm text-[#FFFFFF]/70 hover:text-[#e4b725] transition-colors duration-300"
                 style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
               >
                 Privacy Policy
               </Link>
               <Link 
                 href="/terms" 
-                className="font-paragraph text-sm text-[#FFFFFF]/70 hover:text-[#B8A06A] transition-colors duration-300"
+                className="font-paragraph text-sm text-[#FFFFFF]/70 hover:text-[#e4b725] transition-colors duration-300"
                 style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
               >
                 Terms of Service

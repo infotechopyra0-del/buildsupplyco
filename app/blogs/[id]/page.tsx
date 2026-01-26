@@ -131,14 +131,14 @@ export default function BlogDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#F8F8F8]">
       <Header />
       
       <div className="w-full max-w-400 mx-auto px-8 lg:px-16 pt-32 pb-24 lg:pt-40 lg:pb-32">
         <Link href="/blogs">
           <Button 
             variant="outline"
-            className="mb-12 border-2 border-dark-grey text-dark-grey hover:bg-dark-grey hover:text-white font-paragraph transition-all duration-300"
+            className="mb-12 border-2 border-[#e4b725] text-[#374151] bg-transparent hover:bg-[#e4b725]/5 hover:text-[#374151] font-paragraph transition-all duration-300"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Blog
@@ -174,30 +174,31 @@ export default function BlogDetailPage() {
               {/* Article Header */}
               <header className="mb-12">
                 {blog.category && (
-                  <div className="inline-block px-4 py-2 bg-white border border-light-grey rounded-sm mb-6">
-                    <span className="font-paragraph text-sm text-accent-gold font-medium" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 500 }}>
+                  <div className="inline-block px-4 py-2 bg-[#FFFFFF]/5 rounded-sm mb-6 border border-[#E0E0E0]">
+                    <span className="font-paragraph text-sm text-[#e4b725] font-medium" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 500 }}>
                       {blog.category}
                     </span>
                   </div>
                 )}
-                
-                <h1 className="font-heading text-5xl lg:text-7xl font-bold text-foreground mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.001em', fontWeight: 700 }}>
+
+                <h1 className="font-heading text-5xl lg:text-7xl font-bold text-[#333333] mb-4" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.001em', fontWeight: 700 }}>
                   {blog.title}
                 </h1>
+                <div className="w-12 h-1 bg-[#e4b725] mb-6" />
                 
                 <div className="flex items-center gap-6 text-foreground/60">
                   {blog.publishDate && (
                     <div className="flex items-center gap-2">
-                      <Calendar className="h-5 w-5" strokeWidth={1.5} />
-                      <span className="font-paragraph text-base" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                      <Calendar className="h-5 w-5 text-[#333333]/60" strokeWidth={1.5} />
+                      <span className="font-paragraph text-base" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400, color: '#333333' }}>
                         {formatDate(blog.publishDate)}
                       </span>
                     </div>
                   )}
                   {blog.author && (
                     <div className="flex items-center gap-2">
-                      <User className="h-5 w-5" strokeWidth={1.5} />
-                      <span className="font-paragraph text-base" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                      <User className="h-5 w-5 text-[#333333]/60" strokeWidth={1.5} />
+                      <span className="font-paragraph text-base" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400, color: '#333333' }}>
                         {blog.author}
                       </span>
                     </div>
@@ -226,11 +227,11 @@ export default function BlogDetailPage() {
               </div>
 
               {/* Article Footer */}
-              <footer className="mt-16 pt-12 border-t border-light-grey">
+              <footer className="mt-16 pt-12 border-t border-[#E0E0E0]">
                 <Link href="/blogs">
                   <Button 
                     variant="outline"
-                    className="border-2 border-dark-grey text-dark-grey hover:bg-dark-grey hover:text-white font-paragraph transition-all duration-300"
+                    className="border-2 border-[#e4b725] text-[#374151] bg-transparent hover:bg-[#e4b725]/5 hover:text-[#374151] font-paragraph transition-all duration-300"
                   >
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     Back to All Articles

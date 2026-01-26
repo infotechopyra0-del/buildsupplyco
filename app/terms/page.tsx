@@ -59,7 +59,6 @@ export default function TermsOfServicePage() {
     <>
     <Header  />
     <div className="min-h-screen bg-[#F8F8F8]">
-
       {/* Hero Section */}
       <section className="w-full max-w-7xl mx-auto px-8 lg:px-16 pt-32 pb-24 lg:pt-40 lg:pb-32">
         <motion.div
@@ -74,6 +73,7 @@ export default function TermsOfServicePage() {
           >
             Terms of Service
           </h1>
+          <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
           <p 
             className="text-lg lg:text-xl text-[#333333]/80 leading-relaxed mb-6" 
             style={{ fontFamily: 'Sora, sans-serif', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}
@@ -100,9 +100,9 @@ export default function TermsOfServicePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#F8F8F8] p-8 rounded-sm border border-[#E0E0E0]"
+                className="bg-[#FFFFFF] p-8 rounded-sm border border-[#E0E0E0]"
               >
-                <section.icon className="w-10 h-10 text-[#B8A06A] mb-6" strokeWidth={1.5} />
+                <section.icon className="w-10 h-10 text-[#e4b725] mb-6" strokeWidth={1.5} />
                 <h2 
                   className="text-2xl font-semibold text-[#333333] mb-4" 
                   style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.5rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 600 }}

@@ -37,12 +37,15 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span 
-              className="font-heading text-3xl font-bold text-[#2C3E50]"
-              style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 600 }}
-            >
-              CONCREED SOLUTIONS
-            </span>
+            <div className="flex flex-col items-start leading-none">
+              <span
+                className="font-heading font-bold text-[28px] sm:text-[36px] md:text-[48px] text-[#e4b725]"
+                style={{ fontFamily: 'cormorantgaramond', lineHeight: '1', letterSpacing: '0.005em', fontWeight: 700 }}
+              >
+                CONCREED
+              </span>
+              <span className="text-xs sm:text-sm tracking-widest text-[#6B6B6B] mt-1" style={{ fontFamily: 'sora' }}>BUILDING TOMORROW</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -50,7 +53,7 @@ export default function Header() {
             <Link 
               href="/" 
               className={`font-paragraph text-base transition-colors duration-300 ${
-                isActive('/') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#B8A06A]'
+                isActive('/') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
               }`}
               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
             >
@@ -59,7 +62,7 @@ export default function Header() {
             <Link 
               href="/about" 
               className={`font-paragraph text-base transition-colors duration-300 ${
-                isActive('/about') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#B8A06A]'
+                isActive('/about') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
               }`}
               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
             >
@@ -72,7 +75,7 @@ export default function Header() {
               onMouseLeave={() => setProductsOpen(false)}
             >
               <button 
-                className="font-paragraph text-base text-[#333333] hover:text-[#B8A06A] transition-colors duration-300 flex items-center gap-1"
+                className="font-paragraph text-base text-[#333333] hover:text-[#e4b725] transition-colors duration-300 flex items-center gap-1"
                 style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
               >
                 Products
@@ -92,7 +95,7 @@ export default function Header() {
                       <Link
                         key={category.name}
                         href={category.path}
-                        className="block px-6 py-3 font-paragraph text-sm text-[#333333] hover:bg-[#F8F8F8] hover:text-[#B8A06A] transition-colors duration-200"
+                        className="block px-6 py-3 font-paragraph text-sm text-[#333333] hover:bg-[#F8F8F8] hover:text-[#e4b725] transition-colors duration-200"
                         style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                       >
                         {category.name}
@@ -110,7 +113,7 @@ export default function Header() {
               onMouseLeave={() => setResourcesOpen(false)}
             >
               <button 
-                className="font-paragraph text-base text-[#333333] hover:text-[#B8A06A] transition-colors duration-300 flex items-center gap-1"
+                className="font-paragraph text-base text-[#333333] hover:text-[#e4b725] transition-colors duration-300 flex items-center gap-1"
                 style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
               >
                 Resources
@@ -130,7 +133,7 @@ export default function Header() {
                       <Link
                         key={link.name}
                         href={link.path}
-                        className="block px-6 py-3 font-paragraph text-sm text-[#333333] hover:bg-[#F8F8F8] hover:text-[#B8A06A] transition-colors duration-200"
+                        className="block px-6 py-3 font-paragraph text-sm text-[#333333] hover:bg-[#F8F8F8] hover:text-[#e4b725] transition-colors duration-200"
                         style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                       >
                         {link.name}
@@ -144,7 +147,7 @@ export default function Header() {
             <Link 
               href="/contact" 
               className={`font-paragraph text-base transition-colors duration-300 ${
-                isActive('/contact') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#B8A06A]'
+                isActive('/contact') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
               }`}
               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
             >

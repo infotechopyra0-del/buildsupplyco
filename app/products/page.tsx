@@ -341,6 +341,7 @@ function ProductsPageInner() {
           >
             Our Products
           </h1>
+          <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
           <p
             className="font-paragraph text-lg lg:text-xl text-[#333333]/80 leading-relaxed"
             style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.75', letterSpacing: '0.01em', fontWeight: 400 }}
@@ -353,7 +354,7 @@ function ProductsPageInner() {
       <section className="w-full bg-[#FFFFFF] py-8 border-y border-[#E0E0E0] sticky top-22 z-40">
         <div className="max-w-400 mx-auto px-8 lg:px-16">
           <div className="flex items-center gap-4 mb-4">
-            <Filter className="h-5 w-5 text-[#333333]" />
+            <Filter className="h-5 w-5 text-[#e4b725]" />
             <span
               className="font-paragraph text-base text-[#333333] font-medium"
               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 500 }}
@@ -369,8 +370,8 @@ function ProductsPageInner() {
                 variant={selectedCategory === category ? 'default' : 'outline'}
                 className={`font-paragraph text-sm transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-[#2C3E50] text-[#FFFFFF] hover:bg-[#2C3E50]/90'
-                    : 'border-2 border-[#333333] text-[#33333353] hover:bg-[#333333] hover:text-[#FFFFFF]'
+                    ? 'bg-[#374151] text-[#FFFFFF] border border-[#e4b725] hover:bg-[#374151]/95'
+                    : 'border-2 border-[#333333] text-[#33333353] hover:bg-[#e4b725]/5 hover:text-[#374151]'
                 }`}
                 style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
               >
@@ -399,7 +400,7 @@ function ProductsPageInner() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
                     <Link href={`/products/${product._id}`}>
-                      <div className="group bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm overflow-hidden hover:border-[#B8A06A] transition-all duration-500">
+                      <div className="group bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm overflow-hidden hover:border-[#e4b725] transition-all duration-500">
                         <div className="aspect-4/3 overflow-hidden">
                           <Image
                             src={product.productImage || ''}
@@ -410,16 +411,16 @@ function ProductsPageInner() {
                           />
                         </div>
                         <div className="p-8">
-                          <div className="inline-block px-3 py-1 bg-[#F8F8F8] rounded-sm mb-4">
+                          <div className="inline-block px-3 py-1 bg-[#FFFFFF]/5 rounded-sm mb-4 border border-[#FFFFFF]/10">
                             <span
-                              className="font-paragraph text-xs text-[#B8A06A] font-medium"
+                              className="font-paragraph text-xs text-[#e4b725] font-medium"
                               style={{ fontFamily: 'sora', fontSize: '0.75rem', lineHeight: '1.25', letterSpacing: '0.02em', fontWeight: 500 }}
                             >
                               {product.category}
                             </span>
                           </div>
                           <h3
-                            className="font-heading text-2xl font-semibold text-[#333333] mb-3 group-hover:text-[#B8A06A] transition-colors duration-300"
+                            className="font-heading text-2xl font-semibold text-[#333333] mb-3 group-hover:text-[#e4b725] transition-colors duration-300"
                             style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '1.875', letterSpacing: '0.01em', fontWeight: 600 }}
                           >
                             {product.productName}

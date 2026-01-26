@@ -31,10 +31,11 @@ export default function FAQsPage() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <HelpCircle className="w-16 h-16 text-[#B8A06A] mx-auto mb-8" strokeWidth={1.5} />
+          <HelpCircle className="w-16 h-16 text-[#e4b725] mx-auto mb-8" strokeWidth={1.5} />
           <h1 className="font-heading text-6xl lg:text-8xl font-bold text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3.75rem', lineHeight: '1.1', letterSpacing: '0.001em', fontWeight: 700 }}>
             Frequently Asked Questions
           </h1>
+          <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
           <p className="font-paragraph text-lg lg:text-xl text-[#333333]/80 leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
             Find answers to common questions about our products and services
           </p>
@@ -51,10 +52,10 @@ export default function FAQsPage() {
                   key={category}
                   onClick={() => setSelectedCategory(category ?? 'All')}
                   className={`px-6 py-3 rounded-sm font-paragraph text-sm transition-all duration-300 ${
-                    selectedCategory === category
-                      ? 'bg-[#2C3E50] text-[#FFFFFF]'
-                      : 'bg-[#F8F8F8] text-[#333333] hover:bg-[#E0E0E0]'
-                  }`}
+                      selectedCategory === category
+                        ? 'bg-[#374151] text-[#FFFFFF] border border-[#e4b725] hover:bg-[#374151]/95'
+                        : 'bg-[#F8F8F8] text-[#333333] hover:bg-[#e4b725]/5 hover:text-[#374151]'
+                    }`}
                 >
                   {category}
                 </button>
@@ -86,9 +87,9 @@ export default function FAQsPage() {
                         <AccordionItem 
                           key={faq._id} 
                           value={faq._id}
-                          className="bg-[#FFFFFF] border border-[#B8A06A] rounded-sm px-8 py-2"
+                          className="bg-[#FFFFFF] border border-[#e4b725] rounded-sm px-8 py-2"
                         >
-                          <AccordionTrigger className="font-paragraph text-lg text-[#333333] hover:text-[#B8A06A] text-left" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
+                          <AccordionTrigger className="font-paragraph text-lg text-[#333333] hover:text-[#e4b725] text-left" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
                             {faq.question}
                           </AccordionTrigger>
                           <AccordionContent className="font-paragraph text-base text-[#333333]/80 leading-relaxed pt-4" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
@@ -113,9 +114,9 @@ export default function FAQsPage() {
                         <AccordionItem 
                           key={faq._id} 
                           value={faq._id}
-                          className="bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm px-8 py-2 hover:border-[#B8A06A] transition-colors duration-300"
+                          className="bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm px-8 py-2 hover:border-[#e4b725] transition-colors duration-300"
                         >
-                          <AccordionTrigger className="font-paragraph text-lg text-[#333333] hover:text-[#B8A06A] text-left" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
+                          <AccordionTrigger className="font-paragraph text-lg text-[#333333] hover:text-[#e4b725] text-left" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
                             {faq.question}
                           </AccordionTrigger>
                           <AccordionContent className="font-paragraph text-base text-[#333333]/80 leading-relaxed pt-4" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
@@ -139,7 +140,7 @@ export default function FAQsPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="w-full bg-[#2C3E50] py-16 lg:py-24">
+      <section className="w-full bg-[#374151] py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-8 lg:px-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -154,7 +155,7 @@ export default function FAQsPage() {
               Our team is here to help. Get in touch with us for personalized assistance.
             </p>
             <a href="/contact">
-              <button className="bg-[#B8A06A] hover:bg-[#B8A06A]/90 text-[#333333] font-paragraph text-base px-10 py-6 rounded-sm transition-all duration-300">
+              <button className="bg-[#e4b725] hover:bg-[#e4b725]/90 text-[#374151] font-paragraph text-base px-10 py-6 rounded-sm transition-all duration-300">
                 Contact Us
               </button>
             </a>
