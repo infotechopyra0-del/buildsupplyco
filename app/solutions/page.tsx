@@ -1,6 +1,6 @@
 "use client";
 export const dynamic = "force-dynamic";
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Filter } from 'lucide-react';
@@ -14,7 +14,6 @@ import { Suspense } from 'react';
 
 function ProductsPageInner() {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const categories = [
     'All',
     'Waterproofing',
@@ -35,13 +34,7 @@ function ProductsPageInner() {
         p.category.toLowerCase().includes(selectedCategory.toLowerCase())
       );
 
-  const handleCategoryChange = (category: string) => {
-    if (category === 'All') {
-      router.push('/solutions');
-    } else {
-      router.push(`/solutions?category=${encodeURIComponent(category)}`);
-    }
-  };
+  
 
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
