@@ -222,7 +222,7 @@ export const mockProducts: Products[] = [
     specifications: 'pH: 7-9. Specific Gravity: 1.02-1.03. Coverage: ~20 sq.ft./kg per coat. Packing: 20 kg.',
     coverageRate: 1.86,
     wastagePercentage: 8,
-    productImage: '/images/creedpu.png',
+    productImage: '/images/common.png',
     _createdDate: new Date('2026-01-15'),
     _updatedDate: new Date('2026-01-15'),
   },
