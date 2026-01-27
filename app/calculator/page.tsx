@@ -80,6 +80,7 @@ export default function CalculatorPage() {
   const [formulas, setFormulas] = useState<CalculatorFormulas[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<string>('');
   const [inputType, setInputType] = useState<'dimensions' | 'area'>('dimensions');
+  const [measurementUnit, setMeasurementUnit] = useState<'m' | 'ft'>('m');
   const [length, setLength] = useState<string>('');
   const [width, setWidth] = useState<string>('');
   const [totalArea, setTotalArea] = useState<string>('');
@@ -107,11 +108,15 @@ export default function CalculatorPage() {
       const l = parseFloat(length);
       const w = parseFloat(width);
       if (isNaN(l) || isNaN(w) || l <= 0 || w <= 0) return;
-      area = l * w;
+      // convert to metres if input is in feet
+      const l_m = measurementUnit === 'ft' ? l * 0.3048 : l;
+      const w_m = measurementUnit === 'ft' ? w * 0.3048 : w;
+      area = l_m * w_m;
     } else {
       const a = parseFloat(totalArea);
       if (isNaN(a) || a <= 0) return;
-      area = a;
+      // convert to sqm if input is in ft²
+      area = measurementUnit === 'ft' ? a * 0.092903 : a;
     }
     
     const wastagePercent = parseFloat(wastage) || 0;
@@ -264,7 +269,6 @@ export default function CalculatorPage() {
                 <h2 className="font-heading text-3xl font-bold text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 700 }}>
                   Project Details
                 </h2>
-
                 <div className="space-y-6">
                   {/* Product Selection */}
                   <div>
@@ -318,12 +322,37 @@ export default function CalculatorPage() {
                     </div>
                   </div>
 
+                  {/* Measurement Units */}
+                  <div>
+                    <Label className="font-paragraph text-base text-[#333333] mb-3 block" style={{ fontFamily: 'sora', fontSize: '1rem' }}>
+                      Units
+                    </Label>
+                    <div className="flex gap-4">
+                      <Button
+                        type="button"
+                        variant={measurementUnit === 'm' ? 'default' : 'outline'}
+                        onClick={() => setMeasurementUnit('m')}
+                        className={`flex-1 font-paragraph ${measurementUnit === 'm' ? 'bg-[#2C3E50] text-[#FFFFFF]' : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'}`}
+                      >
+                        Meters (m)
+                      </Button>
+                      <Button
+                        type="button"
+                        variant={measurementUnit === 'ft' ? 'default' : 'outline'}
+                        onClick={() => setMeasurementUnit('ft')}
+                        className={`flex-1 font-paragraph ${measurementUnit === 'ft' ? 'bg-[#2C3E50] text-[#FFFFFF]' : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'}`}
+                      >
+                        Feet (ft)
+                      </Button>
+                    </div>
+                  </div>
+
                   {/* Dimensions or Area Input */}
                   {inputType === 'dimensions' ? (
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="length" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                          Length (m) *
+                          Length ({measurementUnit === 'm' ? 'm' : 'ft'}) *
                         </Label>
                         <Input
                           id="length"
@@ -338,7 +367,7 @@ export default function CalculatorPage() {
                       </div>
                       <div>
                         <Label htmlFor="width" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                          Width (m) *
+                          Width ({measurementUnit === 'm' ? 'm' : 'ft'}) *
                         </Label>
                         <Input
                           id="width"
@@ -355,7 +384,7 @@ export default function CalculatorPage() {
                   ) : (
                     <div>
                       <Label htmlFor="area" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                        Total Area (m²) *
+                        Total Area ({measurementUnit === 'm' ? 'm²' : 'ft²'}) *
                       </Label>
                       <Input
                         id="area"
@@ -426,6 +455,9 @@ export default function CalculatorPage() {
                       </p>
                       <p className="font-heading text-4xl font-bold text-[#B8A06A]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
                         {result.area} m²
+                      </p>
+                      <p className="font-paragraph text-sm text-[#FFFFFF]/70 mt-1">
+                        {Math.round(result.area * 10.7639 * 100) / 100} ft²
                       </p>
                     </div>
 

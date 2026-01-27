@@ -80,8 +80,6 @@ export default function ProductPage() {
         setIsSubmitting(false);
         return;
       }
-
-      // Proceed with catalogue download
       if (product?.catalogue) {
         const link = document.createElement('a');
         link.href = `/catalogue/${product.catalogue}`;
