@@ -25,7 +25,6 @@ export default function Header() {
   ];
 
   const resourceLinks = [
-    { name: 'Calculator', path: '/calculator' },
     { name: 'Blogs', path: '/blogs' },
     { name: 'FAQs', path: '/faqs' }
   ];
@@ -199,15 +198,6 @@ export default function Header() {
                 >
                   Home
                 </Link>
-                
-                <Link 
-                  href="/about" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="font-paragraph text-base text-[#333333]"
-                  style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
-                >
-                  About Us
-                </Link>
 
                 <div>
                   <button 
@@ -215,7 +205,7 @@ export default function Header() {
                     className="font-paragraph text-base text-[#333333] flex items-center gap-1 mb-3"
                     style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
                   >
-                    Products
+                    Solutions
                     <ChevronDown className={`h-4 w-4 transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
                   </button>
                   {productsOpen && (
@@ -234,14 +224,29 @@ export default function Header() {
                     </div>
                   )}
                 </div>
-
+                 <Link 
+                  href="/appilications" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="font-paragraph text-base text-[#333333]"
+                  style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
+                >
+                  Applications
+                </Link>
+                 <Link 
+                  href="/sustainability" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="font-paragraph text-base text-[#333333]"
+                  style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
+                >
+                  Sustainability
+                </Link>
                 <div>
                   <button 
                     onClick={() => setResourcesOpen(!resourcesOpen)}
                     className="font-paragraph text-base text-[#333333] flex items-center gap-1 mb-3"
                     style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
                   >
-                    Resources
+                    Technical Resources
                     <ChevronDown className={`h-4 w-4 transition-transform ${resourcesOpen ? 'rotate-180' : ''}`} />
                   </button>
                   {resourcesOpen && (
@@ -260,14 +265,21 @@ export default function Header() {
                     </div>
                   )}
                 </div>
-
+                <Link 
+                  href="/about" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="font-paragraph text-base text-[#333333]"
+                  style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
+                >
+                  About Us
+                </Link>
                 <Link 
                   href="/contact" 
                   onClick={() => setMobileMenuOpen(false)}
                   className="font-paragraph text-base text-[#333333]"
                   style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
-                  Contact Us
+                  Contact
                 </Link>
               </div>
             </motion.div>

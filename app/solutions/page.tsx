@@ -118,13 +118,19 @@ function ProductsPageInner() {
                     <Link href={`/solutions/${product._id}`}>
                       <div className="group bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm overflow-hidden hover:border-[#e4b725] transition-all duration-500">
                         <div className="aspect-4/3 overflow-hidden">
-                          <Image
-                            src={product.productImage || ''}
-                            alt={product.productName || 'Solution'}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            width={600}
-                            height={450}
-                          />
+                          {product.productImage && (typeof product.productImage === 'string') && (product.productImage.startsWith('http') || product.productImage.startsWith('/')) ? (
+                            <Image
+                              src={product.productImage}
+                              alt={product.productName || 'Solution'}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              width={600}
+                              height={450}
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                              <span className="text-gray-400">No image available</span>
+                            </div>
+                          )}
                         </div>
                         <div className="p-8">
                           <div className="inline-block px-3 py-1 bg-[#FFFFFF]/5 rounded-sm mb-4 border border-[#FFFFFF]/10">

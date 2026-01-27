@@ -22,6 +22,7 @@ export default function ProductPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '' });
   const [errors, setErrors] = useState({ name: '', phone: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleCatalogueClick = () => {
     setIsDialogOpen(true);
@@ -50,23 +51,60 @@ export default function ProductPage() {
     return isValid;
   };
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (!validateForm()) {
       return;
     }
-    const message = `New Catalogue Download Request:\nName: ${formData.name}\nPhone: ${formData.phone}\nProduct: ${product?.productName}`;
-    const whatsappUrl = `https://wa.me/917011506187?text=${encodeURIComponent(message)}`
-    if (product?.catalogue) {
-      const link = document.createElement('a');
-      link.href = `/catalogue/${product.catalogue}`;
-      link.download = product.catalogue;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+
+    const WEB3FORMS_ACCESS_KEY = 'ab076be7-acf5-4b7d-875c-2148cc73a6c4';
+    setIsSubmitting(true);
+
+    try {
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: formData.name,
+        phone: formData.phone,
+        message: `Catalogue download request for ${product?.productName || ''}`
+      };
+
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      if (!data.success) {
+        console.error('Web3Forms error', data);
+        alert('Could not submit request. Please try again.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Proceed with catalogue download
+      if (product?.catalogue) {
+        const link = document.createElement('a');
+        link.href = `/catalogue/${product.catalogue}`;
+        link.download = product.catalogue;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      // Optionally open WhatsApp notification to team
+      const message = `New Catalogue Download Request:\nName: ${formData.name}\nPhone: ${formData.phone}\nProduct: ${product?.productName}`;
+      const whatsappUrl = `https://wa.me/917011506187?text=${encodeURIComponent(message)}`
+      // window.open(whatsappUrl, '_blank'); // uncomment if you want to open WA
+
+      setIsDialogOpen(false);
+      setFormData({ name: '', phone: '' });
+      setErrors({ name: '', phone: '' });
+    } catch (err) {
+      console.error('Submission error', err);
+      alert('Submission failed. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
-    setIsDialogOpen(false);
-    setFormData({ name: '', phone: '' });
-    setErrors({ name: '', phone: '' });
   };
 
   return (

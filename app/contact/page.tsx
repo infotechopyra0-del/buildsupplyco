@@ -35,29 +35,46 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const inquiry: ContactInquiries = {
-      _id: crypto.randomUUID(),
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      message: formData.message,
-      submissionDate: new Date().toISOString()
-    };
+    const WEB3FORMS_ACCESS_KEY = 'ab076be7-acf5-4b7d-875c-2148cc73a6c4';
 
-    setSubmitSuccess(true);
-    setFormData({ name: '', email: '', phone: '', message: '' });
-    setIsSubmitting(false);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        })
+      });
 
-    setTimeout(() => {
-      setSubmitSuccess(false);
-    }, 5000);
+      const data = await res.json();
+
+      if (data.success) {
+        setSubmitSuccess(true);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        console.error('Web3Forms error', data);
+        alert('Submission failed. Please try again.');
+      }
+    } catch (err) {
+      console.error('Submission error', err);
+      alert('Submission error. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setSubmitSuccess(false);
+      }, 5000);
+    }
   };
 
   const contactInfo = [
     {
       icon: MapPin,
       title: 'Visit Us',
-      content: ' 1481, Concreed Manufacturing 1, Shahganj Road, Maa Durga Ji Vidyalaya, Arazi Siddikipur, Jaunpur, Uttar Pradesh, 222001'
+      content: 'N8/ 236-R-13 Ganesh dham Colony Sunderpur Newada Varanasi 221010'
     },
     {
       icon: Phone,
@@ -67,7 +84,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'info@concreedsolutions.com'
+      content: 'sales@concreedsolution.com'
     }
   ];
 
