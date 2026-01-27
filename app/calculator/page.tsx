@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, Package } from 'lucide-react';
+import { Calculator, Package, Droplet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -86,8 +86,10 @@ export default function CalculatorPage() {
   const [wastage, setWastage] = useState<string>('10');
   const [result, setResult] = useState<{
     area: number;
-    materialKg: number;
-    bags: number;
+    materialAmount: number;
+    containers: number;
+    isLiquid: boolean;
+    containerSize: number;
   } | null>(null);
 
   useState(() => {
@@ -99,6 +101,7 @@ export default function CalculatorPage() {
     if (!selectedProduct) return;
     const product = products.find(p => p._id === selectedProduct);
     if (!product || !product.coverageRate) return;
+    
     let area = 0;
     if (inputType === 'dimensions') {
       const l = parseFloat(length);
@@ -110,16 +113,112 @@ export default function CalculatorPage() {
       if (isNaN(a) || a <= 0) return;
       area = a;
     }
+    
     const wastagePercent = parseFloat(wastage) || 0;
     const areaWithWastage = area * (1 + wastagePercent / 100);
-    const materialKg = areaWithWastage / product.coverageRate;
-    const bags = Math.ceil(materialKg / 25);
+    
+    // Check if product is liquid or solid based on productType field
+    const isLiquid = product.productType?.toLowerCase() === 'liquid';
+    
+    let materialAmount: number;
+    let containerSize: number;
+    let containers: number;
+    
+    if (isLiquid) {
+      // For liquid products, calculate in litres.
+      // CoverageRate in mock data is often reported as "sq.ft per L".
+      // Detect unit from product.specifications and convert to sqm-per-litre when needed.
+      const specs = (product.specifications || '').toLowerCase();
+
+      // Default: assume coverageRate is "area per litre" in sqm per L if explicitly stated,
+      // otherwise if specs mention 'sq.ft' treat coverageRate as sq.ft per L and convert.
+      let coverageAreaPerLitreSqm = product.coverageRate || 1;
+      if (/sq\.ft|sq ft|sqft/.test(specs)) {
+        // coverageRate is in sq.ft per L -> convert to sqm per L
+        coverageAreaPerLitreSqm = (product.coverageRate || 0) * 0.092903;
+      } else if (/sq\.m|sq m|sqm|m2/.test(specs)) {
+        // coverageRate already in sqm per L
+        coverageAreaPerLitreSqm = product.coverageRate || 0;
+      } else {
+        // Heuristic: if coverageRate > 10 it's probably sq.ft per L -> convert
+        coverageAreaPerLitreSqm = (product.coverageRate && product.coverageRate > 10)
+          ? product.coverageRate * 0.092903
+          : product.coverageRate || 1;
+      }
+
+      // litres required = area (sqm) / (sqm per litre)
+      materialAmount = coverageAreaPerLitreSqm > 0 ? (areaWithWastage / coverageAreaPerLitreSqm) : 0;
+
+      // Extract container size (litres) from specifications using regex, prefer common sizes
+      const sizeMatches: number[] = [];
+      const litreRegex = /(?:(\d+(?:\.\d+)?))\s*(?:l|litre|litres)\b/gi;
+      let m: RegExpExecArray | null;
+      while ((m = litreRegex.exec(specs)) !== null) {
+        const n = parseFloat(m[1]);
+        if (!Number.isNaN(n)) sizeMatches.push(n);
+      }
+
+      // If no litre matches, look for ml and convert to litres
+      if (sizeMatches.length === 0) {
+        const mlRegex = /(?:(\d+(?:\.\d+)?))\s*(?:ml)\b/gi;
+        while ((m = mlRegex.exec(specs)) !== null) {
+          const n = parseFloat(m[1]);
+          if (!Number.isNaN(n)) sizeMatches.push(n / 1000);
+        }
+      }
+
+      // Prefer the largest reasonable container found, otherwise fallback to common sizes
+      if (sizeMatches.length > 0) {
+        containerSize = Math.max(...sizeMatches);
+      } else if (specs.includes('210') || specs.includes('210 l')) {
+        containerSize = 210;
+      } else if (specs.includes('200') || specs.includes('200 ml')) {
+        containerSize = 0.2;
+      } else if (specs.includes('20 l') || specs.includes('20l')) {
+        containerSize = 20;
+      } else if (specs.includes('5 l') || specs.includes('5l')) {
+        containerSize = 5;
+      } else if (specs.includes('1 l') || specs.includes('1l')) {
+        containerSize = 1;
+      } else {
+        containerSize = 1; // Default to 1L
+      }
+
+      containers = Math.ceil(materialAmount / containerSize);
+    } else {
+      // For solid products, calculate in kg
+      materialAmount = areaWithWastage / product.coverageRate;
+      
+      // Extract bag size from specifications if available
+      const specs = product.specifications?.toLowerCase() || '';
+      if (specs.includes('40 kg') || specs.includes('40kg')) {
+        containerSize = 40;
+      } else if (specs.includes('30 kg') || specs.includes('30kg')) {
+        containerSize = 30;
+      } else if (specs.includes('25 kg') || specs.includes('25kg')) {
+        containerSize = 25;
+      } else if (specs.includes('20 kg') || specs.includes('20kg')) {
+        containerSize = 20;
+      } else if (specs.includes('15 kg') || specs.includes('15kg')) {
+        containerSize = 15;
+      } else if (specs.includes('5 kg') || specs.includes('5kg')) {
+        containerSize = 5;
+      } else {
+        containerSize = 25; // Default to 25kg
+      }
+      
+      containers = Math.ceil(materialAmount / containerSize);
+    }
+    
     setResult({
       area: Math.round(area * 100) / 100,
-      materialKg: Math.round(materialKg * 100) / 100,
-      bags
+      materialAmount: Math.round(materialAmount * 100) / 100,
+      containers,
+      isLiquid,
+      containerSize
     });
   };
+  
   const resetCalculator = () => {
     setSelectedProduct('');
     setLength('');
@@ -335,19 +434,25 @@ export default function CalculatorPage() {
                         Required Material
                       </p>
                       <p className="font-heading text-4xl font-bold text-[#B8A06A]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
-                        {result.materialKg} kg
+                        {result.materialAmount} {result.isLiquid ? 'litres' : 'kg'}
                       </p>
                     </div>
 
                     <div className="bg-[#FFFFFF]/10 rounded-sm p-6">
                       <div className="flex items-center gap-3 mb-2">
-                        <Package className="h-5 w-5 text-[#FFFFFF]/80" />
+                        {result.isLiquid ? (
+                          <Droplet className="h-5 w-5 text-[#FFFFFF]/80" />
+                        ) : (
+                          <Package className="h-5 w-5 text-[#FFFFFF]/80" />
+                        )}
                         <p className="font-paragraph text-sm text-[#FFFFFF]/80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                          Bags Required (20kg each)
+                          {result.isLiquid 
+                            ? `Containers Required (${result.containerSize}L each)` 
+                            : `Bags Required (${result.containerSize}kg each)`}
                         </p>
                       </div>
                       <p className="font-heading text-4xl font-bold text-[#B8A06A]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
-                        {result.bags} bags
+                        {result.containers} {result.isLiquid ? 'containers' : 'bags'}
                       </p>
                     </div>
 

@@ -51,6 +51,7 @@ export interface Products {
   _updatedDate?: Date;
   productName?: string;
   category?: string;
+  productType?: string;
   description?: string;
   specifications?: string;
   coverageRate?: number;
