@@ -40,7 +40,7 @@ const mockBlogPosts: BlogPosts[] = [
     publishDate: '2026-01-10',
     author: 'Sarah Chen',
     category:'Concrete Repair Solutions',
-    coverImage: '/images/5CommonMistakesinConcreteRepairandHowtoAvoidThem.png',
+    coverImage: '/images/CrackSealEpoxyFiller.png',
     _createdDate: new Date('2026-01-10'),
     _updatedDate: new Date('2026-01-11'),
   },
@@ -176,7 +176,7 @@ export default function BlogsPage() {
                         <div className="group bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm overflow-hidden hover:border-[#e4b725] transition-all duration-500 h-full flex flex-col">
                           <div className="aspect-16/10 overflow-hidden">
                             <Image 
-                              src={blog.coverImage || '/images/blog-placeholder.jpg'}
+                              src={blog.coverImage || '/images/common.png'}
                               alt={blog.title || 'Blog post'}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                               width={600}

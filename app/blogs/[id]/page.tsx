@@ -42,7 +42,7 @@ const mockBlogPosts: BlogPosts[] = [
     publishDate: '2026-01-10',
     author: 'Sarah Chen',
     category:'Concrete Repair Solutions',
-    coverImage: '/images/5CommonMistakesinConcreteRepairandHowtoAvoidThem.png',
+    coverImage: '/images/CrackSealEpoxyFiller.png',
     _createdDate: new Date('2026-01-10'),
     _updatedDate: new Date('2026-01-11'),
   },

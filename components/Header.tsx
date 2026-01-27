@@ -225,14 +225,14 @@ export default function Header() {
                   )}
                 </div>
                  <Link 
-                  href="/appilications" 
+                  href="/applications" 
                   onClick={() => setMobileMenuOpen(false)}
                   className="font-paragraph text-base text-[#333333]"
                   style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
                   Applications
                 </Link>
-                 <Link 
+                <Link 
                   href="/sustainability" 
                   onClick={() => setMobileMenuOpen(false)}
                   className="font-paragraph text-base text-[#333333]"
@@ -240,6 +240,7 @@ export default function Header() {
                 >
                   Sustainability
                 </Link>
+
                 <div>
                   <button 
                     onClick={() => setResourcesOpen(!resourcesOpen)}
