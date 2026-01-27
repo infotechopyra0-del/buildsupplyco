@@ -79,7 +79,7 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: 'Call Us',
-      content: '+91 7011506187'
+      content: '+91 7011506187, +91 8953632255'
     },
     {
       icon: Mail,

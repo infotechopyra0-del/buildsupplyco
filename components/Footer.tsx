@@ -38,7 +38,7 @@ export default function Footer() {
                   className="font-paragraph text-sm text-[#FFFFFF]/80"
                   style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
-                  +91 7011506187 
+                  +91 7011506187, +91 8953632255
                 </span>
               </div>
               <div className="flex items-center gap-3">
