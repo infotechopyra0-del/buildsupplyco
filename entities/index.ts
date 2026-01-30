@@ -54,6 +54,7 @@ export interface Products {
   productType?: string;
   description?: string;
   specifications?: string;
+  coverageUnit?: string;
   coverageRate?: number;
   wastagePercentage?: number;
   productImage?: string;

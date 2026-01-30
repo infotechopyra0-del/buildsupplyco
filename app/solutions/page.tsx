@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { mockProducts } from '@/entities/mockData';
+import { mockProductsExtended } from '@/entities/mockData';
 
 import { Suspense } from 'react';
 
@@ -28,8 +28,8 @@ function ProductsPageInner() {
   const selectedCategory = searchParams.get('category') || 'All';
 
   const filteredProducts = selectedCategory === 'All'
-    ? mockProducts
-    : mockProducts.filter(p =>
+    ? mockProductsExtended
+    : mockProductsExtended.filter(p =>
         typeof p.category === 'string' &&
         p.category.toLowerCase().includes(selectedCategory.toLowerCase())
       );

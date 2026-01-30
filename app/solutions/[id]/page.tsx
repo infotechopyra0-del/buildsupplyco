@@ -12,12 +12,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { mockProducts } from '@/entities/mockData';
+import { mockProductsExtended } from '@/entities/mockData';
 
 export default function ProductPage() {
   const params = useParams();
   const id = params?.id as string;
-  const product = mockProducts.find((p) => p._id === id) || null;
+  const product = mockProductsExtended.find((p) => p._id === id) || null;
   
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '' });

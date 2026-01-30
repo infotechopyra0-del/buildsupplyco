@@ -1,7 +1,7 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, Package, Droplet } from 'lucide-react';
+import { Calculator, Package, Droplet, Layers, Ruler } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,228 +9,227 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card } from '@/components/ui/card';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Products, CalculatorFormulas } from '@/entities';
-import { mockProducts } from '@/entities/mockData';
-
-const mockCalculatorFormulas: CalculatorFormulas[] = [
-  {
-    _id: '1',
-    formulaName: 'Tile Adhesive Standard Coverage',
-    description: 'Calculates the total amount of tile adhesive required for a given area, considering the product\'s coverage rate and an optional wastage percentage.',
-    calculationLogic: 'area_sqm * coverageRate_kg_per_sqm * (1 + wastage_percentage / 100)',
-    variables: 'area_sqm, coverageRate_kg_per_sqm, wastage_percentage',
-    outputUnit: 'kg',
-    isActive: true,
-    lastUpdated: '2026-01-05',
-    _createdDate: new Date('2026-01-05'),
-    _updatedDate: new Date('2026-01-06'),
-  },
-  {
-    _id: '2',
-    formulaName: 'Tile Grout Calculation',
-    description: 'Estimates the quantity of grout needed based on the total area, average joint width, joint depth, and product-specific coverage factor.',
-    calculationLogic: 'area_sqm * (jointWidth_mm / 1000) * (jointDepth_mm / 1000) * groutFactor_kg_per_cubic_meter * (1 + wastage_percentage / 100)',
-    variables: 'area_sqm, jointWidth_mm, jointDepth_mm, groutFactor_kg_per_cubic_meter, wastage_percentage',
-    outputUnit: 'kg',
-    isActive: true,
-    lastUpdated: '2026-01-05',
-    _createdDate: new Date('2026-01-05'),
-    _updatedDate: new Date('2026-01-06'),
-  },
-  {
-    _id: '3',
-    formulaName: 'Liquid Waterproofing Membrane Coverage',
-    description: 'Determines the total liters of liquid waterproofing membrane required for a specified area and number of coats, based on the product\'s per-coat coverage rate.',
-    calculationLogic: 'area_sqm * numberOfCoats * coverageRate_liters_per_sqm_per_coat * (1 + wastage_percentage / 100)',
-    variables: 'area_sqm, numberOfCoats, coverageRate_liters_per_sqm_per_coat, wastage_percentage',
-    outputUnit: 'liters',
-    isActive: true,
-    lastUpdated: '2026-01-05',
-    _createdDate: new Date('2026-01-05'),
-    _updatedDate: new Date('2026-01-06'),
-  },
-  {
-    _id: '4',
-    formulaName: 'Concrete Repair Mortar Volume',
-    description: 'Calculates the total volume of concrete repair mortar needed for a specific repair area and average depth, then converts it to kilograms using product density.',
-    calculationLogic: 'area_sqm * (averageDepth_mm / 1000) * density_kg_per_cubic_meter * (1 + wastage_percentage / 100)',
-    variables: 'area_sqm, averageDepth_mm, density_kg_per_cubic_meter, wastage_percentage',
-    outputUnit: 'kg',
-    isActive: true,
-    lastUpdated: '2026-01-05',
-    _createdDate: new Date('2026-01-05'),
-    _updatedDate: new Date('2026-01-06'),
-  },
-  {
-    _id: '5',
-    formulaName: 'Self-Leveling Compound Coverage',
-    description: 'Estimates the quantity of self-leveling compound required for a given area and desired thickness, considering the product\'s density and an optional wastage.',
-    calculationLogic: 'area_sqm * (desiredThickness_mm / 1000) * density_kg_per_cubic_meter * (1 + wastage_percentage / 100)',
-    variables: 'area_sqm, desiredThickness_mm, density_kg_per_cubic_meter, wastage_percentage',
-    outputUnit: 'kg',
-    isActive: true,
-    lastUpdated: '2026-01-05',
-    _createdDate: new Date('2026-01-05'),
-    _updatedDate: new Date('2026-01-06'),
-  },
-];
+import { ProductsExtended, mockProductsExtended, CalculationType } from '@/entities/mockData';
 
 export default function CalculatorPage() {
-  const [products, setProducts] = useState<Products[]>([]);
-  const [formulas, setFormulas] = useState<CalculatorFormulas[]>([]);
+  const [products, setProducts] = useState<ProductsExtended[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<string>('');
-  const [inputType, setInputType] = useState<'dimensions' | 'area'>('dimensions');
+  const [currentProduct, setCurrentProduct] = useState<ProductsExtended | null>(null);
+  
+  // Common inputs
+  const [inputType, setInputType] = useState<'dimensions' | 'area' | 'direct'>('dimensions');
   const [measurementUnit, setMeasurementUnit] = useState<'m' | 'ft'>('m');
+  const [wastage, setWastage] = useState<string>('10');
+  
+  // Area-based inputs
   const [length, setLength] = useState<string>('');
   const [width, setWidth] = useState<string>('');
   const [totalArea, setTotalArea] = useState<string>('');
-  const [wastage, setWastage] = useState<string>('10');
+  
+  // Cement-based inputs
+  const [cementBags, setCementBags] = useState<string>('');
+  const [dosagePercent, setDosagePercent] = useState<string>('');
+  
+  // Running length inputs
+  const [runningLength, setRunningLength] = useState<string>('');
+  
   const [result, setResult] = useState<{
-    area: number;
+    area?: number;
     materialAmount: number;
     containers: number;
     isLiquid: boolean;
     containerSize: number;
+    calculationType: CalculationType;
+    unit: string;
+    cementBags?: number;
+    runningLength?: number;
+    mixedPackaging?: { powder: number; liquid: number };
   } | null>(null);
 
-  useState(() => {
-    setProducts(mockProducts.filter(p => p.coverageRate && p.coverageRate > 0));
-    setFormulas(mockCalculatorFormulas.filter(f => f.isActive));
-  });
+  useEffect(() => {
+    setProducts(mockProductsExtended);
+  }, []);
+
+  useEffect(() => {
+    if (selectedProduct) {
+      const product = products.find(p => p._id === selectedProduct);
+      setCurrentProduct(product || null);
+      
+      // Set default wastage and dosage based on product
+      if (product) {
+        setWastage(product.wastagePercentage?.toString() || '10');
+        if (product.calculationType === 'cement') {
+          setDosagePercent(product.coverageRate.toString());
+        }
+      }
+    } else {
+      setCurrentProduct(null);
+    }
+  }, [selectedProduct, products]);
 
   const calculateMaterial = () => {
-    if (!selectedProduct) return;
-    const product = products.find(p => p._id === selectedProduct);
-    if (!product || !product.coverageRate) return;
+    if (!currentProduct) return;
+    
+    const wastagePercent = parseFloat(wastage) || 0;
+    
+    if (currentProduct.calculationType === 'area') {
+      calculateAreaBased(wastagePercent);
+    } else if (currentProduct.calculationType === 'cement') {
+      calculateCementBased(wastagePercent);
+    } else if (currentProduct.calculationType === 'running-length') {
+      calculateRunningLength(wastagePercent);
+    }
+  };
+
+  const calculateAreaBased = (wastagePercent: number) => {
+    if (!currentProduct) return;
     
     let area = 0;
     if (inputType === 'dimensions') {
       const l = parseFloat(length);
       const w = parseFloat(width);
       if (isNaN(l) || isNaN(w) || l <= 0 || w <= 0) return;
-      // convert to metres if input is in feet
+      
+      // Convert to meters if input is in feet
       const l_m = measurementUnit === 'ft' ? l * 0.3048 : l;
       const w_m = measurementUnit === 'ft' ? w * 0.3048 : w;
       area = l_m * w_m;
     } else {
       const a = parseFloat(totalArea);
       if (isNaN(a) || a <= 0) return;
-      // convert to sqm if input is in ft²
+      
+      // Convert to sq.m if input is in ft²
       area = measurementUnit === 'ft' ? a * 0.092903 : a;
     }
     
-    const wastagePercent = parseFloat(wastage) || 0;
     const areaWithWastage = area * (1 + wastagePercent / 100);
     
-    // Check if product is liquid or solid based on productType field
-    const isLiquid = product.productType?.toLowerCase() === 'liquid';
+    // Calculate material based on coverage rate (sq.m per unit)
+    // materialAmount = area / coverageRate
+    const materialAmount = areaWithWastage / currentProduct.coverageRate;
     
-    let materialAmount: number;
-    let containerSize: number;
-    let containers: number;
+    const isLiquid = currentProduct.productType?.toLowerCase() === 'liquid';
+    const unit = isLiquid ? 'L' : 'kg';
     
-    if (isLiquid) {
-      // For liquid products, calculate in litres.
-      // CoverageRate in mock data is often reported as "sq.ft per L".
-      // Detect unit from product.specifications and convert to sqm-per-litre when needed.
-      const specs = (product.specifications || '').toLowerCase();
-
-      // Default: assume coverageRate is "area per litre" in sqm per L if explicitly stated,
-      // otherwise if specs mention 'sq.ft' treat coverageRate as sq.ft per L and convert.
-      let coverageAreaPerLitreSqm = product.coverageRate || 1;
-      if (/sq\.ft|sq ft|sqft/.test(specs)) {
-        // coverageRate is in sq.ft per L -> convert to sqm per L
-        coverageAreaPerLitreSqm = (product.coverageRate || 0) * 0.092903;
-      } else if (/sq\.m|sq m|sqm|m2/.test(specs)) {
-        // coverageRate already in sqm per L
-        coverageAreaPerLitreSqm = product.coverageRate || 0;
-      } else {
-        // Heuristic: if coverageRate > 10 it's probably sq.ft per L -> convert
-        coverageAreaPerLitreSqm = (product.coverageRate && product.coverageRate > 10)
-          ? product.coverageRate * 0.092903
-          : product.coverageRate || 1;
-      }
-
-      // litres required = area (sqm) / (sqm per litre)
-      materialAmount = coverageAreaPerLitreSqm > 0 ? (areaWithWastage / coverageAreaPerLitreSqm) : 0;
-
-      // Extract container size (litres) from specifications using regex, prefer common sizes
-      const sizeMatches: number[] = [];
-      const litreRegex = /(?:(\d+(?:\.\d+)?))\s*(?:l|litre|litres)\b/gi;
-      let m: RegExpExecArray | null;
-      while ((m = litreRegex.exec(specs)) !== null) {
-        const n = parseFloat(m[1]);
-        if (!Number.isNaN(n)) sizeMatches.push(n);
-      }
-
-      // If no litre matches, look for ml and convert to litres
-      if (sizeMatches.length === 0) {
-        const mlRegex = /(?:(\d+(?:\.\d+)?))\s*(?:ml)\b/gi;
-        while ((m = mlRegex.exec(specs)) !== null) {
-          const n = parseFloat(m[1]);
-          if (!Number.isNaN(n)) sizeMatches.push(n / 1000);
+    // Handle special CREED 2K mixed packaging
+    if (currentProduct.productName === 'CREED 2K' && currentProduct.mixRatio) {
+      const totalRatio = currentProduct.mixRatio.powder + currentProduct.mixRatio.liquid;
+      const powderAmount = materialAmount * (currentProduct.mixRatio.powder / totalRatio);
+      const liquidAmount = materialAmount * (currentProduct.mixRatio.liquid / totalRatio);
+      
+      // Calculate containers needed
+      // For CREED 2K: 3kg pack (2kg powder + 1L) or 15kg pack (10kg powder + 5L)
+      const containers15kg = Math.ceil(materialAmount / 15);
+      const containers3kg = Math.ceil(materialAmount / 3);
+      
+      // Use 15kg packs primarily, supplement with 3kg if needed
+      const primary15kg = Math.floor(materialAmount / 15);
+      const remaining = materialAmount - (primary15kg * 15);
+      const additional3kg = remaining > 0 ? Math.ceil(remaining / 3) : 0;
+      
+      setResult({
+        area: Math.round(area * 100) / 100,
+        materialAmount: Math.round(materialAmount * 100) / 100,
+        containers: primary15kg + additional3kg,
+        isLiquid: false,
+        containerSize: 15,
+        calculationType: 'area',
+        unit: 'kg',
+        mixedPackaging: {
+          powder: Math.round(powderAmount * 100) / 100,
+          liquid: Math.round(liquidAmount * 100) / 100
         }
-      }
-
-      // Prefer the largest reasonable container found, otherwise fallback to common sizes
-      if (sizeMatches.length > 0) {
-        containerSize = Math.max(...sizeMatches);
-      } else if (specs.includes('210') || specs.includes('210 l')) {
-        containerSize = 210;
-      } else if (specs.includes('200') || specs.includes('200 ml')) {
-        containerSize = 0.2;
-      } else if (specs.includes('20 l') || specs.includes('20l')) {
-        containerSize = 20;
-      } else if (specs.includes('5 l') || specs.includes('5l')) {
-        containerSize = 5;
-      } else if (specs.includes('1 l') || specs.includes('1l')) {
-        containerSize = 1;
-      } else {
-        containerSize = 1; // Default to 1L
-      }
-
-      containers = Math.ceil(materialAmount / containerSize);
-    } else {
-      // For solid products, calculate in kg
-      materialAmount = areaWithWastage / product.coverageRate;
-      
-      // Extract bag size from specifications if available
-      const specs = product.specifications?.toLowerCase() || '';
-      if (specs.includes('40 kg') || specs.includes('40kg')) {
-        containerSize = 40;
-      } else if (specs.includes('30 kg') || specs.includes('30kg')) {
-        containerSize = 30;
-      } else if (specs.includes('25 kg') || specs.includes('25kg')) {
-        containerSize = 25;
-      } else if (specs.includes('20 kg') || specs.includes('20kg')) {
-        containerSize = 20;
-      } else if (specs.includes('15 kg') || specs.includes('15kg')) {
-        containerSize = 15;
-      } else if (specs.includes('5 kg') || specs.includes('5kg')) {
-        containerSize = 5;
-      } else {
-        containerSize = 25; // Default to 25kg
-      }
-      
-      containers = Math.ceil(materialAmount / containerSize);
+      });
+      return;
     }
+    
+    // Standard packaging calculation
+    let containerSize = currentProduct.packagingSizes[currentProduct.packagingSizes.length - 1]; // Use largest by default
+    const containers = Math.ceil(materialAmount / containerSize);
     
     setResult({
       area: Math.round(area * 100) / 100,
       materialAmount: Math.round(materialAmount * 100) / 100,
       containers,
       isLiquid,
-      containerSize
+      containerSize,
+      calculationType: 'area',
+      unit
     });
   };
-  
+
+  const calculateCementBased = (wastagePercent: number) => {
+    if (!currentProduct) return;
+    
+    const bags = parseFloat(cementBags);
+    const dosage = parseFloat(dosagePercent);
+    
+    if (isNaN(bags) || bags <= 0 || isNaN(dosage) || dosage <= 0) return;
+    
+    // Each cement bag is typically 50kg
+    const cementWeight = bags * 50;
+    
+    // Calculate admixture needed (percentage of cement weight)
+    const admixtureLitres = (cementWeight * dosage / 100) * (1 + wastagePercent / 100);
+    
+    // Get container size
+    let containerSize = currentProduct.packagingSizes[currentProduct.packagingSizes.length - 1];
+    const containers = Math.ceil(admixtureLitres / containerSize);
+    
+    setResult({
+      cementBags: bags,
+      materialAmount: Math.round(admixtureLitres * 100) / 100,
+      containers,
+      isLiquid: true,
+      containerSize,
+      calculationType: 'cement',
+      unit: 'L'
+    });
+  };
+
+  const calculateRunningLength = (wastagePercent: number) => {
+    if (!currentProduct) return;
+    
+    let lengthInMeters = 0;
+    const length = parseFloat(runningLength);
+    if (isNaN(length) || length <= 0) return;
+    
+    // Convert to meters if input is in feet
+    lengthInMeters = measurementUnit === 'ft' ? length * 0.3048 : length;
+    
+    const lengthWithWastage = lengthInMeters * (1 + wastagePercent / 100);
+    
+    // Calculate material based on coverage rate (meters per unit)
+    const materialAmount = lengthWithWastage / currentProduct.coverageRate;
+    
+    const isLiquid = currentProduct.productType?.toLowerCase() === 'liquid';
+    const unit = isLiquid ? 'L' : 'kg';
+    
+    let containerSize = currentProduct.packagingSizes[currentProduct.packagingSizes.length - 1];
+    const containers = Math.ceil(materialAmount / containerSize);
+    
+    setResult({
+      runningLength: Math.round(lengthInMeters * 100) / 100,
+      materialAmount: Math.round(materialAmount * 100) / 100,
+      containers,
+      isLiquid,
+      containerSize,
+      calculationType: 'running-length',
+      unit
+    });
+  };
+
   const resetCalculator = () => {
     setSelectedProduct('');
     setLength('');
     setWidth('');
     setTotalArea('');
+    setCementBags('');
+    setDosagePercent('');
+    setRunningLength('');
     setWastage('10');
     setResult(null);
+    setCurrentProduct(null);
   };
 
   return (
@@ -282,145 +281,242 @@ export default function CalculatorPage() {
                       <SelectContent>
                         {products.map((product) => (
                           <SelectItem key={product._id} value={product._id}>
-                            {product.productName}
+                            {product.productName} ({product.calculationType})
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
+                    {currentProduct && (
+                      <p className="text-sm text-[#666] mt-2">
+                        Type: {currentProduct.calculationType === 'area' ? 'Area-based' : currentProduct.calculationType === 'cement' ? 'Cement-based' : 'Running Length'}
+                      </p>
+                    )}
                   </div>
 
-                  {/* Input Type Selection */}
-                  <div>
-                    <Label className="font-paragraph text-base text-[#333333] mb-3 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                      Measurement Method
-                    </Label>
-                    <div className="flex gap-4">
-                      <Button
-                        type="button"
-                        variant={inputType === 'dimensions' ? 'default' : 'outline'}
-                        onClick={() => setInputType('dimensions')}
-                        className={`flex-1 font-paragraph ${
-                          inputType === 'dimensions'
-                            ? 'bg-[#2C3E50] text-[#FFFFFF]'
-                            : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'
-                        }`}
-                      >
-                        Length × Width
-                      </Button>
-                      <Button
-                        type="button"
-                        variant={inputType === 'area' ? 'default' : 'outline'}
-                        onClick={() => setInputType('area')}
-                        className={`flex-1 font-paragraph ${
-                          inputType === 'area'
-                            ? 'bg-[#2C3E50] text-[#FFFFFF]'
-                            : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'
-                        }`}
-                      >
-                        Total Area
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Measurement Units */}
-                  <div>
-                    <Label className="font-paragraph text-base text-[#333333] mb-3 block" style={{ fontFamily: 'sora', fontSize: '1rem' }}>
-                      Units
-                    </Label>
-                    <div className="flex gap-4">
-                      <Button
-                        type="button"
-                        variant={measurementUnit === 'm' ? 'default' : 'outline'}
-                        onClick={() => setMeasurementUnit('m')}
-                        className={`flex-1 font-paragraph ${measurementUnit === 'm' ? 'bg-[#2C3E50] text-[#FFFFFF]' : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'}`}
-                      >
-                        Meters (m)
-                      </Button>
-                      <Button
-                        type="button"
-                        variant={measurementUnit === 'ft' ? 'default' : 'outline'}
-                        onClick={() => setMeasurementUnit('ft')}
-                        className={`flex-1 font-paragraph ${measurementUnit === 'ft' ? 'bg-[#2C3E50] text-[#FFFFFF]' : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'}`}
-                      >
-                        Feet (ft)
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Dimensions or Area Input */}
-                  {inputType === 'dimensions' ? (
-                    <div className="grid grid-cols-2 gap-4">
+                  {/* Area-based inputs */}
+                  {currentProduct?.calculationType === 'area' && (
+                    <>
+                      {/* Input Type Selection */}
                       <div>
-                        <Label htmlFor="length" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                          Length ({measurementUnit === 'm' ? 'm' : 'ft'}) *
+                        <Label className="font-paragraph text-base text-[#333333] mb-3 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                          Measurement Method
+                        </Label>
+                        <div className="flex gap-4">
+                          <Button
+                            type="button"
+                            variant={inputType === 'dimensions' ? 'default' : 'outline'}
+                            onClick={() => setInputType('dimensions')}
+                            className={`flex-1 font-paragraph ${
+                              inputType === 'dimensions'
+                                ? 'bg-[#2C3E50] text-[#FFFFFF]'
+                                : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'
+                            }`}
+                          >
+                            Length × Width
+                          </Button>
+                          <Button
+                            type="button"
+                            variant={inputType === 'area' ? 'default' : 'outline'}
+                            onClick={() => setInputType('area')}
+                            className={`flex-1 font-paragraph ${
+                              inputType === 'area'
+                                ? 'bg-[#2C3E50] text-[#FFFFFF]'
+                                : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'
+                            }`}
+                          >
+                            Total Area
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Measurement Units */}
+                      <div>
+                        <Label className="font-paragraph text-base text-[#333333] mb-3 block" style={{ fontFamily: 'sora', fontSize: '1rem' }}>
+                          Units
+                        </Label>
+                        <div className="flex gap-4">
+                          <Button
+                            type="button"
+                            variant={measurementUnit === 'm' ? 'default' : 'outline'}
+                            onClick={() => setMeasurementUnit('m')}
+                            className={`flex-1 font-paragraph ${measurementUnit === 'm' ? 'bg-[#2C3E50] text-[#FFFFFF]' : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'}`}
+                          >
+                            Meters (m)
+                          </Button>
+                          <Button
+                            type="button"
+                            variant={measurementUnit === 'ft' ? 'default' : 'outline'}
+                            onClick={() => setMeasurementUnit('ft')}
+                            className={`flex-1 font-paragraph ${measurementUnit === 'ft' ? 'bg-[#2C3E50] text-[#FFFFFF]' : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'}`}
+                          >
+                            Feet (ft)
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Dimensions or Area Input */}
+                      {inputType === 'dimensions' ? (
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="length" className="font-paragraph text-base text-[#333333] mb-2 block">
+                              Length ({measurementUnit === 'm' ? 'm' : 'ft'}) *
+                            </Label>
+                            <Input
+                              id="length"
+                              type="number"
+                              step="0.01"
+                              min="0"
+                              value={length}
+                              onChange={(e) => setLength(e.target.value)}
+                              placeholder="0.00"
+                              className="font-paragraph"
+                            />
+                          </div>
+                          <div>
+                            <Label htmlFor="width" className="font-paragraph text-base text-[#333333] mb-2 block">
+                              Width ({measurementUnit === 'm' ? 'm' : 'ft'}) *
+                            </Label>
+                            <Input
+                              id="width"
+                              type="number"
+                              step="0.01"
+                              min="0"
+                              value={width}
+                              onChange={(e) => setWidth(e.target.value)}
+                              placeholder="0.00"
+                              className="font-paragraph"
+                            />
+                          </div>
+                        </div>
+                      ) : (
+                        <div>
+                          <Label htmlFor="area" className="font-paragraph text-base text-[#333333] mb-2 block">
+                            Total Area ({measurementUnit === 'm' ? 'm²' : 'ft²'}) *
+                          </Label>
+                          <Input
+                            id="area"
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            value={totalArea}
+                            onChange={(e) => setTotalArea(e.target.value)}
+                            placeholder="0.00"
+                            className="font-paragraph"
+                          />
+                        </div>
+                      )}
+                    </>
+                  )}
+
+                  {/* Cement-based inputs */}
+                  {currentProduct?.calculationType === 'cement' && (
+                    <>
+                      <div>
+                        <Label htmlFor="cementBags" className="font-paragraph text-base text-[#333333] mb-2 block">
+                          Number of Cement Bags (50kg each) *
                         </Label>
                         <Input
-                          id="length"
+                          id="cementBags"
                           type="number"
-                          step="0.01"
+                          step="1"
                           min="0"
-                          value={length}
-                          onChange={(e) => setLength(e.target.value)}
-                          placeholder="0.00"
+                          value={cementBags}
+                          onChange={(e) => setCementBags(e.target.value)}
+                          placeholder="0"
                           className="font-paragraph"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="width" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                          Width ({measurementUnit === 'm' ? 'm' : 'ft'}) *
+                        <Label htmlFor="dosage" className="font-paragraph text-base text-[#333333] mb-2 block">
+                          Dosage (% per cement bag) *
                         </Label>
                         <Input
-                          id="width"
+                          id="dosage"
+                          type="number"
+                          step="0.1"
+                          min="0.5"
+                          max="2"
+                          value={dosagePercent}
+                          onChange={(e) => setDosagePercent(e.target.value)}
+                          placeholder="0.8 - 2.0"
+                          className="font-paragraph"
+                        />
+                        <p className="text-xs text-[#666] mt-1">
+                          Recommended: {currentProduct.coverageRate}% (0.8% - 2.0% range)
+                        </p>
+                      </div>
+                    </>
+                  )}
+
+                  {/* Running length inputs */}
+                  {currentProduct?.calculationType === 'running-length' && (
+                    <>
+                      <div>
+                        <Label className="font-paragraph text-base text-[#333333] mb-3 block">
+                          Units
+                        </Label>
+                        <div className="flex gap-4">
+                          <Button
+                            type="button"
+                            variant={measurementUnit === 'm' ? 'default' : 'outline'}
+                            onClick={() => setMeasurementUnit('m')}
+                            className={`flex-1 font-paragraph ${measurementUnit === 'm' ? 'bg-[#2C3E50] text-[#FFFFFF]' : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'}`}
+                          >
+                            Meters (m)
+                          </Button>
+                          <Button
+                            type="button"
+                            variant={measurementUnit === 'ft' ? 'default' : 'outline'}
+                            onClick={() => setMeasurementUnit('ft')}
+                            className={`flex-1 font-paragraph ${measurementUnit === 'ft' ? 'bg-[#2C3E50] text-[#FFFFFF]' : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'}`}
+                          >
+                            Feet (ft)
+                          </Button>
+                        </div>
+                      </div>
+                      <div>
+                        <Label htmlFor="runningLength" className="font-paragraph text-base text-[#333333] mb-2 block">
+                          Running Length ({measurementUnit === 'm' ? 'm' : 'ft'}) *
+                        </Label>
+                        <Input
+                          id="runningLength"
                           type="number"
                           step="0.01"
                           min="0"
-                          value={width}
-                          onChange={(e) => setWidth(e.target.value)}
+                          value={runningLength}
+                          onChange={(e) => setRunningLength(e.target.value)}
                           placeholder="0.00"
                           className="font-paragraph"
                         />
                       </div>
-                    </div>
-                  ) : (
+                    </>
+                  )}
+
+                  {/* Wastage - Common for all except cement */}
+                  {currentProduct && (
                     <div>
-                      <Label htmlFor="area" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                        Total Area ({measurementUnit === 'm' ? 'm²' : 'ft²'}) *
+                      <Label htmlFor="wastage" className="font-paragraph text-base text-[#333333] mb-2 block">
+                        Wastage Factor (%)
                       </Label>
                       <Input
-                        id="area"
+                        id="wastage"
                         type="number"
-                        step="0.01"
+                        step="1"
                         min="0"
-                        value={totalArea}
-                        onChange={(e) => setTotalArea(e.target.value)}
-                        placeholder="0.00"
+                        max="100"
+                        value={wastage}
+                        onChange={(e) => setWastage(e.target.value)}
                         className="font-paragraph"
                       />
                     </div>
                   )}
 
-                  {/* Wastage */}
-                  <div>
-                    <Label htmlFor="wastage" className="font-paragraph text-base text-[#333333] mb-2 block" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                      Wastage Factor (%)
-                    </Label>
-                    <Input
-                      id="wastage"
-                      type="number"
-                      step="1"
-                      min="0"
-                      max="100"
-                      value={wastage}
-                      onChange={(e) => setWastage(e.target.value)}
-                      className="font-paragraph"
-                    />
-                  </div>
-
                   {/* Action Buttons */}
                   <div className="flex gap-4 pt-4">
                     <Button
                       onClick={calculateMaterial}
-                      className="flex-1 bg-[#2C3E50] hover:bg-[#2C3E50]/90 text-[#FFFFFF] font-paragraph py-6"
+                      disabled={!currentProduct}
+                      className="flex-1 bg-[#2C3E50] hover:bg-[#2C3E50]/90 text-[#FFFFFF] font-paragraph py-6 disabled:opacity-50"
                     >
                       Calculate
                     </Button>
@@ -449,47 +545,95 @@ export default function CalculatorPage() {
 
                 {result ? (
                   <div className="space-y-8">
-                    <div className="bg-[#FFFFFF]/10 rounded-sm p-6">
-                      <p className="font-paragraph text-sm text-[#FFFFFF]/80 mb-2" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                        Total Area
-                      </p>
-                      <p className="font-heading text-4xl font-bold text-[#B8A06A]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
-                        {result.area} m²
-                      </p>
-                      <p className="font-paragraph text-sm text-[#FFFFFF]/70 mt-1">
-                        {Math.round(result.area * 10.7639 * 100) / 100} ft²
-                      </p>
-                    </div>
+                    {/* Area display for area-based */}
+                    {result.calculationType === 'area' && result.area && (
+                      <div className="bg-[#FFFFFF]/10 rounded-sm p-6">
+                        <p className="font-paragraph text-sm text-[#FFFFFF]/80 mb-2">
+                          Total Area
+                        </p>
+                        <p className="font-heading text-4xl font-bold text-[#B8A06A]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem' }}>
+                          {result.area} m²
+                        </p>
+                        <p className="font-paragraph text-sm text-[#FFFFFF]/70 mt-1">
+                          {Math.round(result.area * 10.7639 * 100) / 100} ft²
+                        </p>
+                      </div>
+                    )}
 
+                    {/* Cement bags for cement-based */}
+                    {result.calculationType === 'cement' && result.cementBags && (
+                      <div className="bg-[#FFFFFF]/10 rounded-sm p-6">
+                        <p className="font-paragraph text-sm text-[#FFFFFF]/80 mb-2">
+                          Cement Bags
+                        </p>
+                        <p className="font-heading text-4xl font-bold text-[#B8A06A]">
+                          {result.cementBags} bags
+                        </p>
+                        <p className="font-paragraph text-sm text-[#FFFFFF]/70 mt-1">
+                          {result.cementBags * 50} kg total cement
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Running length for running-length based */}
+                    {result.calculationType === 'running-length' && result.runningLength && (
+                      <div className="bg-[#FFFFFF]/10 rounded-sm p-6">
+                        <p className="font-paragraph text-sm text-[#FFFFFF]/80 mb-2">
+                          Running Length
+                        </p>
+                        <p className="font-heading text-4xl font-bold text-[#B8A06A]">
+                          {result.runningLength} m
+                        </p>
+                        <p className="font-paragraph text-sm text-[#FFFFFF]/70 mt-1">
+                          {Math.round(result.runningLength * 3.28084 * 100) / 100} ft
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Material amount */}
                     <div className="bg-[#FFFFFF]/10 rounded-sm p-6">
-                      <p className="font-paragraph text-sm text-[#FFFFFF]/80 mb-2" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                      <p className="font-paragraph text-sm text-[#FFFFFF]/80 mb-2">
                         Required Material
                       </p>
-                      <p className="font-heading text-4xl font-bold text-[#B8A06A]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
-                        {result.materialAmount} {result.isLiquid ? 'litres' : 'kg'}
+                      <p className="font-heading text-4xl font-bold text-[#B8A06A]">
+                        {result.materialAmount} {result.unit}
                       </p>
+                      {result.mixedPackaging && (
+                        <div className="mt-3 text-sm text-[#FFFFFF]/70">
+                          <p>Powder: {result.mixedPackaging.powder} kg</p>
+                          <p>Liquid: {result.mixedPackaging.liquid} L</p>
+                        </div>
+                      )}
                     </div>
 
+                    {/* Containers/Bags */}
                     <div className="bg-[#FFFFFF]/10 rounded-sm p-6">
                       <div className="flex items-center gap-3 mb-2">
-                        {result.isLiquid ? (
+                        {result.isLiquid || result.calculationType === 'cement' ? (
                           <Droplet className="h-5 w-5 text-[#FFFFFF]/80" />
+                        ) : result.calculationType === 'running-length' ? (
+                          <Ruler className="h-5 w-5 text-[#FFFFFF]/80" />
                         ) : (
                           <Package className="h-5 w-5 text-[#FFFFFF]/80" />
                         )}
-                        <p className="font-paragraph text-sm text-[#FFFFFF]/80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                          {result.isLiquid 
-                            ? `Containers Required (${result.containerSize}L each)` 
+                        <p className="font-paragraph text-sm text-[#FFFFFF]/80">
+                          {result.isLiquid || result.calculationType === 'cement'
+                            ? `Containers Required (${result.containerSize}${result.unit} each)` 
                             : `Bags Required (${result.containerSize}kg each)`}
                         </p>
                       </div>
-                      <p className="font-heading text-4xl font-bold text-[#B8A06A]" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
-                        {result.containers} {result.isLiquid ? 'containers' : 'bags'}
+                      <p className="font-heading text-4xl font-bold text-[#B8A06A]">
+                        {result.containers} {result.isLiquid || result.calculationType === 'cement' ? 'containers' : 'bags'}
                       </p>
+                      {currentProduct?.productName === 'CREED 2K' && (
+                        <p className="text-xs text-[#FFFFFF]/70 mt-2">
+                          Mix: 15kg packs (10kg powder + 5L liquid) and/or 3kg packs (2kg powder + 1L liquid)
+                        </p>
+                      )}
                     </div>
 
                     <div className="pt-4 border-t border-[#FFFFFF]/20">
-                      <p className="font-paragraph text-xs text-[#FFFFFF]/70 leading-relaxed" style={{ fontFamily: 'sora', fontSize: '0.75rem', lineHeight: '1.25', letterSpacing: '0.02em', fontWeight: 400 }}>
+                      <p className="font-paragraph text-xs text-[#FFFFFF]/70 leading-relaxed">
                         * Results include {wastage}% wastage factor. Actual requirements may vary based on 
                         application method, surface conditions, and project specifications.
                       </p>
@@ -498,8 +642,8 @@ export default function CalculatorPage() {
                 ) : (
                   <div className="flex flex-col items-center justify-center py-16 text-center">
                     <Calculator className="w-16 h-16 text-[#FFFFFF]/30 mb-6" strokeWidth={1.5} />
-                    <p className="font-paragraph text-base text-[#FFFFFF]/70" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                      Enter project details and click Calculate to see material requirements
+                    <p className="font-paragraph text-base text-[#FFFFFF]/70">
+                      Select a product and enter project details to calculate material requirements
                     </p>
                   </div>
                 )}
