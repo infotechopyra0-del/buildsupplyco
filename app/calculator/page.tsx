@@ -553,7 +553,7 @@ export default function CalculatorPage() {
                         <p className="font-paragraph text-sm text-[#FFFFFF]/80">
                           {result.isLiquid || result.calculationType === 'cement'
                             ? `Containers Required (${result.containerSize}${result.unit} each)` 
-                            : `Bags Required (${result.containerSize}kg each)`}
+                            : `Packs Required (${result.containerSize}kg each)`}
                         </p>
                       </div>
                       <p className="font-heading text-4xl font-bold text-[#B8A06A]">
