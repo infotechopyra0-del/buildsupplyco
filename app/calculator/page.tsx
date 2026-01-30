@@ -19,7 +19,6 @@ export default function CalculatorPage() {
   // Common inputs
   const [inputType, setInputType] = useState<'dimensions' | 'area' | 'direct'>('dimensions');
   const [measurementUnit, setMeasurementUnit] = useState<'m' | 'ft'>('m');
-  const [wastage, setWastage] = useState<string>('10');
   
   // Area-based inputs
   const [length, setLength] = useState<string>('');
@@ -55,12 +54,9 @@ export default function CalculatorPage() {
       const product = products.find(p => p._id === selectedProduct);
       setCurrentProduct(product || null);
       
-      // Set default wastage and dosage based on product
-      if (product) {
-        setWastage(product.wastagePercentage?.toString() || '10');
-        if (product.calculationType === 'cement') {
-          setDosagePercent(product.coverageRate.toString());
-        }
+      // Set default dosage based on product
+      if (product && product.calculationType === 'cement') {
+        setDosagePercent(product.coverageRate.toString());
       }
     } else {
       setCurrentProduct(null);
@@ -69,64 +65,41 @@ export default function CalculatorPage() {
 
   const calculateMaterial = () => {
     if (!currentProduct) return;
-    
-    const wastagePercent = parseFloat(wastage) || 0;
-    
     if (currentProduct.calculationType === 'area') {
-      calculateAreaBased(wastagePercent);
+      calculateAreaBased();
     } else if (currentProduct.calculationType === 'cement') {
-      calculateCementBased(wastagePercent);
+      calculateCementBased();
     } else if (currentProduct.calculationType === 'running-length') {
-      calculateRunningLength(wastagePercent);
+      calculateRunningLength();
     }
   };
 
-  const calculateAreaBased = (wastagePercent: number) => {
+  const calculateAreaBased = () => {
     if (!currentProduct) return;
-    
     let area = 0;
     if (inputType === 'dimensions') {
       const l = parseFloat(length);
       const w = parseFloat(width);
       if (isNaN(l) || isNaN(w) || l <= 0 || w <= 0) return;
-      
-      // Convert to meters if input is in feet
       const l_m = measurementUnit === 'ft' ? l * 0.3048 : l;
       const w_m = measurementUnit === 'ft' ? w * 0.3048 : w;
       area = l_m * w_m;
     } else {
       const a = parseFloat(totalArea);
       if (isNaN(a) || a <= 0) return;
-      
-      // Convert to sq.m if input is in ft²
       area = measurementUnit === 'ft' ? a * 0.092903 : a;
     }
-    
-    const areaWithWastage = area * (1 + wastagePercent / 100);
-    
     // Calculate material based on coverage rate (sq.m per unit)
-    // materialAmount = area / coverageRate
-    const materialAmount = areaWithWastage / currentProduct.coverageRate;
-    
+    const materialAmount = area / currentProduct.coverageRate;
     const isLiquid = currentProduct.productType?.toLowerCase() === 'liquid';
     const unit = isLiquid ? 'L' : 'kg';
-    
-    // Handle special CREED 2K mixed packaging
     if (currentProduct.productName === 'CREED 2K' && currentProduct.mixRatio) {
       const totalRatio = currentProduct.mixRatio.powder + currentProduct.mixRatio.liquid;
       const powderAmount = materialAmount * (currentProduct.mixRatio.powder / totalRatio);
       const liquidAmount = materialAmount * (currentProduct.mixRatio.liquid / totalRatio);
-      
-      // Calculate containers needed
-      // For CREED 2K: 3kg pack (2kg powder + 1L) or 15kg pack (10kg powder + 5L)
-      const containers15kg = Math.ceil(materialAmount / 15);
-      const containers3kg = Math.ceil(materialAmount / 3);
-      
-      // Use 15kg packs primarily, supplement with 3kg if needed
       const primary15kg = Math.floor(materialAmount / 15);
       const remaining = materialAmount - (primary15kg * 15);
       const additional3kg = remaining > 0 ? Math.ceil(remaining / 3) : 0;
-      
       setResult({
         area: Math.round(area * 100) / 100,
         materialAmount: Math.round(materialAmount * 100) / 100,
@@ -135,18 +108,11 @@ export default function CalculatorPage() {
         containerSize: 15,
         calculationType: 'area',
         unit: 'kg',
-        mixedPackaging: {
-          powder: Math.round(powderAmount * 100) / 100,
-          liquid: Math.round(liquidAmount * 100) / 100
-        }
       });
       return;
     }
-    
-    // Standard packaging calculation
-    let containerSize = currentProduct.packagingSizes[currentProduct.packagingSizes.length - 1]; // Use largest by default
+    let containerSize = currentProduct.packagingSizes[currentProduct.packagingSizes.length - 1];
     const containers = Math.ceil(materialAmount / containerSize);
-    
     setResult({
       area: Math.round(area * 100) / 100,
       materialAmount: Math.round(materialAmount * 100) / 100,
@@ -158,24 +124,15 @@ export default function CalculatorPage() {
     });
   };
 
-  const calculateCementBased = (wastagePercent: number) => {
+  const calculateCementBased = () => {
     if (!currentProduct) return;
-    
     const bags = parseFloat(cementBags);
     const dosage = parseFloat(dosagePercent);
-    
     if (isNaN(bags) || bags <= 0 || isNaN(dosage) || dosage <= 0) return;
-    
-    // Each cement bag is typically 50kg
     const cementWeight = bags * 50;
-    
-    // Calculate admixture needed (percentage of cement weight)
-    const admixtureLitres = (cementWeight * dosage / 100) * (1 + wastagePercent / 100);
-    
-    // Get container size
+    const admixtureLitres = (cementWeight * dosage / 100);
     let containerSize = currentProduct.packagingSizes[currentProduct.packagingSizes.length - 1];
     const containers = Math.ceil(admixtureLitres / containerSize);
-    
     setResult({
       cementBags: bags,
       materialAmount: Math.round(admixtureLitres * 100) / 100,
@@ -187,27 +144,17 @@ export default function CalculatorPage() {
     });
   };
 
-  const calculateRunningLength = (wastagePercent: number) => {
+  const calculateRunningLength = () => {
     if (!currentProduct) return;
-    
     let lengthInMeters = 0;
     const length = parseFloat(runningLength);
     if (isNaN(length) || length <= 0) return;
-    
-    // Convert to meters if input is in feet
     lengthInMeters = measurementUnit === 'ft' ? length * 0.3048 : length;
-    
-    const lengthWithWastage = lengthInMeters * (1 + wastagePercent / 100);
-    
-    // Calculate material based on coverage rate (meters per unit)
-    const materialAmount = lengthWithWastage / currentProduct.coverageRate;
-    
+    const materialAmount = lengthInMeters / currentProduct.coverageRate;
     const isLiquid = currentProduct.productType?.toLowerCase() === 'liquid';
     const unit = isLiquid ? 'L' : 'kg';
-    
     let containerSize = currentProduct.packagingSizes[currentProduct.packagingSizes.length - 1];
     const containers = Math.ceil(materialAmount / containerSize);
-    
     setResult({
       runningLength: Math.round(lengthInMeters * 100) / 100,
       materialAmount: Math.round(materialAmount * 100) / 100,
@@ -227,7 +174,7 @@ export default function CalculatorPage() {
     setCementBags('');
     setDosagePercent('');
     setRunningLength('');
-    setWastage('10');
+    // wastage removed
     setResult(null);
     setCurrentProduct(null);
   };
@@ -492,24 +439,7 @@ export default function CalculatorPage() {
                     </>
                   )}
 
-                  {/* Wastage - Common for all except cement */}
-                  {currentProduct && (
-                    <div>
-                      <Label htmlFor="wastage" className="font-paragraph text-base text-[#333333] mb-2 block">
-                        Wastage Factor (%)
-                      </Label>
-                      <Input
-                        id="wastage"
-                        type="number"
-                        step="1"
-                        min="0"
-                        max="100"
-                        value={wastage}
-                        onChange={(e) => setWastage(e.target.value)}
-                        className="font-paragraph"
-                      />
-                    </div>
-                  )}
+
 
                   {/* Action Buttons */}
                   <div className="flex gap-4 pt-4">
@@ -632,12 +562,7 @@ export default function CalculatorPage() {
                       )}
                     </div>
 
-                    <div className="pt-4 border-t border-[#FFFFFF]/20">
-                      <p className="font-paragraph text-xs text-[#FFFFFF]/70 leading-relaxed">
-                        * Results include {wastage}% wastage factor. Actual requirements may vary based on 
-                        application method, surface conditions, and project specifications.
-                      </p>
-                    </div>
+
                   </div>
                 ) : (
                   <div className="flex flex-col items-center justify-center py-16 text-center">

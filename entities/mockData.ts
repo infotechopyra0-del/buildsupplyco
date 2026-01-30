@@ -199,7 +199,7 @@ export const mockFAQs: FAQs[] = [
   },
 ];
 
-// CORRECTED PRODUCTS DATA with proper coverage rates
+
 export const mockProductsExtended: ProductsExtended[] = [
   // WATERPROOFING SOLUTIONS - AREA BASED
   {
@@ -210,12 +210,10 @@ export const mockProductsExtended: ProductsExtended[] = [
     calculationType: 'area',
     description: 'Two-component elastic cementitious waterproofing system for balconies, terraces and wet areas.',
     specifications: 'Elasticity: 40-50%. Tensile Strength: ≥4.5 N/mm². Coverage: 20 sq.ft per kg (2 coats). Packing: 3kg (2kg powder + 1L liquid) / 15kg (10kg powder + 5L liquid).',
-    coverageRate: 1.858, // 20 sq.ft/kg = 1.858 sq.m/kg
+    coverageRate: 0.62, // 20 sq.ft/kg = 1.858 sq.m/kg
     coverageUnit: 'sqm/kg',
-    wastagePercentage: 10,
     packagingSizes: [3, 15], // Special mixed packaging
     packagingType: 'mixed',
-    mixRatio: { powder: 2, liquid: 1 }, // 2:1 ratio
     catalogue: 'creed2k.pdf',
     productImage: '/images/ConcreedCreed2K.png',
     _createdDate: new Date('2026-01-15'),
@@ -231,7 +229,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'pH: 7-9. Specific Gravity: 1.02-1.03. Coverage: 20 sq.ft/L per coat. Packing: 20L.',
     coverageRate: 1.858, // 20 sq.ft/L = 1.858 sq.m/L
     coverageUnit: 'sqm/L',
-    wastagePercentage: 8,
     packagingSizes: [20],
     packagingType: 'liquid',
     catalogue: 'creedpu.pdf',
@@ -249,7 +246,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Elasticity: 100-150%. Density: 1.45-1.52 g/cm³. Usage: 0.25 kg/sq.m (2 coats). Packing: 5/20kg.',
     coverageRate: 4.0, // 1/0.25 = 4.0 sq.m/kg
     coverageUnit: 'sqm/kg',
-    wastagePercentage: 5,
     packagingSizes: [5, 20],
     packagingType: 'powder',
     catalogue: 'creedflex.pdf',
@@ -267,7 +263,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'SBR polymer. Coverage: 50-55 sq.ft per L (single coat). Packing: 1/5L.',
     coverageRate: 5.02, // 52 sq.ft/L = 4.83 sq.m/L (avg of 50-55)
     coverageUnit: 'sqm/L',
-    wastagePercentage: 5,
     packagingSizes: [1, 5],
     packagingType: 'liquid',
     catalogue: 'creedlatex.pdf',
@@ -287,7 +282,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Specific Gravity: 1.05-1.07. Chloride: Nil. Dosage: 200ml per 50kg cement bag (0.4%). Packing: 200ml/5L/20L.',
     coverageRate: 0.4, // 0.4% per bag
     coverageUnit: '% per bag',
-    wastagePercentage: 1,
     packagingSizes: [0.2, 5, 20],
     packagingType: 'liquid',
     catalogue: 'creedplus.pdf',
@@ -305,7 +299,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Density: 1.1-1.2 g/cm³. pH: 6-7. Dosage: 0.5% to 1.5% by weight of cement. Packing: 210L drum.',
     coverageRate: 1.0, // 1.0% per bag (mid-range)
     coverageUnit: '% per bag',
-    wastagePercentage: 1,
     packagingSizes: [210],
     packagingType: 'liquid',
     catalogue: 'addsurepcemg.pdf',
@@ -323,7 +316,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Density: 1.1-1.2 g/cm³. pH: 6-7. Dosage: 0.5% to 1.5% by weight of cement. Packing: 210L drum.',
     coverageRate: 1.0, // 1.0% per bag (mid-range)
     coverageUnit: '% per bag',
-    wastagePercentage: 1,
     packagingSizes: [210],
     packagingType: 'liquid',
     catalogue: 'addsurepcehg.pdf',
@@ -343,7 +335,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Ready to use elastomeric paste. Coverage: 45 running ft/kg for 5mm cracks. Packing: 1/5kg.',
     coverageRate: 13.72, // 45 ft = 13.72 m per kg
     coverageUnit: 'm/kg',
-    wastagePercentage: 5,
     packagingSizes: [1, 5],
     packagingType: 'powder',
     catalogue: 'creedcrackfiller.pdf',
@@ -361,7 +352,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: '3-part epoxy grout. Coverage: 30 running ft/kg for 3-10mm joint. Packing: 1/5kg.',
     coverageRate: 9.14, // 30 ft = 9.14 m per kg
     coverageUnit: 'm/kg',
-    wastagePercentage: 8,
     packagingSizes: [1, 5],
     packagingType: 'liquid',
     catalogue: 'creedgpoxy.pdf',
@@ -381,7 +371,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Thickness: 9-14mm per coat. Coverage: 16-20 sq.ft per 40kg. Packing: 40kg.',
     coverageRate: 0.046, // 18 sq.ft/40kg = 1.67 sq.m/40kg = 0.0418 sq.m/kg (avg)
     coverageUnit: 'sqm/kg',
-    wastagePercentage: 10,
     packagingSizes: [40],
     packagingType: 'powder',
     productImage: '/images/mcretepl.png',
@@ -399,7 +388,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Ready mix mortar for AAC block joints. Pot Life: 2hrs. Coverage: 90-100 sq.ft per 40kg (3mm). Packing: 25/40kg.',
     coverageRate: 0.22, // 95 sq.ft/40kg = 8.82 sq.m/40kg = 0.22 sq.m/kg
     coverageUnit: 'sqm/kg',
-    wastagePercentage: 8,
     packagingSizes: [25, 40],
     packagingType: 'powder',
     catalogue: 'mcretefix.pdf',
@@ -417,7 +405,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Polymer anti-corrosive zinc-rich coating. Coverage: 40-50 sq.ft per L. Packing: 5L.',
     coverageRate: 4.18, // 45 sq.ft/L = 4.18 sq.m/L
     coverageUnit: 'sqm/L',
-    wastagePercentage: 5,
     packagingSizes: [5],
     packagingType: 'liquid',
     catalogue: 'zincreed.pdf',
@@ -437,7 +424,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Compressive Strength: 14 N/mm². Pot Life: 2hrs. Coverage: ~5.5 sq.m per 25kg bag.',
     coverageRate: 0.22, // 5.5 sq.m/25kg = 0.22 sq.m/kg
     coverageUnit: 'sqm/kg',
-    wastagePercentage: 8,
     packagingSizes: [25, 40],
     packagingType: 'powder',
     catalogue: 'creedtagrey.pdf',
@@ -455,7 +441,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Compressive Strength: 12 N/mm². High slip resistance. Coverage: ~6 sq.m per 25kg bag.',
     coverageRate: 0.24, // 6 sq.m/25kg = 0.24 sq.m/kg
     coverageUnit: 'sqm/kg',
-    wastagePercentage: 8,
     packagingSizes: [25, 40],
     packagingType: 'powder',
     catalogue: 'creedtagreyplus.pdf',
@@ -473,7 +458,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Whitish color for marble. Compressive Strength: 14 N/mm². Coverage: ~5.7 sq.m per 25kg bag.',
     coverageRate: 0.228, // 5.7 sq.m/25kg = 0.228 sq.m/kg
     coverageUnit: 'sqm/kg',
-    wastagePercentage: 8,
     packagingSizes: [25, 40],
     packagingType: 'powder',
     catalogue: 'creedtawhite.pdf',
@@ -493,7 +477,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Primer for exterior and interior concrete surfaces. Coverage: 60-75 sq.ft per L (1 coat). Packing: 20L.',
     coverageRate: 6.22, // 67.5 sq.ft/L = 6.27 sq.m/L
     coverageUnit: 'sqm/L',
-    wastagePercentage: 5,
     packagingSizes: [20],
     packagingType: 'liquid',
     catalogue: 'primecoat.pdf',
@@ -511,7 +494,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Polymer Modified Textured Coating. Coverage: 80-85 sq.ft per 30kg at 1.5mm thickness. Packing: 30kg.',
     coverageRate: 0.255, // 82.5 sq.ft/30kg = 7.66 sq.m/30kg = 0.255 sq.m/kg
     coverageUnit: 'sqm/kg',
-    wastagePercentage: 10,
     packagingSizes: [30],
     packagingType: 'powder',
     catalogue: 'creedtexture.pdf',
@@ -529,7 +511,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Acrylic emulsion. Coverage: 80 sq.ft per L (2 coats). Packing: 20L.',
     coverageRate: 7.43, // 80 sq.ft/L = 7.43 sq.m/L
     coverageUnit: 'sqm/L',
-    wastagePercentage: 8,
     packagingSizes: [20],
     packagingType: 'liquid',
     catalogue: 'creedemulsion.pdf',
@@ -547,7 +528,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Coloured floor hardener for stamp floor. Application rate: 2.6kg/sq.m. Packing: 25kg bags.',
     coverageRate: 0.385, // 1/2.6 = 0.385 sq.m/kg
     coverageUnit: 'sqm/kg',
-    wastagePercentage: 5,
     packagingSizes: [25],
     packagingType: 'powder',
     catalogue: 'creedfhard.pdf',
@@ -565,7 +545,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Release powder for stamp floor. Coverage: 600-650 sq.ft per bag. Packing: 25kg.',
     coverageRate: 2.32, // 625 sq.ft/25kg = 58.1 sq.m/25kg = 2.32 sq.m/kg
     coverageUnit: 'sqm/kg',
-    wastagePercentage: 3,
     packagingSizes: [25],
     packagingType: 'powder',
     catalogue: 'creedfrelease.pdf',
@@ -583,7 +562,6 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Transparent polymer coating. Coverage: 80 sq.ft per L per coat. Recommended 1–2 coats. Packing: 20L.',
     coverageRate: 7.43, // 80 sq.ft/L = 7.43 sq.m/L
     coverageUnit: 'sqm/L',
-    wastagePercentage: 5,
     packagingSizes: [20],
     packagingType: 'liquid',
     catalogue: 'catalogues/creedsealer.pdf',
