@@ -108,6 +108,10 @@ export default function CalculatorPage() {
         containerSize: 15,
         calculationType: 'area',
         unit: 'kg',
+        mixedPackaging: {
+          powder: Math.round(powderAmount * 100) / 100,
+          liquid: Math.round(liquidAmount * 100) / 100
+        }
       });
       return;
     }
@@ -553,13 +557,8 @@ export default function CalculatorPage() {
                         </p>
                       </div>
                       <p className="font-heading text-4xl font-bold text-[#B8A06A]">
-                        {result.containers} {result.isLiquid || result.calculationType === 'cement' ? 'containers' : 'bags'}
+                        {result.containers} {result.isLiquid || result.calculationType === 'cement' ? 'containers' : 'packs'}
                       </p>
-                      {currentProduct?.productName === 'CREED 2K' && (
-                        <p className="text-xs text-[#FFFFFF]/70 mt-2">
-                          Mix: 15kg packs (10kg powder + 5L liquid) and/or 3kg packs (2kg powder + 1L liquid)
-                        </p>
-                      )}
                     </div>
 
 
