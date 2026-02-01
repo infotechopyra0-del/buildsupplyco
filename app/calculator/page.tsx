@@ -547,10 +547,10 @@ export default function CalculatorPage() {
                         </p>
                       </div>
                       <p className="font-heading text-4xl font-bold text-[#B8A06A]">
-                        {result.containers} {result.isLiquid || result.calculationType === 'cement' 
-                          ? 'containers' 
-                          : ['CREED PU', 'CREED FLEX', 'CREED LATEX'].includes(currentProduct?.productName || '') 
+                        {result.containers} {['CREED PU', 'CREED FLEX', 'CREED LATEX', 'CREED+'].includes(currentProduct?.productName || '') 
                           ? 'bucket' 
+                          : result.isLiquid || result.calculationType === 'cement' 
+                          ? 'containers' 
                           : 'packs'}
                       </p>
                     </div>
