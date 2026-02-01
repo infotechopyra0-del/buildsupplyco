@@ -246,7 +246,7 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Elasticity: 100-150%. Density: 1.45-1.52 g/cm³. Usage: 30 sq.ft per kg (2 coats). Packing: 5/20kg.',
     coverageRate: 2.79,
     coverageUnit: 'sqm/kg',
-    packagingSizes: [5, 20],
+    packagingSizes: [20],
     packagingType: 'powder',
     catalogue: 'creedflex.pdf',
     productImage: '/images/creedflex.jpeg',
@@ -263,14 +263,13 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'SBR polymer. Coverage: 50-55 sq.ft per L (single coat). Packing: 1/5L.',
     coverageRate: 9.29,
     coverageUnit: 'sqm/kg',
-    packagingSizes: [1, 5],
+    packagingSizes: [20],
     packagingType: 'liquid',
     catalogue: 'creedlatex.pdf',
     productImage: '/images/common.png',
     _createdDate: new Date('2026-01-15'),
     _updatedDate: new Date('2026-01-15'),
   },
-
   // ADMIXTURES - CEMENT BASED
   {
     _id: '5',

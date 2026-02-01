@@ -541,7 +541,7 @@ export default function CalculatorPage() {
                         <p className="font-paragraph text-sm text-[#FFFFFF]/80">
                           {result.isLiquid || result.calculationType === 'cement'
                             ? `Containers Required (${result.containerSize}${result.unit} each)`
-                            : currentProduct?.productName === 'CREED PU' 
+                            : ['CREED PU', 'CREED FLEX', 'CREED LATEX'].includes(currentProduct?.productName || '') 
                             ? `Packing Required (${result.containerSize}kg each)`
                             : `Packs Required (${result.containerSize}kg each)`}
                         </p>
@@ -549,7 +549,7 @@ export default function CalculatorPage() {
                       <p className="font-heading text-4xl font-bold text-[#B8A06A]">
                         {result.containers} {result.isLiquid || result.calculationType === 'cement' 
                           ? 'containers' 
-                          : currentProduct?.productName === 'CREED PU' 
+                          : ['CREED PU', 'CREED FLEX', 'CREED LATEX'].includes(currentProduct?.productName || '') 
                           ? 'bucket' 
                           : 'packs'}
                       </p>
