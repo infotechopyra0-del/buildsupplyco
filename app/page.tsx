@@ -102,7 +102,7 @@ export default function HomePage() {
         >
           <div className="absolute inset-0" />
           <Image 
-            src="/images/IndustrialArchitecture.png"
+            src="/images/HeroSlides.jpeg"
             alt="Industrial Architecture"
             className="w-full h-full object-cover"
             width={1920}
