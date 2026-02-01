@@ -288,39 +288,39 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-3 gap-12 items-center">
             {/* Left Column Products */}
             <div className="space-y-6">
-              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+              <Link href="/solutions/1" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
                 <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  CREED TILE ADHESIVE WHITE
+                  CREED-2k
                 </h3>
                 <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Premium white tile adhesive for ceramic applications
+                  Two-component elastic cementitious waterproofing system for balconies, terraces and wet areas.
                 </p>
               </Link>
 
-              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+              <Link href="/solutions/11" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
                 <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  CREED TILE ADHESIVE GREY
+                  MCRETE-FIX
                 </h3>
                 <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  High-performance grey adhesive for heavy-duty use
+                  Ready-mix mortar for AAC block joints; pot life ~2 hours; ideal for thin joints (3mm).
                 </p>
               </Link>
 
-              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+              <Link href="/solutions/2" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
                 <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  CREED TA-GREY
+                  CREED PB
                 </h3>
                 <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Professional-grade with extended working time
+                  Single-component polyurethane waterproofing membrane with excellent elasticity and durability.
                 </p>
               </Link>
 
-              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+              <Link href="/solutions/5" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
                 <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  CREED TA GREY+
+                  CREED+
                 </h3>
                 <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Enhanced formula for large format tiles
+                  Integral waterproofing liquid for cementitious mixes, reducing permeability and improving durability.
                 </p>
               </Link>
             </div>
@@ -334,13 +334,13 @@ export default function HomePage() {
                 transition={{ duration: 0.8 }}
                 className="relative"
               >
-                <div className="w-80 h-80 overflow-hidden border-4 border-[#e4b725] shadow-2xl">
+                <div className="w-md h-112 overflow-hidden border-4 border-[#e4b725] shadow-2xl">
                   <Image 
                     src="/images/common.png"
                     alt="Premium Construction Materials"
-                    className="w-full h-full object-cover"
-                    width={320}
-                    height={320}
+                    className="w-full h-full object-contain"
+                    width={448}
+                    height={448}
                   />
                 </div>
                 {/* Decorative elements around the square */}
@@ -353,39 +353,39 @@ export default function HomePage() {
 
             {/* Right Column Products */}
             <div className="space-y-6">
-              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+              <Link href="/solutions/3" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  CREED FLEX
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  Flexible cementitious coating with very high elongation for moving substrates.
+                </p>
+              </Link>
+
+              <Link href="/solutions/4" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  CREED LATEX
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  SBR-based polymer for repair and bonding, improves adhesion and flexibility of repair mortars.
+                </p>
+              </Link>
+
+              <Link href="/solutions/9" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  GPOXY-05
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  Three-part epoxy tile grout available in attractive colours for joints 3-10mm.
+                </p>
+              </Link>
+
+              <Link href="/solutions/15" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
                 <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
                   CREED TA WHITE
                 </h3>
                 <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Zero staining formula for light tiles
-                </p>
-              </Link>
-
-              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  MCRETE-PL
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  High-performance concrete plasticizer
-                </p>
-              </Link>
-
-              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  MCRETE-FIX
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Rapid-setting concrete repair compound
-                </p>
-              </Link>
-
-              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  ZINCREED
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Premium zinc-rich corrosion protection
+                  Whitish tile adhesive optimized for marble and light-colour stone installations.
                 </p>
               </Link>
             </div>
@@ -395,28 +395,28 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
               <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                PU CLEAR COAT
+                ZINCREED-32
               </h3>
               <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                High-gloss polyurethane clear protection coating
+                Polymer-based anti-corrosive zinc-rich coating for steel reinforcement protection.
               </p>
             </Link>
 
-            <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+            <Link href="/solutions/6" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
               <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                ELASTOMERIC COATING
+                ADDSURE
               </h3>
               <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                Flexible coating for crack bridging and waterproofing
+                New generation modified PCE-based superplasticizer for high workability and reduced water demand.
               </p>
             </Link>
 
-            <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+            <Link href="/solutions/14" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
               <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                EPOXY FLOORING
+                CREED TA GREY +
               </h3>
               <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                Industrial-grade durability and chemical resistance
+                High-slip resistant grey tile adhesive for heavy-duty tiling applications.
               </p>
             </Link>
           </div>
