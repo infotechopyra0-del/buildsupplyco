@@ -296,7 +296,7 @@ export const mockProductsExtended: ProductsExtended[] = [
     calculationType: 'cement',
     description: 'New generation modified PCE-based superplasticizer for high workability and reduced water demand.',
     specifications: 'Density: 1.1-1.2 g/cm³. pH: 6-7. Dosage: 0.5% to 1.5% by weight of cement. Packing: 210L drum.',
-    coverageRate: 1.0, // 1.0% per bag (mid-range)
+    coverageRate: 1.0, 
     coverageUnit: '% per bag',
     packagingSizes: [210],
     packagingType: 'liquid',
