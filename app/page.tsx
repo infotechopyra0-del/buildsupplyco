@@ -175,40 +175,6 @@ export default function HomePage() {
               </Link>
             </motion.div>
           </div>
-
-          {/* Hero Decorative Element */}
-          <div className="hidden lg:block lg:col-span-4 relative h-full min-h-150">
-             <motion.div 
-               className="absolute top-20 right-0 w-full aspect-3/4 border border-[#333333]/10 p-4"
-             >
-                <div className="w-full h-full relative overflow-hidden bg-white backdrop-blur-sm">
-                  <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-accent-gold to-transparent opacity-50" />
-                  <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-accent-gold to-transparent opacity-50" />
-                  <div className="p-8 flex flex-col justify-between h-full">
-                    <div className="space-y-2">
-                      <div className="w-8 h-8 border border-[#333333]/20 rounded-full flex items-center justify-center">
-                        <div className="w-1 h-1 bg-accent-gold rounded-full" />
-                      </div>
-                      <p className="font-heading text-2xl text-black" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '1.875', letterSpacing: '0.01em', fontWeight: 500 }}>Precision</p>
-                    </div>
-                    <div className="space-y-6">
-                      <div className="flex justify-between items-end border-b border-black pb-2">
-                        <span className="font-paragraph text-xs uppercase tracking-wider text-black" style={{ fontFamily: 'sora', fontSize: '0.75rem', lineHeight: '1.25', letterSpacing: '0.02em', fontWeight: 400 }}>Coverage</span>
-                        <span className="font-paragraph text-lg text-black" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>100%</span>
-                      </div>
-                      <div className="flex justify-between items-end border-b border-white/10 pb-2">
-                        <span className="font-paragraph text-xs uppercase tracking-wider text-black" style={{ fontFamily: 'sora', fontSize: '0.75rem', lineHeight: '1.25', letterSpacing: '0.02em', fontWeight: 400 }}>Durability</span>
-                        <span className="font-paragraph text-lg text-black" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>A+</span>
-                      </div>
-                      <div className="flex justify-between items-end border-b border-white/10 pb-2">
-                        <span className="font-paragraph text-xs uppercase tracking-wider text-black" style={{ fontFamily: 'sora', fontSize: '0.75rem', lineHeight: '1.25', letterSpacing: '0.02em', fontWeight: 400 }}>Grade</span>
-                        <span className="font-paragraph text-lg text-black" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>Industrial</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-             </motion.div>
-          </div>
         </div>
         
         {/* Scroll Indicator */}
