@@ -63,11 +63,11 @@ const Marquee = () => {
       >
         {[...Array(4)].map((_, i) => (
           <React.Fragment key={i}>
-            <span className="text-sm font-paragraph tracking-[0.2em] uppercase opacity-80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>Precision Engineering</span>
+            <span className="text-sm font-paragraph tracking-[0.2em] uppercase opacity-80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>We provide Solutions From pre-building protection to post-building repair</span>
             <span className="w-1 h-1 bg-accent-gold rounded-full" />
-            <span className="text-sm font-paragraph tracking-[0.2em] uppercase opacity-80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>Industrial Durability</span>
+            <span className="text-sm font-paragraph tracking-[0.2em] uppercase opacity-80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>We provide Solutions From pre-building protection to post-building repair</span>
             <span className="w-1 h-1 bg-accent-gold rounded-full" />
-            <span className="text-sm font-paragraph tracking-[0.2em] uppercase opacity-80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>Global Standards</span>
+            <span className="text-sm font-paragraph tracking-[0.2em] uppercase opacity-80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>We provide Solutions From pre-building protection to post-building repair</span>
             <span className="w-1 h-1 bg-accent-gold rounded-full" />
           </React.Fragment>
         ))}
@@ -120,7 +120,7 @@ export default function HomePage() {
               className="mb-6 flex items-center gap-4"
             >
               <div className="h-px w-12 bg-[#e4b725]" />
-              <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#e4b725] font-medium" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 500 }}>
+              <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#ffffff] font-medium" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 500 }}>
                 Est. Quality Standards
               </span>
             </motion.div>
@@ -143,7 +143,7 @@ export default function HomePage() {
               className="font-paragraph text-lg md:text-xl text-[#FFFFFF] max-w-2xl leading-relaxed mb-12 border-l-2 border-[#e4b725]/30 pl-6"
               style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}
             >
-              Premium construction materials engineered for precision, durability, and uncompromising quality. We provide the foundation for the world's most ambitious structures.
+              Quality construction chemical solutions engineered for precision, durability, and uncompromising quality. We provide the foundation for the world's most ambitious structures.
             </motion.p>
 
             <motion.div 
@@ -170,7 +170,7 @@ export default function HomePage() {
                   className="bg-transparent border border-[#333333]/20 text-[#FFFFFF] hover:bg-[#333333] hover:text-[#FFFFFF] font-paragraph text-base px-10 py-7 h-auto rounded-none transition-all duration-300"
                   style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
-                  Explore Collection
+                  Explore Solutions
                 </Button>
               </Link>
             </motion.div>
@@ -244,10 +244,10 @@ export default function HomePage() {
       <section className="w-full py-32 bg-[#FFFFFF]">
         <div className="max-w-480 mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#e4b725] mb-4 block" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>Featured Products</span>
-            <h2 className="font-heading text-5xl lg:text-6xl text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}>Premium Construction Materials</h2>
+            <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#e4b725] mb-4 block" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>Products</span>
+            <h2 className="font-heading text-5xl lg:text-6xl text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}>Construction Chemicals</h2>
             <p className="font-paragraph text-lg text-[#333333]/60 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
-              Discover our comprehensive range of high-performance adhesives, coatings, and construction chemicals designed for modern building requirements.
+              Complete chemical solutions for every stage: from pre-construction protection to post-construction repair.
             </p>
           </div>
 

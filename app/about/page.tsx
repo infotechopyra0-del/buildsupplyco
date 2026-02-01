@@ -50,7 +50,7 @@ export default function AboutPage() {
           </h1>
           <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
           <p className="font-paragraph text-lg lg:text-xl text-[#333333]/80 leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
-            For over three decades, we've been at the forefront of construction materials innovation, 
+            We've been at the forefront of construction materials innovation, 
             delivering premium solutions that professionals trust for their most demanding projects.
           </p>
         </motion.div>
@@ -165,7 +165,7 @@ export default function AboutPage() {
 
           <div className="min-h-100">
             {team.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                 {team.map((member, index) => (
                   <motion.div
                     key={member._id}
@@ -175,22 +175,22 @@ export default function AboutPage() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     className="text-center"
                   >
-                    <div className="aspect-square rounded-sm overflow-hidden mb-6">
+                    <div className="w-32 h-32 mx-auto rounded-sm overflow-hidden mb-4">
                       <Image
                         src={member.photo || "/images/default-profile.png"}
                         alt={member.name || "Team member"}
                         className="w-full h-full object-cover"
-                        width={400}
-                        height={400}
+                        width={128}
+                        height={128}
                       />
                     </div>
-                    <h3 className="font-heading text-2xl font-semibold text-[#333333] mb-2" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 600 }}>
+                    <h3 className="font-heading text-lg font-semibold text-[#333333] mb-1" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.005em', fontWeight: 600 }}>
                       {member.name}
                     </h3>
-                    <p className="font-paragraph text-base text-[#e4b725] mb-4" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                    <p className="font-paragraph text-sm text-[#e4b725] mb-3" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
                       {member.role}
                     </p>
-                    <p className="font-paragraph text-sm text-[#333333]/70 leading-relaxed" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                    <p className="font-paragraph text-xs text-[#333333]/70 leading-relaxed" style={{ fontFamily: 'sora', fontSize: '0.75rem', lineHeight: '1.25', letterSpacing: '0.02em', fontWeight: 400 }}>
                       {member.bio}
                     </p>
                   </motion.div>

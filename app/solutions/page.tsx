@@ -19,9 +19,7 @@ function ProductsPageInner() {
     'Waterproofing',
     'Tile Adhesive',
     'Concrete Repair',
-    'Flooring Solutions',
     'Decorative',
-    'Texture Paint',
     'Admixtures',
     'Mortar'
   ];
@@ -29,6 +27,13 @@ function ProductsPageInner() {
 
   const filteredProducts = selectedCategory === 'All'
     ? mockProductsExtended
+    : selectedCategory === 'Decorative'
+    ? mockProductsExtended.filter(p =>
+        typeof p.category === 'string' &&
+        (p.category.toLowerCase().includes('decorative') ||
+         p.category.toLowerCase().includes('flooring') ||
+         p.category.toLowerCase().includes('texture'))
+      )
     : mockProductsExtended.filter(p =>
         typeof p.category === 'string' &&
         p.category.toLowerCase().includes(selectedCategory.toLowerCase())

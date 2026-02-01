@@ -51,7 +51,6 @@ const commitments = [
 
 const certifications = [
   { name: 'ISO 14001', description: 'Environmental Management' },
-  { name: 'LEED Certified', description: 'Green Building Materials' },
   { name: 'Carbon Trust', description: 'Carbon Footprint Verified' },
   { name: 'FSC Certified', description: 'Responsible Sourcing' }
 ];

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CONCREED SOLUTIONS - Premium Construction Materials",
+  title: "CONCREED SOLUTIONS - Construction Chemical",
   description: "Your trusted source for high-quality construction materials designed for durability and performance.",
 };
 

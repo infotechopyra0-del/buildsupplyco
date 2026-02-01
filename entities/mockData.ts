@@ -207,7 +207,7 @@ export const mockProductsExtended: ProductsExtended[] = [
     category: 'Waterproofing Solutions',
     productType: 'solid',
     calculationType: 'area',
-    description: 'Two-component elastic cementitious waterproofing system for balconies, terraces and wet areas.',
+    description: 'Two-component elastic cementitious waterproofing system for balconies, terraces and wet areas. Highly flexible with crack-bridging ability. Provides excellent adhesion to various substrates and offers long-lasting protection against water ingress. Suitable for both positive and negative water pressure applications, making it ideal for basements, swimming pools, and external facades.',
     specifications: 'Elasticity: 40-50%. Tensile Strength: ≥4.5 N/mm². Coverage: 20 sq.ft per kg (2 coats). Packing: 3kg (2kg powder + 1L liquid) / 15kg (10kg powder + 5L liquid).',
     coverageRate: 0.62, 
     coverageUnit: 'sqm/kg',

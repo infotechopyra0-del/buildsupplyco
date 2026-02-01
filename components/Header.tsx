@@ -35,7 +35,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="flex flex-col items-start leading-none">
+            <div className="flex flex-col items-center leading-none">
               <span
                 className="font-heading font-bold text-[28px] sm:text-[36px] md:text-[48px] text-[#e4b725]"
                 style={{ fontFamily: 'cormorantgaramond', lineHeight: '1', letterSpacing: '0.005em', fontWeight: 700 }}
