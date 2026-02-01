@@ -401,10 +401,10 @@ export const mockProductsExtended: ProductsExtended[] = [
     productType: 'liquid',
     calculationType: 'area',
     description: 'Polymer-based anti-corrosive zinc-rich coating for steel reinforcement protection.',
-    specifications: 'Polymer anti-corrosive zinc-rich coating. Coverage: 40-50 sq.ft per L. Packing: 5L.',
-    coverageRate: 4.18, // 45 sq.ft/L = 4.18 sq.m/L
+    specifications: 'Polymer anti-corrosive zinc-rich coating. Coverage: 120 sq.ft per bucket. Packing: 20L buckets.',
+    coverageRate: 0.5575,
     coverageUnit: 'sqm/L',
-    packagingSizes: [5],
+    packagingSizes: [20],
     packagingType: 'liquid',
     catalogue: 'zincreed.pdf',
     productImage: '/images/zincreed.jpeg',

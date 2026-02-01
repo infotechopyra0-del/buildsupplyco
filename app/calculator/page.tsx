@@ -539,17 +539,19 @@ export default function CalculatorPage() {
                           <Package className="h-5 w-5 text-[#FFFFFF]/80" />
                         )}
                         <p className="font-paragraph text-sm text-[#FFFFFF]/80">
-                          {result.isLiquid || result.calculationType === 'cement'
+                          {['ZINCREED'].includes(currentProduct?.productName || '')
+                            ? `Buckets Required (${result.containerSize}${result.unit} each)`
+                            : result.isLiquid || result.calculationType === 'cement'
                             ? `Containers Required (${result.containerSize}${result.unit} each)`
                             : ['CREED PU', 'CREED FLEX', 'CREED LATEX'].includes(currentProduct?.productName || '') 
-                            ? `Packing Required (${result.containerSize}kg each)`
+                            ? `Buckets Required (${result.containerSize}kg each)`
                             : ['CREED TA-Grey', 'CREED TA GREY+', 'CREED TA WHITE', 'MCRETE-PL', 'MCRETE-FIX'].includes(currentProduct?.productName || '')
                             ? `Bags Required (${result.containerSize}kg each)`
                             : `Packs Required (${result.containerSize}kg each)`}
                         </p>
                       </div>
                       <p className="font-heading text-4xl font-bold text-[#B8A06A]">
-                        {result.containers} {['CREED PU', 'CREED FLEX', 'CREED LATEX', 'CREED+'].includes(currentProduct?.productName || '') 
+                        {result.containers} {['CREED PU', 'CREED FLEX', 'CREED LATEX', 'CREED+', 'ZINCREED'].includes(currentProduct?.productName || '') 
                           ? 'bucket' 
                           : ['CREED TA-Grey', 'CREED TA GREY+', 'CREED TA WHITE', 'MCRETE-PL', 'MCRETE-FIX'].includes(currentProduct?.productName || '')
                           ? 'bag'

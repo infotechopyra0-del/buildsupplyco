@@ -274,6 +274,166 @@ export default function HomePage() {
 
       <SectionDivider />
 
+      {/* --- FEATURED PRODUCTS SHOWCASE --- */}
+      <section className="w-full py-32 bg-[#FFFFFF]">
+        <div className="max-w-480 mx-auto px-6 lg:px-12">
+          <div className="text-center mb-20">
+            <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#e4b725] mb-4 block" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>Featured Products</span>
+            <h2 className="font-heading text-5xl lg:text-6xl text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}>Premium Construction Materials</h2>
+            <p className="font-paragraph text-lg text-[#333333]/60 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
+              Discover our comprehensive range of high-performance adhesives, coatings, and construction chemicals designed for modern building requirements.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-12 items-center">
+            {/* Left Column Products */}
+            <div className="space-y-6">
+              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  CREED TILE ADHESIVE WHITE
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  Premium white tile adhesive for ceramic applications
+                </p>
+              </Link>
+
+              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  CREED TILE ADHESIVE GREY
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  High-performance grey adhesive for heavy-duty use
+                </p>
+              </Link>
+
+              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  CREED TA-GREY
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  Professional-grade with extended working time
+                </p>
+              </Link>
+
+              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  CREED TA GREY+
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  Enhanced formula for large format tiles
+                </p>
+              </Link>
+            </div>
+
+            {/* Center Image */}
+            <div className="flex items-center justify-center">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative"
+              >
+                <div className="w-80 h-80 overflow-hidden border-4 border-[#e4b725] shadow-2xl">
+                  <Image 
+                    src="/images/common.png"
+                    alt="Premium Construction Materials"
+                    className="w-full h-full object-cover"
+                    width={320}
+                    height={320}
+                  />
+                </div>
+                {/* Decorative elements around the square */}
+                <div className="absolute -top-4 -left-4 w-8 h-8 bg-[#e4b725] opacity-20"></div>
+                <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-[#e4b725] opacity-10"></div>
+                <div className="absolute top-1/2 -left-8 w-6 h-6 bg-[#e4b725] opacity-15"></div>
+                <div className="absolute top-1/4 -right-8 w-4 h-4 bg-[#e4b725] opacity-25"></div>
+              </motion.div>
+            </div>
+
+            {/* Right Column Products */}
+            <div className="space-y-6">
+              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  CREED TA WHITE
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  Zero staining formula for light tiles
+                </p>
+              </Link>
+
+              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  MCRETE-PL
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  High-performance concrete plasticizer
+                </p>
+              </Link>
+
+              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  MCRETE-FIX
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  Rapid-setting concrete repair compound
+                </p>
+              </Link>
+
+              <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                  ZINCREED
+                </h3>
+                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  Premium zinc-rich corrosion protection
+                </p>
+              </Link>
+            </div>
+          </div>
+
+          {/* Additional Products Row */}
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+              <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                PU CLEAR COAT
+              </h3>
+              <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                High-gloss polyurethane clear protection coating
+              </p>
+            </Link>
+
+            <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+              <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                ELASTOMERIC COATING
+              </h3>
+              <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                Flexible coating for crack bridging and waterproofing
+              </p>
+            </Link>
+
+            <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
+              <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
+                EPOXY FLOORING
+              </h3>
+              <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                Industrial-grade durability and chemical resistance
+              </p>
+            </Link>
+          </div>
+
+          <div className="text-center mt-16">
+            <Link href="/solutions">
+              <Button size="lg" className="bg-[#e4b725] hover:bg-[#e4b725]/90 text-[#333333] font-paragraph px-12 py-6 h-auto rounded-none transition-all duration-300">
+                Explore All Products
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
       {/* --- PRODUCT SHOWCASE (Horizontal Accordion / Grid) --- */}
       <section className="w-full py-32 bg-[#F8F8F8]">
         <div className="max-w-480 mx-auto px-6 lg:px-12 mb-20 flex flex-col md:flex-row justify-between items-end gap-8">
