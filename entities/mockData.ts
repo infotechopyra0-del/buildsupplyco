@@ -334,7 +334,7 @@ export const mockProductsExtended: ProductsExtended[] = [
     specifications: 'Ready to use elastomeric paste. Coverage: 40 running ft/kg for 5mm cracks. Packing: 1/5kg.',
     coverageRate: 12.19, 
     coverageUnit: 'm/kg',
-    packagingSizes: [1, 5],
+    packagingSizes: [1],
     packagingType: 'powder',
     catalogue: 'creedcrackfiller.pdf',
     productImage: '/images/creedcrackfiller.png',
@@ -421,9 +421,9 @@ export const mockProductsExtended: ProductsExtended[] = [
     calculationType: 'area',
     description: 'High-strength tile adhesive in grey suitable for ceramic and vitrified tiles.',
     specifications: 'Compressive Strength: 14 N/mm². Pot Life: 2hrs. Coverage: ~5.5 sq.m per 25kg bag.',
-    coverageRate: 0.22, // 5.5 sq.m/25kg = 0.22 sq.m/kg
+    coverageRate: 1.75, // 5.5 sq.m/25kg = 0.22 sq.m/kg
     coverageUnit: 'sqm/kg',
-    packagingSizes: [25, 40],
+    packagingSizes: [20],
     packagingType: 'powder',
     catalogue: 'creedtagrey.pdf',
     productImage: '/images/creedtagrey.png',
@@ -438,9 +438,9 @@ export const mockProductsExtended: ProductsExtended[] = [
     calculationType: 'area',
     description: 'High-slip resistant grey tile adhesive for heavy-duty tiling applications.',
     specifications: 'Compressive Strength: 12 N/mm². High slip resistance. Coverage: ~6 sq.m per 25kg bag.',
-    coverageRate: 0.24, // 6 sq.m/25kg = 0.24 sq.m/kg
+    coverageRate: 1.5, // 6 sq.m/25kg = 0.24 sq.m/kg
     coverageUnit: 'sqm/kg',
-    packagingSizes: [25, 40],
+    packagingSizes: [20],
     packagingType: 'powder',
     catalogue: 'creedtagreyplus.pdf',
     productImage: '/images/creedtagreyplus.png',
@@ -455,9 +455,9 @@ export const mockProductsExtended: ProductsExtended[] = [
     calculationType: 'area',
     description: 'Whitish tile adhesive optimized for marble and light-colour stone installations.',
     specifications: 'Whitish color for marble. Compressive Strength: 14 N/mm². Coverage: ~5.7 sq.m per 25kg bag.',
-    coverageRate: 0.228, // 5.7 sq.m/25kg = 0.228 sq.m/kg
+    coverageRate: 1.5, // 5.7 sq.m/25kg = 0.228 sq.m/kg
     coverageUnit: 'sqm/kg',
-    packagingSizes: [25, 40],
+    packagingSizes: [20],
     packagingType: 'powder',
     catalogue: 'creedtawhite.pdf',
     productImage: '/images/common.png',

@@ -543,12 +543,16 @@ export default function CalculatorPage() {
                             ? `Containers Required (${result.containerSize}${result.unit} each)`
                             : ['CREED PU', 'CREED FLEX', 'CREED LATEX'].includes(currentProduct?.productName || '') 
                             ? `Packing Required (${result.containerSize}kg each)`
+                            : ['CREED TA-Grey', 'CREED TA GREY+', 'CREED TA WHITE'].includes(currentProduct?.productName || '')
+                            ? `Bags Required (${result.containerSize}kg each)`
                             : `Packs Required (${result.containerSize}kg each)`}
                         </p>
                       </div>
                       <p className="font-heading text-4xl font-bold text-[#B8A06A]">
                         {result.containers} {['CREED PU', 'CREED FLEX', 'CREED LATEX', 'CREED+'].includes(currentProduct?.productName || '') 
                           ? 'bucket' 
+                          : ['CREED TA-Grey', 'CREED TA GREY+', 'CREED TA WHITE'].includes(currentProduct?.productName || '')
+                          ? 'bag'
                           : result.isLiquid || result.calculationType === 'cement' 
                           ? 'containers' 
                           : 'packs'}
