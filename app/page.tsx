@@ -59,10 +59,14 @@ const Marquee = () => {
       <motion.div 
         className="flex gap-16 items-center"
         animate={{ x: "-50%" }}
-        transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+        transition={{ repeat: Infinity, ease: "linear", duration: 80 }}
       >
         {[...Array(4)].map((_, i) => (
           <React.Fragment key={i}>
+            <span className="text-sm font-paragraph tracking-[0.2em] uppercase opacity-80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>We provide Solutions From pre-building protection to post-building repair</span>
+            <span className="w-1 h-1 bg-accent-gold rounded-full" />
+            <span className="text-sm font-paragraph tracking-[0.2em] uppercase opacity-80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>We provide Solutions From pre-building protection to post-building repair</span>
+            <span className="w-1 h-1 bg-accent-gold rounded-full" />
             <span className="text-sm font-paragraph tracking-[0.2em] uppercase opacity-80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>We provide Solutions From pre-building protection to post-building repair</span>
             <span className="w-1 h-1 bg-accent-gold rounded-full" />
             <span className="text-sm font-paragraph tracking-[0.2em] uppercase opacity-80" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>We provide Solutions From pre-building protection to post-building repair</span>
