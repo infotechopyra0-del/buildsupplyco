@@ -201,7 +201,6 @@ export const mockFAQs: FAQs[] = [
 
 
 export const mockProductsExtended: ProductsExtended[] = [
-  // WATERPROOFING SOLUTIONS - AREA BASED
   {
     _id: '1',
     productName: 'CREED 2K',
@@ -226,11 +225,12 @@ export const mockProductsExtended: ProductsExtended[] = [
     productType: 'liquid',
     calculationType: 'area',
     description: 'Single-component polyurethane waterproofing membrane with excellent elasticity and durability.',
-    specifications: 'pH: 7-9. Specific Gravity: 1.02-1.03. Coverage: 20 sq.ft/L per coat. Packing: 20L.',
-    coverageRate: 1.858, // 20 sq.ft/L = 1.858 sq.m/L
-    coverageUnit: 'sqm/L',
+    specifications: 'Coverage: 12–20 sq.ft per kg (2 coats). Packing: 20kg.',
+    coverageRate: 1.86,
+    coverageUnit: 'sqm/kg',
     packagingSizes: [20],
     packagingType: 'liquid',
+    displayUnit: 'kg',
     catalogue: 'creedpu.pdf',
     productImage: '/images/common.png',
     _createdDate: new Date('2026-01-15'),
@@ -244,7 +244,7 @@ export const mockProductsExtended: ProductsExtended[] = [
     calculationType: 'area',
     description: 'Flexible cementitious coating with very high elongation for moving substrates.',
     specifications: 'Elasticity: 100-150%. Density: 1.45-1.52 g/cm³. Usage: 0.25 kg/sq.m (2 coats). Packing: 5/20kg.',
-    coverageRate: 4.0, // 1/0.25 = 4.0 sq.m/kg
+    coverageRate: 4.0,
     coverageUnit: 'sqm/kg',
     packagingSizes: [5, 20],
     packagingType: 'powder',

@@ -15,23 +15,15 @@ export default function CalculatorPage() {
   const [products, setProducts] = useState<ProductsExtended[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<string>('');
   const [currentProduct, setCurrentProduct] = useState<ProductsExtended | null>(null);
-  
-  // Common inputs
   const [inputType, setInputType] = useState<'dimensions' | 'area' | 'direct'>('dimensions');
   const [measurementUnit, setMeasurementUnit] = useState<'m' | 'ft'>('m');
-  
-  // Area-based inputs
   const [length, setLength] = useState<string>('');
   const [width, setWidth] = useState<string>('');
   const [totalArea, setTotalArea] = useState<string>('');
-  
-  // Cement-based inputs
   const [cementBags, setCementBags] = useState<string>('');
   const [dosagePercent, setDosagePercent] = useState<string>('');
-  
-  // Running length inputs
   const [runningLength, setRunningLength] = useState<string>('');
-  
+
   const [result, setResult] = useState<{
     area?: number;
     materialAmount: number;
@@ -53,8 +45,6 @@ export default function CalculatorPage() {
     if (selectedProduct) {
       const product = products.find(p => p._id === selectedProduct);
       setCurrentProduct(product || null);
-      
-      // Set default dosage based on product
       if (product && product.calculationType === 'cement') {
         setDosagePercent(product.coverageRate.toString());
       }
@@ -89,10 +79,10 @@ export default function CalculatorPage() {
       if (isNaN(a) || a <= 0) return;
       area = measurementUnit === 'ft' ? a * 0.092903 : a;
     }
-    // Calculate material based on coverage rate (sq.m per unit)
+
     const materialAmount = area / currentProduct.coverageRate;
-    const isLiquid = currentProduct.productType?.toLowerCase() === 'liquid';
-    const unit = isLiquid ? 'L' : 'kg';
+    const isLiquid = currentProduct.coverageUnit?.includes('L') || false;
+    const unit = currentProduct.coverageUnit?.includes('kg') ? 'kg' : 'L';
     if (currentProduct.productName === 'CREED 2K' && currentProduct.mixRatio) {
       const totalRatio = currentProduct.mixRatio.powder + currentProduct.mixRatio.liquid;
       const powderAmount = materialAmount * (currentProduct.mixRatio.powder / totalRatio);
@@ -155,8 +145,10 @@ export default function CalculatorPage() {
     if (isNaN(length) || length <= 0) return;
     lengthInMeters = measurementUnit === 'ft' ? length * 0.3048 : length;
     const materialAmount = lengthInMeters / currentProduct.coverageRate;
-    const isLiquid = currentProduct.productType?.toLowerCase() === 'liquid';
-    const unit = isLiquid ? 'L' : 'kg';
+    const unit = currentProduct.coverageUnit?.includes('kg') ? 'kg' : 'L';
+    const isLiquid = unit === 'L';
+
+
     let containerSize = currentProduct.packagingSizes[currentProduct.packagingSizes.length - 1];
     const containers = Math.ceil(materialAmount / containerSize);
     setResult({
@@ -178,7 +170,6 @@ export default function CalculatorPage() {
     setCementBags('');
     setDosagePercent('');
     setRunningLength('');
-    // wastage removed
     setResult(null);
     setCurrentProduct(null);
   };
@@ -186,7 +177,6 @@ export default function CalculatorPage() {
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
       <Header />
-      
       {/* Hero Section */}
       <section className="w-full max-w-400 mx-auto px-8 lg:px-16 pt-32 pb-16 lg:pt-40 lg:pb-24">
         <motion.div
@@ -257,11 +247,10 @@ export default function CalculatorPage() {
                             type="button"
                             variant={inputType === 'dimensions' ? 'default' : 'outline'}
                             onClick={() => setInputType('dimensions')}
-                            className={`flex-1 font-paragraph ${
-                              inputType === 'dimensions'
+                            className={`flex-1 font-paragraph ${inputType === 'dimensions'
                                 ? 'bg-[#2C3E50] text-[#FFFFFF]'
                                 : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'
-                            }`}
+                              }`}
                           >
                             Length × Width
                           </Button>
@@ -269,11 +258,10 @@ export default function CalculatorPage() {
                             type="button"
                             variant={inputType === 'area' ? 'default' : 'outline'}
                             onClick={() => setInputType('area')}
-                            className={`flex-1 font-paragraph ${
-                              inputType === 'area'
+                            className={`flex-1 font-paragraph ${inputType === 'area'
                                 ? 'bg-[#2C3E50] text-[#FFFFFF]'
                                 : 'border-2 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF]'
-                            }`}
+                              }`}
                           >
                             Total Area
                           </Button>
@@ -552,7 +540,7 @@ export default function CalculatorPage() {
                         )}
                         <p className="font-paragraph text-sm text-[#FFFFFF]/80">
                           {result.isLiquid || result.calculationType === 'cement'
-                            ? `Containers Required (${result.containerSize}${result.unit} each)` 
+                            ? `Containers Required (${result.containerSize}${result.unit} each)`
                             : `Packs Required (${result.containerSize}kg each)`}
                         </p>
                       </div>
@@ -560,8 +548,6 @@ export default function CalculatorPage() {
                         {result.containers} {result.isLiquid || result.calculationType === 'cement' ? 'containers' : 'packs'}
                       </p>
                     </div>
-
-
                   </div>
                 ) : (
                   <div className="flex flex-col items-center justify-center py-16 text-center">

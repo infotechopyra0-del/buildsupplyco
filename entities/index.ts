@@ -1,3 +1,5 @@
+import { CalculationType } from "./mockData";
+
 export interface BlogPosts {
   _id: string;
   _createdDate?: Date;
@@ -55,12 +57,27 @@ export interface Products {
   description?: string;
   specifications?: string;
   coverageUnit?: string;
+  displayUnit?: string;
   coverageRate?: number;
   wastagePercentage?: number;
   productImage?: string;
   catalogue?: string
   isFeatured?: boolean;
 }
+
+export interface ProductsExtended
+  extends Omit<Products, 'coverageRate' | 'coverageUnit'> {
+
+  calculationType: CalculationType;
+
+  coverageRate: number;      // ✅ required
+  coverageUnit: string;      // ✅ required
+
+  packagingSizes: number[];
+  packagingType: 'powder' | 'liquid' | 'mixed';
+  mixRatio?: { powder: number; liquid: number };
+}
+
 export interface TeamMembers {
   _id: string;
   _createdDate?: Date;
