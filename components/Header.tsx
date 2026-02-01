@@ -38,7 +38,7 @@ export default function Header() {
             <div className="flex flex-col items-center leading-none">
               <span
                 className="font-heading font-bold text-[28px] sm:text-[36px] md:text-[48px] text-[#e4b725]"
-                style={{ fontFamily: 'cormorantgaramond', lineHeight: '1', letterSpacing: '0.005em', fontWeight: 700 }}
+                style={{ fontFamily: 'genkaimincho', lineHeight: '1', letterSpacing: '0.005em', fontWeight: 700 }}
               >
                 CONCREED
               </span>
