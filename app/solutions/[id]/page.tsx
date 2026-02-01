@@ -205,13 +205,15 @@ export default function ProductPage() {
                               className="font-paragraph text-sm mb-1"
                               style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400, color: '#33333399' }}
                             >
-                              Coverage Rate
+                              {(product.productName === 'ADDSURE PCE MG' || product.productName === 'ADDSURE PCE HG') ? 'Usage' : 'Coverage Rate'}
                             </p>
                             <p
                               className="font-paragraph text-base font-medium"
                               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 500, color: '#333333' }}
                             >
-                              {product.coverageRate} m²/kg
+                              {(product.productName === 'ADDSURE PCE MG' || product.productName === 'ADDSURE PCE HG') 
+                                ? 'Used as 0.8% - 1.5% per kg of bag' 
+                                : `${product.coverageRate} m²/kg`}
                             </p>
                           </div>
                         </div>

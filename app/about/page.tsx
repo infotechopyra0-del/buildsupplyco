@@ -50,8 +50,12 @@ export default function AboutPage() {
           </h1>
           <div className="w-12 h-1 bg-[#e4b725] mx-auto mb-6" />
           <p className="font-paragraph text-lg lg:text-xl text-[#333333]/80 leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
-            We've been at the forefront of construction materials innovation, 
-            delivering premium solutions that professionals trust for their most demanding projects.
+            We've been at the forefront of construction materials innovation, delivering premium solutions that professionals trust for their most demanding projects. 
+            Our journey began with a vision to revolutionize the construction industry through cutting-edge chemical formulations and sustainable practices. 
+            From waterproofing systems to advanced adhesives, we engineer products that withstand the test of time and extreme conditions. 
+            Our state-of-the-art research facilities and expert chemists continuously push the boundaries of what's possible in construction materials. 
+            We take pride in partnering with architects, contractors, and builders to bring their boldest visions to life. 
+            Today, Concreed stands as a symbol of quality, innovation, and reliability in construction chemicals across diverse applications.
           </p>
         </motion.div>
       </section>

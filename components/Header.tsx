@@ -17,9 +17,7 @@ export default function Header() {
     { name: 'Waterproofing Solutions', path: '/solutions?category=Waterproofing' },
     { name: 'Tile & Stone Adhesive and Grout', path: '/solutions?category=Adhesive' },
     { name: 'Concrete Repair Solutions', path: '/solutions?category=Concrete%20Repair' },
-    { name: 'Flooring Solutions', path: '/solutions?category=Flooring' },
-    { name: 'Decorative Surface Finish', path: '/solutions?category=Decorative' },
-    { name: 'Texture Paint Coatings', path: '/solutions?category=Texture%20Paint' },
+    { name: 'Decorative Solutions', path: '/solutions?category=Decorative' },
     { name: 'Admixtures', path: '/solutions?category=Admixtures' },
     { name: 'Mortar', path: '/solutions?category=Mortar' }
   ];
