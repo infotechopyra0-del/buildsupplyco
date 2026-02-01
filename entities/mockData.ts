@@ -313,7 +313,7 @@ export const mockProductsExtended: ProductsExtended[] = [
     calculationType: 'cement',
     description: 'High-performance PCE-based superplasticizer for demanding concrete mixes with superior slump retention.',
     specifications: 'Density: 1.1-1.2 g/cm³. pH: 6-7. Dosage: 0.5% to 1.5% by weight of cement. Packing: 210L drum.',
-    coverageRate: 1.0, // 1.0% per bag (mid-range)
+    coverageRate: 1.0,
     coverageUnit: '% per bag',
     packagingSizes: [210],
     packagingType: 'liquid',
@@ -367,8 +367,8 @@ export const mockProductsExtended: ProductsExtended[] = [
     productType: 'solid',
     calculationType: 'area',
     description: 'Fiber-reinforced polymer-modified mortar for thicknesses 9-14mm per coat.',
-    specifications: 'Thickness: 9-14mm per coat. Coverage: 16-20 sq.ft per 40kg. Packing: 40kg.',
-    coverageRate: 0.046, // 18 sq.ft/40kg = 1.67 sq.m/40kg = 0.0418 sq.m/kg (avg)
+    specifications: 'Thickness: 9-14mm per coat. Coverage: 60 sq.ft per bag. Packing: 40kg bags.',
+    coverageRate: 0.13936,
     coverageUnit: 'sqm/kg',
     packagingSizes: [40],
     packagingType: 'powder',
@@ -384,10 +384,10 @@ export const mockProductsExtended: ProductsExtended[] = [
     productType: 'solid',
     calculationType: 'area',
     description: 'Ready-mix mortar for AAC block joints; pot life ~2 hours; ideal for thin joints (3mm).',
-    specifications: 'Ready mix mortar for AAC block joints. Pot Life: 2hrs. Coverage: 90-100 sq.ft per 40kg (3mm). Packing: 25/40kg.',
-    coverageRate: 0.22, // 95 sq.ft/40kg = 8.82 sq.m/40kg = 0.22 sq.m/kg
+    specifications: 'Ready mix mortar for AAC block joints. Pot Life: 2hrs. Coverage: 100 sq.ft per bag. Packing: 40kg bags.',
+    coverageRate: 0.23226,
     coverageUnit: 'sqm/kg',
-    packagingSizes: [25, 40],
+    packagingSizes: [40],
     packagingType: 'powder',
     catalogue: 'mcretefix.pdf',
     productImage: '/images/common.png',
@@ -420,8 +420,8 @@ export const mockProductsExtended: ProductsExtended[] = [
     productType: 'solid',
     calculationType: 'area',
     description: 'High-strength tile adhesive in grey suitable for ceramic and vitrified tiles.',
-    specifications: 'Compressive Strength: 14 N/mm². Pot Life: 2hrs. Coverage: ~5.5 sq.m per 25kg bag.',
-    coverageRate: 1.75, // 5.5 sq.m/25kg = 0.22 sq.m/kg
+    specifications: 'Compressive Strength: 14 N/mm². Pot Life: 2hrs. Coverage: 35 sq.ft per bag. Packing: 20kg bags.',
+    coverageRate: 0.1626,
     coverageUnit: 'sqm/kg',
     packagingSizes: [20],
     packagingType: 'powder',
@@ -437,8 +437,8 @@ export const mockProductsExtended: ProductsExtended[] = [
     productType: 'solid',
     calculationType: 'area',
     description: 'High-slip resistant grey tile adhesive for heavy-duty tiling applications.',
-    specifications: 'Compressive Strength: 12 N/mm². High slip resistance. Coverage: ~6 sq.m per 25kg bag.',
-    coverageRate: 1.5, // 6 sq.m/25kg = 0.24 sq.m/kg
+    specifications: 'Compressive Strength: 12 N/mm². High slip resistance. Coverage: 30 sq.ft per bag. Packing: 20kg bags.',
+    coverageRate: 0.1395, // Slightly higher to ensure 30 sq.ft gives <20kg
     coverageUnit: 'sqm/kg',
     packagingSizes: [20],
     packagingType: 'powder',
@@ -454,8 +454,8 @@ export const mockProductsExtended: ProductsExtended[] = [
     productType: 'solid',
     calculationType: 'area',
     description: 'Whitish tile adhesive optimized for marble and light-colour stone installations.',
-    specifications: 'Whitish color for marble. Compressive Strength: 14 N/mm². Coverage: ~5.7 sq.m per 25kg bag.',
-    coverageRate: 1.5, // 5.7 sq.m/25kg = 0.228 sq.m/kg
+    specifications: 'Whitish color for marble. Compressive Strength: 14 N/mm². Coverage: 30 sq.ft per bag. Packing: 20kg bags.',
+    coverageRate: 0.1395,
     coverageUnit: 'sqm/kg',
     packagingSizes: [20],
     packagingType: 'powder',
