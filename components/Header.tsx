@@ -46,29 +46,28 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
-            <Link 
-              href="/" 
-              className={`font-paragraph text-base transition-colors duration-300 ${
-                isActive('/') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
-              }`}
+            <Link
+              href="/"
+              className={`font-paragraph text-base transition-colors duration-300 ${isActive('/') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
+                }`}
               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
             >
               Home
-            </Link>            
+            </Link>
             {/* Products Dropdown */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => setProductsOpen(true)}
               onMouseLeave={() => setProductsOpen(false)}
             >
-              <button 
+              <button
                 className="font-paragraph text-base text-[#333333] hover:text-[#e4b725] transition-colors duration-300 flex items-center gap-1"
                 style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
               >
                 Solutions
                 <ChevronDown className="h-4 w-4" />
               </button>
-              
+
               <AnimatePresence>
                 {productsOpen && (
                   <motion.div
@@ -93,38 +92,36 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            <Link 
-              href="/applications" 
-              className={`font-paragraph text-base transition-colors duration-300 ${
-                isActive('/applications') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
-              }`}
+            <Link
+              href="/applications"
+              className={`font-paragraph text-base transition-colors duration-300 ${isActive('/applications') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
+                }`}
               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
             >
               Applications
             </Link>
-            <Link 
-              href="/sustainability" 
-              className={`font-paragraph text-base transition-colors duration-300 ${
-                isActive('/sustainability') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
-              }`}
+            <Link
+              href="/sustainability"
+              className={`font-paragraph text-base transition-colors duration-300 ${isActive('/sustainability') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
+                }`}
               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
             >
               Sustainability
             </Link>
             {/* Resources Dropdown */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => setResourcesOpen(true)}
               onMouseLeave={() => setResourcesOpen(false)}
             >
-              <button 
+              <button
                 className="font-paragraph text-base text-[#333333] hover:text-[#e4b725] transition-colors duration-300 flex items-center gap-1"
                 style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
               >
-                 Technical Resources
+                Technical Resources
                 <ChevronDown className="h-4 w-4" />
               </button>
-              
+
               <AnimatePresence>
                 {resourcesOpen && (
                   <motion.div
@@ -148,23 +145,21 @@ export default function Header() {
                 )}
               </AnimatePresence>
             </div>
-            <Link 
-              href="/about" 
-              className={`font-paragraph text-base transition-colors duration-300 ${
-                isActive('/about') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
-              }`}
+            <Link
+              href="/events"
+              className={`font-paragraph text-base transition-colors duration-300 ${isActive('/events') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
+                }`}
+              style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
+            >
+              Events
+            </Link>
+            <Link
+              href="/about"
+              className={`font-paragraph text-base transition-colors duration-300 ${isActive('/about') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
+                }`}
               style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
             >
               About Us
-            </Link>
-            <Link 
-              href="/contact" 
-              className={`font-paragraph text-base transition-colors duration-300 ${
-                isActive('/contact') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
-              }`}
-              style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
-            >
-              Contact
             </Link>
           </div>
 
@@ -188,8 +183,8 @@ export default function Header() {
               className="lg:hidden mt-6 pb-6 border-t border-light-grey pt-6"
             >
               <div className="flex flex-col gap-6">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   onClick={() => setMobileMenuOpen(false)}
                   className="font-paragraph text-base text-[#333333]"
                   style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
@@ -198,7 +193,7 @@ export default function Header() {
                 </Link>
 
                 <div>
-                  <button 
+                  <button
                     onClick={() => setProductsOpen(!productsOpen)}
                     className="font-paragraph text-base text-[#333333] flex items-center gap-1 mb-3"
                     style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
@@ -222,16 +217,16 @@ export default function Header() {
                     </div>
                   )}
                 </div>
-                 <Link 
-                  href="/applications" 
+                <Link
+                  href="/applications"
                   onClick={() => setMobileMenuOpen(false)}
                   className="font-paragraph text-base text-[#333333]"
                   style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
                   Applications
                 </Link>
-                <Link 
-                  href="/sustainability" 
+                <Link
+                  href="/sustainability"
                   onClick={() => setMobileMenuOpen(false)}
                   className="font-paragraph text-base text-[#333333]"
                   style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
@@ -240,7 +235,7 @@ export default function Header() {
                 </Link>
 
                 <div>
-                  <button 
+                  <button
                     onClick={() => setResourcesOpen(!resourcesOpen)}
                     className="font-paragraph text-base text-[#333333] flex items-center gap-1 mb-3"
                     style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
@@ -264,21 +259,21 @@ export default function Header() {
                     </div>
                   )}
                 </div>
-                <Link 
-                  href="/about" 
+                <Link
+                  href="/events"
+                  className={`font-paragraph text-base transition-colors duration-300 ${isActive('/events') ? 'text-[#2C3E50]' : 'text-[#333333] hover:text-[#e4b725]'
+                    }`}
+                  style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
+                >
+                  Events
+                </Link>
+                <Link
+                  href="/about"
                   onClick={() => setMobileMenuOpen(false)}
                   className="font-paragraph text-base text-[#333333]"
                   style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
                   About Us
-                </Link>
-                <Link 
-                  href="/contact" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="font-paragraph text-base text-[#333333]"
-                  style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
-                >
-                  Contact
                 </Link>
               </div>
             </motion.div>

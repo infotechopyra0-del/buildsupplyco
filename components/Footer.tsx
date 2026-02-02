@@ -87,14 +87,6 @@ export default function Footer() {
                   Products
                 </Link>
               </li>
-              <li>
-                <Link 
-                  href="/contact" 
-                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
-                >
-                  Contact Us
-                </Link>
-              </li>
             </ul>
           </div>
 

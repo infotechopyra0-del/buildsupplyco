@@ -149,35 +149,6 @@ export default function HomePage() {
             >
               Quality construction chemical solutions engineered for precision, durability, and uncompromising quality. We provide the foundation for the world's most ambitious structures.
             </motion.p>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row gap-6"
-            >
-              <Link href="/calculator">
-                <Button 
-                  size="lg"
-                  className="bg-[#374151] hover:bg-[#374151]/90 text-[#FFFFFF] font-paragraph text-base px-10 py-7 h-auto rounded-none border border-[#374151] transition-all duration-300 group"
-                  style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
-                >
-                  <Calculator className="mr-3 h-5 w-5 text-[#e4b725]" />
-                  Launch Calculator
-                  <ArrowRight className="ml-2 h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                </Button>
-              </Link>
-              <Link href="/solutions">
-                <Button 
-                  variant="outline"
-                  size="lg"
-                  className="bg-transparent border border-[#333333]/20 text-[#FFFFFF] hover:bg-[#333333] hover:text-[#FFFFFF] font-paragraph text-base px-10 py-7 h-auto rounded-none transition-all duration-300"
-                  style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
-                >
-                  Explore Solutions
-                </Button>
-              </Link>
-            </motion.div>
           </div>
         </div>
         
@@ -244,163 +215,56 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* --- FEATURED PRODUCTS SHOWCASE --- */}
-      <section className="w-full py-32 bg-[#FFFFFF]">
+            {/* --- FEATURED PRODUCTS SHOWCASE --- */}
+      <section className="w-full py-20 md:py-32 bg-[#FFFFFF]">
         <div className="max-w-480 mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 md:mb-20">
             <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-[#e4b725] mb-4 block" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.2em', fontWeight: 400 }}>Products</span>
-            <h2 className="font-heading text-5xl lg:text-6xl text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}>Construction Chemicals</h2>
-            <p className="font-paragraph text-lg text-[#333333]/60 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#333333] mb-6 md:mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}>Construction Chemicals</h2>
+            <p className="font-paragraph text-base md:text-lg text-[#333333]/60 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
               Complete chemical solutions for every stage: from pre-construction protection to post-construction repair.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-12 items-center">
-            {/* Left Column Products */}
-            <div className="space-y-6">
-              <Link href="/solutions/1" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  CREED-2k
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Two-component elastic cementitious waterproofing system for balconies, terraces and wet areas.
-                </p>
-              </Link>
-
-              <Link href="/solutions/11" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  MCRETE-FIX
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Ready-mix mortar for AAC block joints; pot life ~2 hours; ideal for thin joints (3mm).
-                </p>
-              </Link>
-
-              <Link href="/solutions/2" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  CREED PB
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Single-component polyurethane waterproofing membrane with excellent elasticity and durability.
-                </p>
-              </Link>
-
-              <Link href="/solutions/5" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  CREED+
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Integral waterproofing liquid for cementitious mixes, reducing permeability and improving durability.
-                </p>
-              </Link>
-            </div>
-
-            {/* Center Image */}
-            <div className="flex items-center justify-center">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative"
-              >
-                <div className="w-md h-112 overflow-hidden border-4 border-[#e4b725] shadow-2xl">
-                  <Image 
-                    src="/images/common.png"
-                    alt="Premium Construction Materials"
-                    className="w-full h-full object-contain"
-                    width={448}
-                    height={448}
-                  />
-                </div>
-                {/* Decorative elements around the square */}
-                <div className="absolute -top-4 -left-4 w-8 h-8 bg-[#e4b725] opacity-20"></div>
-                <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-[#e4b725] opacity-10"></div>
-                <div className="absolute top-1/2 -left-8 w-6 h-6 bg-[#e4b725] opacity-15"></div>
-                <div className="absolute top-1/4 -right-8 w-4 h-4 bg-[#e4b725] opacity-25"></div>
-              </motion.div>
-            </div>
-
-            {/* Right Column Products */}
-            <div className="space-y-6">
-              <Link href="/solutions/3" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  CREED FLEX
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Flexible cementitious coating with very high elongation for moving substrates.
-                </p>
-              </Link>
-
-              <Link href="/solutions/4" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  CREED LATEX
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  SBR-based polymer for repair and bonding, improves adhesion and flexibility of repair mortars.
-                </p>
-              </Link>
-
-              <Link href="/solutions/9" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  GPOXY-05
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Three-part epoxy tile grout available in attractive colours for joints 3-10mm.
-                </p>
-              </Link>
-
-              <Link href="/solutions/15" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-                <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                  CREED TA WHITE
-                </h3>
-                <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                  Whitish tile adhesive optimized for marble and light-colour stone installations.
-                </p>
-              </Link>
-            </div>
+          {/* Centered Large Image */}
+          <div className="flex items-center justify-center mb-12 md:mb-16">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative w-full max-w-2xl"
+            >
+              <div className="aspect-square w-full overflow-hidden border-4 md:border-6 border-[#e4b725] shadow-2xl">
+                <Image 
+                  src="/images/common.png"
+                  alt="Premium Construction Materials"
+                  className="w-full h-full object-contain"
+                  width={800}
+                  height={800}
+                  priority
+                />
+              </div>
+              {/* Decorative elements around the square */}
+              <div className="absolute -top-6 -left-6 w-10 h-10 md:w-12 md:h-12 bg-[#e4b725] opacity-20"></div>
+              <div className="absolute -bottom-8 -right-8 w-14 h-14 md:w-16 md:h-16 bg-[#e4b725] opacity-10"></div>
+              <div className="absolute top-1/2 -left-10 w-8 h-8 md:w-10 md:h-10 bg-[#e4b725] opacity-15"></div>
+              <div className="absolute top-1/4 -right-10 w-6 h-6 md:w-8 md:h-8 bg-[#e4b725] opacity-25"></div>
+            </motion.div>
           </div>
 
-          {/* Additional Products Row */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <Link href="/solutions" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-              <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                ZINCREED-32
-              </h3>
-              <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                Polymer-based anti-corrosive zinc-rich coating for steel reinforcement protection.
-              </p>
-            </Link>
-
-            <Link href="/solutions/6" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-              <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                ADDSURE
-              </h3>
-              <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                New generation modified PCE-based superplasticizer for high workability and reduced water demand.
-              </p>
-            </Link>
-
-            <Link href="/solutions/14" className="group block bg-[#F8F8F8] border border-[#333333]/10 hover:border-[#e4b725] p-6 transition-all duration-300 hover:shadow-lg">
-              <h3 className="font-heading text-lg text-[#333333] mb-2 group-hover:text-[#e4b725] transition-colors duration-300" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.125rem', lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: 600 }}>
-                CREED TA GREY +
-              </h3>
-              <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                High-slip resistant grey tile adhesive for heavy-duty tiling applications.
-              </p>
-            </Link>
-          </div>
-
-          <div className="text-center mt-16">
+          <div className="text-center">
             <Link href="/solutions">
-              <Button size="lg" className="bg-[#e4b725] hover:bg-[#e4b725]/90 text-[#333333] font-paragraph px-12 py-6 h-auto rounded-none transition-all duration-300">
+              <Button size="lg" className="bg-[#e4b725] hover:bg-[#e4b725]/90 text-[#333333] font-paragraph px-8 md:px-12 py-5 md:py-6 h-auto rounded-none transition-all duration-300 text-sm md:text-base">
                 Explore All Products
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </Link>
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       <SectionDivider />
 
@@ -639,24 +503,116 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- FINAL CTA --- */}
-      <section className="w-full py-24 bg-[#e4b725] border-t border-[#333333]/5">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-heading text-4xl md:text-5xl text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '2.25rem', lineHeight: '2.25', letterSpacing: '0.005em', fontWeight: 600 }}>
-            Ready to build with precision?
-          </h2>
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link href="/contact">
-              <Button size="lg" className="bg-[#333333] text-[#FFFFFF] hover:bg-[#333333]/90 rounded-none px-10 py-6 h-auto">
-                Contact Sales
-              </Button>
-            </Link>
-            <Link href="/calculator">
-              <Button variant="outline" size="lg" className="border-[#333333]/20 text-[#333333] hover:bg-[#333333]/5 rounded-none px-10 py-6 h-auto">
-                Use Calculator
-              </Button>
-            </Link>
+            {/* --- PROFESSIONAL TESTIMONIALS --- */}
+      <section className="w-full py-24 md:py-32 bg-[#e4b725]">
+        <div className="max-w-480 mx-auto px-6 lg:px-12">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16 md:mb-20"
+          >
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#333333] mb-6" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}>
+              What Professionals Say
+            </h2>
+            <div className="w-12 h-1 bg-[#333333] mx-auto mb-6" />
+            <p className="font-paragraph text-lg text-[#333333]/80 max-w-3xl mx-auto" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
+              Trusted by industry experts across India for quality and reliability
+            </p>
+          </motion.div>
+
+          {/* Testimonials Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Rajesh Kumar Sharma",
+                role: "Senior Civil Engineer",
+                company: "DLF Construction Ltd.",
+                location: "New Delhi",
+                testimonial: "Concreed's waterproofing solutions have been exceptional for our premium projects. The quality consistency and technical support make them our preferred partner.",
+                rating: 5
+              },
+              {
+                name: "Priya Nair",
+                role: "Project Manager",
+                company: "Sobha Developers",
+                location: "Bangalore",
+                testimonial: "Their tile adhesives have significantly reduced our installation time while ensuring superior bonding. Outstanding product quality and reliable delivery.",
+                rating: 5
+              },
+              {
+                name: "Amit Singh Rathore",
+                role: "Construction Consultant",
+                company: "Lodha Group",
+                location: "Mumbai",
+                testimonial: "We've used Concreed products across multiple high-rise projects. The technical expertise and product performance are truly world-class.",
+                rating: 5
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-[#FFFFFF] p-8 rounded-sm border border-[#333333]/10 hover:shadow-lg transition-all duration-300"
+              >
+                {/* Rating Stars */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-[#e4b725]" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+
+                {/* Testimonial Text */}
+                <p className="font-paragraph text-base text-[#333333] leading-relaxed mb-6" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                  "{testimonial.testimonial}"
+                </p>
+
+                {/* Author Info */}
+                <div>
+                  <h4 className="font-heading text-xl text-[#333333] mb-1" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.25rem', lineHeight: '1.75', letterSpacing: '0.01em', fontWeight: 600 }}>
+                    {testimonial.name}
+                  </h4>
+                  <p className="font-paragraph text-sm text-[#e4b725] mb-1" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 500 }}>
+                    {testimonial.role}
+                  </p>
+                  <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
+                    {testimonial.company}, {testimonial.location}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
+
+          {/* Bottom CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mt-16"
+          >
+            <p className="font-paragraph text-lg text-[#333333]/80 mb-8" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
+              Join hundreds of satisfied professionals across India
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Link href="/about#contact">
+                <Button size="lg" className="bg-[#333333] text-[#FFFFFF] hover:bg-[#333333]/90 rounded-none px-10 py-6 h-auto transition-all duration-300">
+                  Start Your Project
+                </Button>
+              </Link>
+              <Link href="/calculator">
+                <Button variant="outline" size="lg" className="border-[#333333]/20 text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF] rounded-none px-10 py-6 h-auto transition-all duration-300">
+                  Calculate Materials
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
