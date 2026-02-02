@@ -214,7 +214,7 @@ export const mockProductsExtended: ProductsExtended[] = [
     packagingSizes: [3, 15], 
     packagingType: 'mixed',
     catalogue: 'creed2k.pdf',
-    productImage: '/images/ConcreedCreed2K.png',
+    productImage: '/images/concreedcreed2K.jpeg',
     _createdDate: new Date('2026-01-15'),
     _updatedDate: new Date('2026-01-15'),
   },
