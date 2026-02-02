@@ -8,17 +8,7 @@ import Footer from '@/components/Footer';
 import { mockFAQs } from '@/entities/mockData';
 
 export default function FAQsPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-
   const faqs = mockFAQs;
-  const categories = ['All', ...Array.from(new Set(faqs.map(f => f.category).filter(Boolean)))];
-
-  const filteredFAQs = selectedCategory === 'All'
-    ? faqs
-    : faqs.filter(f => f.category === selectedCategory);
-
-  const featuredFAQs = filteredFAQs.filter(f => f.isFeatured);
-  const regularFAQs = filteredFAQs.filter(f => !f.isFeatured);
 
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
@@ -42,96 +32,38 @@ export default function FAQsPage() {
         </motion.div>
       </section>
 
-      {/* Category Filter */}
-      {categories.length > 1 && (
-        <section className="w-full bg-[#FFFFFF] py-8 border-y border-[#E0E0E0]">
-          <div className="max-w-480 mx-auto px-8 lg:px-16">
-            <div className="flex flex-wrap gap-3 justify-center">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category ?? 'All')}
-                  className={`px-6 py-3 rounded-sm font-paragraph text-sm transition-all duration-300 ${
-                      selectedCategory === category
-                        ? 'bg-[#374151] text-[#FFFFFF] border border-[#e4b725] hover:bg-[#374151]/95'
-                        : 'bg-[#F8F8F8] text-[#333333] hover:bg-[#e4b725]/5 hover:text-[#374151]'
-                    }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* FAQs Section */}
       <section className="w-full py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-8 lg:px-16">
           <div className="min-h-100">
-            {filteredFAQs.length > 0 ? (
+            {faqs.length > 0 ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
-                className="space-y-12"
+                className="space-y-4"
               >
-                {/* Featured FAQs */}
-                {featuredFAQs.length > 0 && (
-                  <div>
-                    <h2 className="font-heading text-3xl font-bold text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 700 }}>
-                      Popular Questions
-                    </h2>
-                    <Accordion type="single" collapsible className="space-y-4">
-                      {featuredFAQs.map((faq) => (
-                        <AccordionItem 
-                          key={faq._id} 
-                          value={faq._id}
-                          className="bg-[#FFFFFF] border border-[#e4b725] rounded-sm px-8 py-2"
-                        >
-                          <AccordionTrigger className="font-paragraph text-lg text-[#333333] hover:text-[#e4b725] text-left" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
-                            {faq.question}
-                          </AccordionTrigger>
-                          <AccordionContent className="font-paragraph text-base text-[#333333]/80 leading-relaxed pt-4" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                            {faq.answer}
-                          </AccordionContent>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
-                  </div>
-                )}
-
-                {/* Regular FAQs */}
-                {regularFAQs.length > 0 && (
-                  <div>
-                    {featuredFAQs.length > 0 && (
-                      <h2 className="font-heading text-3xl font-bold text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.875rem', lineHeight: '2', letterSpacing: '0.005em', fontWeight: 700 }}>
-                        More Questions
-                      </h2>
-                    )}
-                    <Accordion type="single" collapsible className="space-y-4">
-                      {regularFAQs.map((faq) => (
-                        <AccordionItem 
-                          key={faq._id} 
-                          value={faq._id}
-                          className="bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm px-8 py-2 hover:border-[#e4b725] transition-colors duration-300"
-                        >
-                          <AccordionTrigger className="font-paragraph text-lg text-[#333333] hover:text-[#e4b725] text-left" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
-                            {faq.question}
-                          </AccordionTrigger>
-                          <AccordionContent className="font-paragraph text-base text-[#333333]/80 leading-relaxed pt-4" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                            {faq.answer}
-                          </AccordionContent>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
-                  </div>
-                )}
+                <Accordion type="single" collapsible className="space-y-4">
+                  {faqs.map((faq) => (
+                    <AccordionItem 
+                      key={faq._id} 
+                      value={faq._id}
+                      className="bg-[#FFFFFF] border border-[#E0E0E0] rounded-sm px-8 py-2 hover:border-[#e4b725] transition-colors duration-300"
+                    >
+                      <AccordionTrigger className="font-paragraph text-lg text-[#333333] hover:text-[#e4b725] text-left" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="font-paragraph text-base text-[#333333]/80 leading-relaxed pt-4" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </motion.div>
             ) : (
               <div className="text-center py-20">
                 <p className="font-paragraph text-lg text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
-                  No FAQs available in this category
+                  No FAQs available
                 </p>
               </div>
             )}
