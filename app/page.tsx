@@ -252,19 +252,8 @@ export default function HomePage() {
               <div className="absolute top-1/4 -right-10 w-6 h-6 md:w-8 md:h-8 bg-[#e4b725] opacity-25"></div>
             </motion.div>
           </div>
-
-          <div className="text-center">
-            <Link href="/solutions">
-              <Button size="lg" className="bg-[#e4b725] hover:bg-[#e4b725]/90 text-[#333333] font-paragraph px-8 md:px-12 py-5 md:py-6 h-auto rounded-none transition-all duration-300 text-sm md:text-base">
-                Explore All Products
-                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
-
-      <SectionDivider />
 
       <SectionDivider />
 
@@ -465,44 +454,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- WHY CHOOSE US (Vertical Rules Layout) --- */}
-      <section className="w-full py-32 bg-[#F8F8F8]">
-        <div className="max-w-480 mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-12 gap-12">
-            {/* Header Column */}
-            <div className="lg:col-span-4 pr-8">
-              <h2 className="font-heading text-5xl text-[#333333] mb-8" style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}>The Standard of Industry</h2>
-              <p className="font-paragraph text-[#333333]/60 leading-relaxed mb-12" style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}>
-                We don't just supply materials; we provide the assurance that your project will stand the test of time.
-              </p>
-              <Link href="/about">
-                <Button variant="outline" className="rounded-none border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF] transition-all duration-300">
-                  Company Profile
-                </Button>
-              </Link>
-            </div>
-
-            {/* Features Columns with Vertical Dividers */}
-            <div className="lg:col-span-8 grid md:grid-cols-2 gap-0 border-t border-[#333333]/10 md:border-t-0">
-              {FEATURES.map((feature, index) => (
-                <div 
-                  key={index} 
-                  className="group border-b border-[#333333]/10 md:border-l md:border-b-0 p-8 lg:p-12 hover:bg-[#F8F8F8] transition-colors duration-300"
-                >
-                    <div className="w-10 h-10 rounded-full bg-[#E0E0E0]/30 flex items-center justify-center mb-6 group-hover:bg-[#e4b725]/20 transition-colors duration-300">
-                    <CheckCircle2 className="w-5 h-5 text-[#333333] group-hover:text-[#e4b725] transition-colors duration-300" />
-                  </div>
-                  <h3 className="font-heading text-2xl text-[#333333] mb-3" style={{ fontFamily: 'cormorantgaramond', fontSize: '1.5rem', lineHeight: '1.875', letterSpacing: '0.01em', fontWeight: 500 }}>{feature}</h3>
-                  <p className="font-paragraph text-sm text-[#333333]/50" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                    Rigorous testing and quality control ensure consistent performance across every batch.
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
             {/* --- PROFESSIONAL TESTIMONIALS --- */}
       <section className="w-full py-24 md:py-32 bg-[#e4b725]">
         <div className="max-w-480 mx-auto px-6 lg:px-12">
@@ -588,31 +539,6 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
-
-          {/* Bottom CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mt-16"
-          >
-            <p className="font-paragraph text-lg text-[#333333]/80 mb-8" style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}>
-              Join hundreds of satisfied professionals across India
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <Link href="/about#contact">
-                <Button size="lg" className="bg-[#333333] text-[#FFFFFF] hover:bg-[#333333]/90 rounded-none px-10 py-6 h-auto transition-all duration-300">
-                  Start Your Project
-                </Button>
-              </Link>
-              <Link href="/calculator">
-                <Button variant="outline" size="lg" className="border-[#333333]/20 text-[#333333] hover:bg-[#333333] hover:text-[#FFFFFF] rounded-none px-10 py-6 h-auto transition-all duration-300">
-                  Calculate Materials
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
         </div>
       </section>
 
