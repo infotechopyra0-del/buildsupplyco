@@ -73,18 +73,47 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/about" 
+                  href="/solutions"
                   className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
+                  style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
-                  About Us
+                  Solutions
                 </Link>
               </li>
               <li>
                 <Link 
-                  href="/solutions" 
+                  href="/applications"
                   className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
+                  style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
-                  Products
+                  Applications
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/sustainability"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
+                  style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
+                >
+                  Sustainability
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/events"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
+                  style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
+                >
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/about"
+                  className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
+                  style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}
+                >
+                  About Us
                 </Link>
               </li>
             </ul>
