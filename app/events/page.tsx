@@ -30,7 +30,7 @@ const eventsData: Event[] = [
   },
   {
     _id: '2',
-    eventName: 'C18th NCB International Conference',
+    eventName: '18th NCB International Conference',
     description: 'Organized by the National Council for Cement and Building Materials (NCB), this premier biennial event unites global experts to explore advancements in construction technology',
     eventDate: '27th November 2024',
     location: 'Yashobhoomi, IICC Dwarka, New Delhi',

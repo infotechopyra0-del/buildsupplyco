@@ -40,7 +40,7 @@ const eventsData: EventGallery[] = [
   },
   {
     _id: '2',
-    eventName: 'C18th NCB International Conference & Exhibition on Cement, Concrete and Building Materials',
+    eventName: '18th NCB International Conference & Exhibition on Cement, Concrete and Building Materials',
     description: 'Organized by the National Council for Cement and Building Materials (NCB), this premier biennial event unites global experts to explore advancements in construction technology',
     location: 'Yashobhoomi, IICC Dwarka, New Delhi',
     eventDate: '27th November 2024',
@@ -187,17 +187,12 @@ export default function EventDetailsPage() {
                   width={400}
                   height={400}
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                  <span className="text-white text-sm font-paragraph opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 px-4 py-2 rounded-full">
-                    Click to Enlarge
-                  </span>
-                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-      
+
       <Footer />
 
       {/* Image Modal/Lightbox */}
