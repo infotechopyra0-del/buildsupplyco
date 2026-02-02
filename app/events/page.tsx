@@ -27,6 +27,9 @@ const eventsData: EventGallery[] = [
       '/images/startupmahakumbh2025image3.jpeg',
       '/images/startupmahakumbh2025image4.jpeg',
       '/images/startupmahakumbh2025image5.jpeg',
+      '/images/startupmahakumbh2025image6.jpeg',
+      '/images/startupmahakumbh2025image7.jpeg',
+      '/images/startupmahakumbh2025image8.jpeg',
     ]
   },
   {
@@ -152,7 +155,7 @@ export default function EventsPage() {
           </div>
         </div>
       </section>
-      
+
       <Footer />
 
       {/* Image Modal/Lightbox */}
