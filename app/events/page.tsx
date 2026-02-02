@@ -152,47 +152,7 @@ export default function EventsPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="w-full bg-[#e4b725] text-[#333333] py-24 lg:py-32">
-        <div className="max-w-400 mx-auto px-8 lg:px-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h2 
-              className="font-heading text-5xl lg:text-6xl font-bold mb-8" 
-              style={{ fontFamily: 'cormorantgaramond', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '0.002em', fontWeight: 700 }}
-            >
-              Stay Updated on Our Events
-            </h2>
-            <p 
-              className="font-paragraph text-lg lg:text-xl text-[#333333]/90 mb-10 leading-relaxed" 
-              style={{ fontFamily: 'sora', fontSize: '1.125rem', lineHeight: '1.625', letterSpacing: '0.01em', fontWeight: 400 }}
-            >
-              Subscribe to our newsletter to receive updates about our upcoming events and exhibitions
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="px-6 py-4 rounded-sm font-paragraph text-base text-[#333333] placeholder-[#333333]/50 flex-1 border border-[#333333]/20 bg-[#ffffff]"
-                style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
-              />
-              <button 
-                className="px-8 py-4 bg-[#333333] text-[#FFFFFF] font-paragraph text-base font-semibold rounded-sm hover:bg-[#333333]/90 transition-all duration-300" 
-                style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 500 }}
-              >
-                Subscribe
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
+      
       <Footer />
 
       {/* Image Modal/Lightbox */}
