@@ -20,7 +20,7 @@ export default function NotFound() {
           {/* 404 Number with Animation */}
           <motion.div
             initial={{ scale: 0.5 }}
-            animate={{ scale: 1 }}
+            animate={{ scale: 1 }} 
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >

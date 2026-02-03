@@ -266,7 +266,7 @@ export default function Header() {
                   style={{ fontFamily: 'sora', fontSize: '1rem', lineHeight: '1.5', letterSpacing: '0.02em', fontWeight: 400 }}
                 >
                   Events
-                </Link>
+                </Link> 
                 <Link
                   href="/about"
                   onClick={() => setMobileMenuOpen(false)}

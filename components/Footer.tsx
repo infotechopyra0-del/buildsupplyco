@@ -107,7 +107,7 @@ export default function Footer() {
                   Events
                 </Link>
               </li>
-              <li>
+              <li> 
                 <Link 
                   href="/about"
                   className="font-paragraph text-sm text-[#FFFFFF]/80 hover:text-[#e4b725] transition-colors duration-300"
