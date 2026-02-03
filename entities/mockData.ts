@@ -99,7 +99,7 @@ export const mockContactInquiries: ContactInquiries[] = [
 export const mockFAQs: FAQs[] = [
   {
     _id: '1',
-    question: 'What is Conceed Solution?',
+    question: 'What is Concreed Solution?',
     answer: 'We are a leading manufacturer of construction materials including waterproofing solutions, tile adhesives, and concrete repair products.',
     category: 'Company',
     isFeatured: true,
@@ -161,16 +161,6 @@ export const mockFAQs: FAQs[] = [
     _id: '7',
     question: 'What makes your products different?',
     answer: 'We focus on quality excellence, innovation, and provide industry-leading warranties.',
-    category: 'Products',
-    isFeatured: true,
-    lastUpdated: '2026-02-02',
-    _createdDate: new Date('2026-02-02'),
-    _updatedDate: new Date('2026-02-02'),
-  },
-  {
-    _id: '8',
-    question: 'Do you offer warranties?',
-    answer: 'Yes, we provide industry-leading warranties on our construction materials.',
     category: 'Products',
     isFeatured: true,
     lastUpdated: '2026-02-02',
