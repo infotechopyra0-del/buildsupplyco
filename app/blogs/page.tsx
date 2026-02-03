@@ -105,7 +105,7 @@ const mockBlogPosts: BlogPosts[] = [
     _id: '10',
     title: 'Construction Chemicals',
     content: 'Construction chemicals have become essential components in the chemical industry, used in conjunction with concrete, cement, and other construction materials. These chemicals play a crucial role in global infrastructure development, being employed in various projects ranging from industrial and residential to infrastructure and commercial sectors. Learn about different types including admixtures, adhesives, waterproofing compounds, and surface treatments.',
-    publishDate: '2025-06-11',
+    publishDate: '2025-05-11',
     category:'Admixtures',
     coverImage: '/images/constructionchemicals.png',
     _createdDate: new Date('2026-01-10'),
@@ -115,7 +115,7 @@ const mockBlogPosts: BlogPosts[] = [
     _id: '11',
     title: 'Tile Adhesives',
     content: 'Flooring plays a major role in enhancing the beauty and overall attractiveness of any space in a house. Among all flooring options, tiles are the most commonly used because they add character, durability, and style to interiors. Learn about tile adhesives, their advantages, and how they help secure tiles on walls, floors, and various surfaces effectively without shrinking or cracking.',
-    publishDate: '2025-05-29',
+    publishDate: '2025-04-29',
     category:'Tile & Stone Adhesive and Grout',
     coverImage: '/images/ChoosingtheRightTileAdhesive.png',
     _createdDate: new Date('2026-01-10'),
@@ -125,7 +125,7 @@ const mockBlogPosts: BlogPosts[] = [
     _id: '12',
     title: 'Waterproofing Systems',
     content: 'Waterproofing is a system designed to arrest water from entering your house and protect the structure from moisture-related damage. Learn about the importance of proper waterproofing, common issues faced by buildings, and how CONCREED has developed comprehensive processes for reliable structural protection systems.',
-    publishDate: '2025-04-18',
+    publishDate: '2025-03-18',
     category:'Waterproofing Solutions',
     coverImage: '/images/TheUltimateGuidetoWaterproofing.png',
     _createdDate: new Date('2026-01-10'),
@@ -135,7 +135,7 @@ const mockBlogPosts: BlogPosts[] = [
     _id: '13',
     title: 'Waterproof Putty',
     content: 'Waterproof putty is a white cement-based, water-resistant product with high plasticity that is widely used as a sealer and filler in home construction and repair work. Learn about application methods, advantages, and how waterproof putty protects exterior surfaces from damage, corrosion, and weather-related deterioration.',
-    publishDate: '2026-03-02',
+    publishDate: '2025-02-02',
     category:'Waterproofing Solutions',
     coverImage: '/images/TheUltimateGuideOfPutty.png',
     _createdDate: new Date('2026-01-10'),
@@ -145,7 +145,7 @@ const mockBlogPosts: BlogPosts[] = [
     _id: '14',
     title: 'Waterproofing Bathrooms',
     content: 'The bathroom is one of the most important areas in any house that requires proper waterproofing. It is continuously exposed to water, moisture, and water vapour, making the space persistently damp. Learn about the importance of professional bathroom waterproofing, health risks of moisture build-up, and how to create a healthy, safe, and long-lasting living environment.',
-    publishDate: '2026-02-15',
+    publishDate: '2025-01-15',
     category:'Waterproofing Solutions',
     coverImage: '/images/TheUltimateGuidetoBathrooms.png',
     _createdDate: new Date('2026-01-10'),
@@ -155,7 +155,7 @@ const mockBlogPosts: BlogPosts[] = [
     _id: '15',
     title: 'Home Waterproofing',
     content: 'Prevention is better than cure – Build your new home waterproof. While planning and building an ideal house, waterproofing is often overlooked, even though it plays a critical role in long-term structural safety. Learn about the importance of preventive waterproofing, protecting your investment, and creating a strong foundation for your dream home.',
-      publishDate: '2026-01-03',
+      publishDate: '2025-01-03',
       category:'Waterproofing Solutions',
     coverImage: '/images/TheUltimateGuidetoHome.png',
     _createdDate: new Date('2026-01-10'),
@@ -254,14 +254,6 @@ export default function BlogsPage() {
                                         {blog.publishDate instanceof Date ? blog.publishDate.toISOString().slice(0, 10) : blog.publishDate}
                                       </span>
                                     </div>
-                              )}
-                              {blog.author && (
-                                <div className="flex items-center gap-2">
-                                    <User className="h-4 w-4 text-[#333333]/60" strokeWidth={1.5} />
-                                    <span className="font-paragraph text-xs">
-                                      {blog.author}
-                                    </span>
-                                  </div>
                               )}
                             </div>
                             {blog.category && (
