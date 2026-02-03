@@ -480,7 +480,6 @@ export default function HomePage() {
               {
                 name: "Rajesh Kumar Sharma",
                 role: "Contractor",
-                company: "Local area",
                 location: "Varanasi",
                 testimonial: "Concreed's waterproofing solutions have been exceptional for our premium projects. The quality consistency and technical support make them our preferred partner.",
                 rating: 5
@@ -488,7 +487,6 @@ export default function HomePage() {
               {
                 name: "Priya Nair",
                 role: "Site Engineer",
-                company: "Local area",
                 location: "Lucknow",
                 testimonial: "Their tile adhesives have significantly reduced our installation time while ensuring superior bonding. Outstanding product quality and reliable delivery.",
                 rating: 5
@@ -496,7 +494,6 @@ export default function HomePage() {
               {
                 name: "Amit Singh Rathore",
                 role: "Architect",
-                company: "Local area",
                 location: "Allahabad",
                 testimonial: "We've used Concreed products across multiple high-rise projects. The technical expertise and product performance are truly world-class.",
                 rating: 5
@@ -533,7 +530,7 @@ export default function HomePage() {
                     {testimonial.role}
                   </p>
                   <p className="font-paragraph text-sm text-[#333333]/60" style={{ fontFamily: 'sora', fontSize: '0.875rem', lineHeight: '1.375', letterSpacing: '0.02em', fontWeight: 400 }}>
-                    {testimonial.company}, {testimonial.location}
+                    {testimonial.location}
                   </p>
                 </div>
               </motion.div>
