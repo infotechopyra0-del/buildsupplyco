@@ -23,6 +23,7 @@ export default function Header() {
   ];
 
   const resourceLinks = [
+    { name: 'Calculator', path: '/calculator' },
     { name: 'Blogs', path: '/blogs' },
     { name: 'FAQs', path: '/faqs' }
   ];
