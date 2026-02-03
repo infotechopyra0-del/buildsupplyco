@@ -77,7 +77,7 @@ const mockBlogPosts: BlogPosts[] = [
     _id: '7',
     title: 'Achieving Flawless Finishes with Decorative Surface Coatings',
     content: 'Decorative surface coatings offer an incredible way to transform ordinary surfaces into stunning architectural features. This guide provides tips and techniques for applying various decorative coatings, including textured paints, metallic finishes, and specialized plasters. Learn about proper surface preparation, application methods, and common challenges to achieve a flawless and long-lasting finish. Whether for interior accent walls or exterior facades, our range of decorative coatings provides endless possibilities for aesthetic enhancement and protection.',
-    publishDate: '2025-08-15',
+    publishDate: '2025-08-15',   
     category:'Decorative Surface Finish',
     coverImage: '/images/AchievingFlawlessFinisheswithDecorativeSurfaceCoatings.png',
     _createdDate: new Date('2026-01-10'),

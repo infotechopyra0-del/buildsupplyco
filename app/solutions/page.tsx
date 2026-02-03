@@ -11,7 +11,7 @@ import Footer from '@/components/Footer';
 import { mockProductsExtended } from '@/entities/mockData';
 
 import { Suspense } from 'react';
-
+ 
 function ProductsPageInner() {
   const searchParams = useSearchParams();
   const categories = [
