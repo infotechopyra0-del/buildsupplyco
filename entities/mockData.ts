@@ -311,7 +311,7 @@ export const mockProductsExtended: ProductsExtended[] = [
     _createdDate: new Date('2026-01-15'),
     _updatedDate: new Date('2026-01-15'),
   },
-  {
+  {       
     _id: '9',
     productName: 'CREED GPOXY',
     category: 'Concrete Repair Solutions',
