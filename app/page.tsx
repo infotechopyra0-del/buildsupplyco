@@ -479,25 +479,25 @@ export default function HomePage() {
             {[
               {
                 name: "Rajesh Kumar Sharma",
-                role: "Senior Civil Engineer",
-                company: "DLF Construction Ltd.",
-                location: "New Delhi",
+                role: "Contractor",
+                company: "Local area",
+                location: "Varanasi",
                 testimonial: "Concreed's waterproofing solutions have been exceptional for our premium projects. The quality consistency and technical support make them our preferred partner.",
                 rating: 5
               },
               {
                 name: "Priya Nair",
-                role: "Project Manager",
-                company: "Sobha Developers",
-                location: "Bangalore",
+                role: "Site Engineer",
+                company: "Local area",
+                location: "Lucknow",
                 testimonial: "Their tile adhesives have significantly reduced our installation time while ensuring superior bonding. Outstanding product quality and reliable delivery.",
                 rating: 5
               },
               {
                 name: "Amit Singh Rathore",
-                role: "Construction Consultant",
-                company: "Lodha Group",
-                location: "Mumbai",
+                role: "Architect",
+                company: "Local area",
+                location: "Allahabad",
                 testimonial: "We've used Concreed products across multiple high-rise projects. The technical expertise and product performance are truly world-class.",
                 rating: 5
               },

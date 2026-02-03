@@ -9,7 +9,7 @@ import { mockFAQs } from '@/entities/mockData';
 
 export default function FAQsPage() {
   const faqs = mockFAQs;
-
+ 
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
       <Header />
