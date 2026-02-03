@@ -89,7 +89,7 @@ const mockBlogPosts: BlogPosts[] = [
     content: 'Mortar is a fundamental component in masonry construction, but not all mortars are created equal. This comprehensive guide breaks down the different types of mortar—Type M, S, N, O, and K—explaining their unique properties, strength ratings, and ideal applications. Learn how to select the right mortar for various projects, from load-bearing walls to historical restoration, ensuring optimal bond strength, durability, and weather resistance. We also cover mixing ratios and best practices for application to achieve superior masonry work.',
     publishDate: '2025-07-03',
     category:'Mortar',
-    coverImage: '/images/UnderstandingMortarTypes.png',
+    coverImage: '/images/understandingmortartypes.png',
     _createdDate: new Date('2026-01-10'),
     _updatedDate: new Date('2026-01-11'),
   },
