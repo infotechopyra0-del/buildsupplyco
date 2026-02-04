@@ -68,7 +68,7 @@ function ProductsPageInner() {
         </motion.div>
       </section>
       {/* Filter Section */}
-      <section className="hidden md:block w-full bg-[#FFFFFF] py-8 border-y border-[#E0E0E0] sticky top-22 z-40">
+      <section className="w-full bg-[#FFFFFF] py-8 border-y border-[#E0E0E0] sticky top-22 z-40">
         <div className="max-w-400 mx-auto px-8 lg:px-16">
           <div className="flex items-center gap-4 mb-4">
             <Filter className="h-5 w-5 text-[#e4b725]" />
@@ -102,7 +102,6 @@ function ProductsPageInner() {
           </div>
         </div>
       </section>
-
       {/* Products Grid */}
       <section className="w-full py-16 lg:py-24">
         <div className="max-w-400 mx-auto px-8 lg:px-16">
